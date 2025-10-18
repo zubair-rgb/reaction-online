@@ -1,0 +1,3884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarabuca - Premium Medical Tops</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5f;        /* Deep Navy Blue */
+            --secondary: #4CAF50;      /* Green Accent */
+            --accent: #4CAF50;         /* Green Accent */
+            --light: #f8f9fa;
+            --dark: #2a2d34;           /* Charcoal */
+            --gray: #6c757d;
+            --light-bg: #f0f4f8;       /* Light background */
+            --text: #333;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 110px;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Sticky Header */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* NEW HEADER STRUCTURE */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.5rem;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+        
+        .logo-placeholder {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder img {
+            max-height: 198px;
+            width: auto;
+        }
+        
+        .search-container {
+            flex: 1;
+            min-width: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .search-box:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: none;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            background-color: var(--light-bg);
+            transition: var(--transition);
+            min-width: 60px;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-result-item:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .search-result-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .search-result-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .search-result-details {
+            flex: 1;
+        }
+        
+        .search-result-title {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+        
+        .search-result-category {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .search-result-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .no-results {
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .header-icons a {
+            color: var(--dark);
+            font-size: 1.3rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .header-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 10px;
+        }
+        
+        /* Navigation - Desktop */
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            min-width: 200px;
+            padding: 1rem;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-radius: 5px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 110px);
+            background-color: white;
+            z-index: 990;
+            transform: translateX(-100%);
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-dropdown {
+            padding-left: 20px;
+        }
+        
+        .mobile-dropdown a {
+            font-size: 1rem !important;
+            padding: 8px 0 !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Product Filters */
+        .filters {
+            padding: 2rem 0;
+            background-color: var(--light-bg);
+        }
+        
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .filter-group {
+            background: white;
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+        
+        .filter-group h3 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-option input {
+            margin-right: 0.5rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .product-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            min-height: 70px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .price-range {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+        
+        .color-options {
+            margin: 1rem 0;
+        }
+        
+        .color-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .color-swatches {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .color-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-swatch.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary);
+        }
+        
+        .color-swatch::after {
+            content: attr(title);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .color-swatch:hover::after {
+            opacity: 1;
+        }
+        
+        /* Size Options */
+        .size-options {
+            margin: 1rem 0;
+        }
+        
+        .size-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .size-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .size-btn {
+            min-width: 40px;
+            height: 30px;
+            padding: 0 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        
+        .size-btn:hover {
+            border-color: var(--primary);
+        }
+        
+        .size-btn.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            border: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #152a47;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-quickview {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            border: none;
+            transition: var(--transition);
+        }
+        
+        .btn-quickview:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        /* Quick View Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 2rem auto;
+            position: relative;
+            animation: modalFadeIn 0.4s;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+        
+        .modal-image {
+            flex: 1;
+            padding: 2rem;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image img {
+            max-width: 100%;
+            max-height: 400px;
+        }
+        
+        .modal-details {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .modal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-desc {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .modal-specs {
+            margin-bottom: 1.5rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: var(--dark);
+        }
+        
+        .spec-value {
+            color: var(--gray);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .quantity-value {
+            min-width: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Fixed WhatsApp Button - Text Only */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: auto;
+            height: auto;
+            min-height: 60px;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .whatsapp-button:hover {
+            background: var(--whatsapp-dark);
+            transform: scale(1.05);
+            padding: 15px 30px;
+        }
+        
+        /* Remove logo container and image */
+        .whatsapp-button .logo-container {
+            display: none;
+        }
+        
+        .whatsapp-button .logo-container img {
+            display: none;
+        }
+        
+        .whatsapp-button .text {
+            font-weight: bold;
+            font-size: 16px;
+            white-space: nowrap;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .whatsapp-button:hover .text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .whatsapp-button .icon {
+            font-size: 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .whatsapp-button:hover .icon {
+            transform: rotate(360deg);
+        }
+        
+        /* Cart Popup Styles */
+        .cart-popup {
+            position: fixed;
+            top: 110px;
+            right: 20px;
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1.5rem;
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .cart-popup.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        
+        .close-cart:hover {
+            color: var(--accent);
+        }
+        
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: var(--transition);
+        }
+        
+        .cart-item:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .quantity-value {
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+        
+        .remove-item:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn-cart {
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-checkout {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-checkout:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+        
+        .btn-view-cart {
+            background-color: var(--light);
+            color: var(--dark);
+            border: 1px solid #ddd;
+        }
+        
+        .btn-view-cart:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+        }
+        
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #adb5bd;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+            
+            .header-top-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-logo {
+                flex-shrink: 0;
+            }
+            
+            .logo-placeholder img {
+                max-height: 80px;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+            }
+            
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                min-height: 50px;
+                padding: 12px 20px;
+            }
+            
+            .whatsapp-button .text {
+                font-size: 14px;
+            }
+            
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .features-section .container > div {
+                gap: 1.5rem;
+            }
+            
+            /* Product Grid: 2 cards per row on mobile */
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            /* Adjust product card for mobile */
+            .product-card {
+                font-size: 0.9rem;
+            }
+            
+            .product-content {
+                padding: 1rem;
+            }
+            
+            .product-title {
+                font-size: 1.1rem;
+            }
+            
+            .product-price {
+                font-size: 1rem;
+            }
+            
+            .product-desc {
+                min-height: auto;
+            }
+            
+            .size-btn {
+                min-width: 35px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-top-row {
+                flex-wrap: wrap;
+            }
+            
+            .header-logo {
+                order: 1;
+            }
+            
+            .header-icons {
+                order: 3;
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            .mobile-menu-btn {
+                order: 2;
+                margin-left: auto;
+            }
+            
+            .search-container {
+                order: 4;
+            }
+            
+            .mobile-nav {
+                top: 110px;
+                height: calc(100vh - 110px);
+            }
+            
+            .header-icons a {
+                font-size: 1.2rem;
+            }
+            
+            .logo-placeholder img {
+                max-height: 70px; /* Reduced for better mobile fit */
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                min-height: 45px;
+            }
+            
+            .whatsapp-button .text {
+                font-size: 13px;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            /* Adjust search bar for very small screens */
+            .search-box input {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .search-box button {
+                padding: 0 1rem;
+            }
+            
+            .features-section {
+                padding: 2rem 0;
+            }
+
+            .features-section .container > div {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 12 345 6789</a>
+                <a href="mailto:info@tarabuca.co.za"><i class="fas fa-envelope"></i> info@tarabuca.co.za</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sticky Header -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top-row">
+                    <!-- Mobile Menu Button (Left Side) -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Logo (Centered) -->
+                    <div class="header-logo">
+                        <div class="logo-placeholder">
+                            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Medical & Lifestyle Logo">
+                        </div>
+                    </div>
+                    
+                    <!-- Icons and Search -->
+                    <div class="header-icons">
+                        <a href="#"><i class="far fa-user"></i></a>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Search Container -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search tops...">
+                        <button id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="search-results" id="searchResults">
+                        <!-- Search results will be populated here -->
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#medical">Medical <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="scrubs.html">Scrubs</a>
+                            <a href="tops.html" class="active">Tops</a>
+                            <a href="dresses.html">Dresses</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="skirts.html">Skirts</a>
+                            <a href="lab-coats.html">Lab Coats</a>
+                            <a href="jackets.html">Jackets</a>
+                            <a href="equipment.html">Equipment</a>
+                            <a href="medical-bags.html">Bags</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="compression.html">Compression</a>
+                            <a href="wind-breakers.html">Wind Breaker</a>
+                            <a href="awards-medals.html">Awards/Medals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#homeware">Homeware <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                            <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                            <a href="#homeware-inners">Inners (Coming Soon)</a>
+                            <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                            <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#medical">Medical</a>
+                <div class="mobile-dropdown">
+                    <a href="scrubs.html">Scrubs</a>
+                    <a href="tops.html" class="active">Tops</a>
+                    <a href="dresses.html">Dresses</a>
+                    <a href="pants.html">Pants</a>
+                    <a href="skirts.html">Skirts</a>
+                    <a href="lab-coats.html">Lab Coats</a>
+                    <a href="jackets.html">Jackets</a>
+                    <a href="equipment.html">Equipment</a>
+                    <a href="medical-bags.html">Bags</a>
+                </div>
+            </li>
+            <li>
+                <a href="#lifestyle">Lifestyle</a>
+                <div class="mobile-dropdown">
+                    <a href="compression.html">Compression</a>
+                    <a href="wind-breakers.html">Wind Breaker</a>
+                    <a href="awards-medals.html">Awards/Medals</a>
+                </div>
+            </li>
+            <li>
+                <a href="#homeware">Homeware</a>
+                <div class="mobile-dropdown">
+                    <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                    <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                    <a href="#homeware-inners">Inners (Coming Soon)</a>
+                    <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                    <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                </div>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">R0.00</span>
+        </div>
+        <div class="cart-actions">
+            <a href="checkout.html" class="btn-cart btn-checkout">Proceed to Checkout</a>
+            <a href="#" class="btn-cart btn-view-cart">View Cart</a>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuickView()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-price" id="modalPrice"></div>
+                    <p class="modal-desc" id="modalDesc"></p>
+                    
+                    <div class="modal-specs">
+                        <div class="spec-item">
+                            <div class="spec-label">Product Code:</div>
+                            <div class="spec-value" id="modalCode"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Available Sizes:</div>
+                            <div class="spec-value" id="modalSizes"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Available Colors:</div>
+                            <div class="spec-value" id="modalColors"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Category:</div>
+                            <div class="spec-value" id="modalCategory"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-options">
+                        <span class="color-label">Select Color:</span>
+                        <div class="color-swatches" id="modalColorSwatches"></div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                        <span class="quantity-value" id="quantityValue">1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="closeQuickView()">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Premium Medical Tops</h1>
+            <p>Discover our collection of professional, comfortable, and stylish tops designed for healthcare professionals. Perfect for long shifts and demanding environments.</p>
+        </div>
+    </section>
+        
+ <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Product 52 -->
+                <div class="product-card">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/052-tunic-removebg-preview.png" alt="052 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">052 Tunic</h3>
+                        <p class="product-desc">Professional Elegance, Practical Design. Features a refined neckline with subtle contrasting trim and thoughtfully placed pockets.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('052 Tunic', 179, 'category-pictures/Tops pictures/052-tunic-removebg-preview.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(0)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 387 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/387-tunic-removebg-preview.png" alt="387 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">387 Tunic</h3>
+                        <p class="product-desc">Modern Elegance with Asymmetrical Charm. Features a striking asymmetrical front closure with elegant button detailing, complemented by a chic stand-up collar.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('387 Tunic', 190, 'category-pictures/Tops pictures/387-tunic-removebg-preview.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(1)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 254 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/254-tunic.png" alt="254 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">254 Tunic</h3>
+                        <p class="product-desc">Refined and functional piece with a crisp, clean design, subtly enhanced by a neat collar and practical button detailing.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('254 Tunic', 190, 'category-pictures/Tops pictures/254-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 389 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/389-Tunic.png" alt="389 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">389 Tunic</h3>
+                        <p class="product-desc">Contemporary Design, Uncompromised Functionality. Features a unique squared neckline and artfully placed pockets.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('389 Tunic', 190, 'category-pictures/Tops pictures/389-Tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 373 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/373-tunic-removebg-preview.png" alt="373 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">373 Tunic</h3>
+                        <p class="product-desc">Sleek Comfort in Stretch Fabric. Crafted from high-quality T.R stretch fabric, offering exceptional flexibility and a flattering fit.</p>
+                        <div class="product-price">R220.00</div>
+                        <div class="price-range">(R245 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('373 Tunic', 220, 'category-pictures/Tops pictures/373-tunic-removebg-preview.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 102 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/102-tunic-removebg-preview.png" alt="102 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">102 Tunic</h3>
+                        <p class="product-desc">Classic Style, Practical Elegance. Features a timeless V-neck with crisp contrasting piping and ample pockets.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('102 Tunic', 179, 'category-pictures/Tops pictures/102-tunic-removebg-preview.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 386 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/386-tunic.png" alt="386 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">386 Tunic</h3>
+                        <p class="product-desc">Classic Comfort, Essential Professionalism. Features a clean V-neck design with practical and accessible pockets.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('386 Tunic', 190, 'category-pictures/Tops pictures/386-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(6)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 272 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/272-tunic.png" alt="272 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">272 Tunic</h3>
+                        <p class="product-desc">Contemporary Design, Dynamic Style. Features a unique, contoured design with elegant contrasting piping.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('272 Tunic', 190, 'category-pictures/Tops pictures/272-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(7)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 339 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/339-Tunic.png" alt="339 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">339 Tunic</h3>
+                        <p class="product-desc">Effortless Style with Modern Convenience. Features a practical zip-front opening and a tailored collar.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('339 Tunic', 190, 'category-pictures/Tops pictures/339-Tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(8)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 247 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/247-tunic.png" alt="247 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">247 Tunic</h3>
+                        <p class="product-desc">Classic Elegance with Refined Details. Features elegant covered button details and a classic collar.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('247 Tunic', 190, 'category-pictures/Tops pictures/247-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(9)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 340 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/340-tunic.png" alt="340 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">340 Tunic</h3>
+                        <p class="product-desc">Distinctive Style, Effortless Poise. Features a unique open V-neckline with a stand-up collar and full button-front.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('340 Tunic', 190, 'category-pictures/Tops pictures/340-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(10)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 349 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/349-tunic.png" alt="349 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">349 Tunic</h3>
+                        <p class="product-desc">Modern Convenience, Crisp Professionalism. Features a practical zip-front detail and a clean, contemporary silhouette.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('349 Tunic', 190, 'category-pictures/Tops pictures/349-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(11)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 342 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/342-tunic.png" alt="342 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">342 Tunic</h3>
+                        <p class="product-desc">Asymmetrical Flair, Modern Functionality. Features a stylish asymmetrical zip-front opening and an elegant contrasting collar.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('342 Tunic', 190, 'category-pictures/Tops pictures/342-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(12)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 47 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/047-tunic.png" alt="047 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">047 Tunic</h3>
+                        <p class="product-desc">Distinctive Style in Periwinkle and Navy. Features a classic button-front design with striking contrasting accents.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background: linear-gradient(to right, #CBC3E3 50%, #000080 50%);" title="Periwinkle and Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('047 Tunic', 190, 'category-pictures/Tops pictures/047-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(13)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 335 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/335-tunic.png" alt="335 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">335 Tunic</h3>
+                        <p class="product-desc">Distinctive Design, Elegant Contrast. Features a striking button-front closure with elegant contrasting piping.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('335 Tunic', 190, 'category-pictures/Tops pictures/335-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(14)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 341 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/341-tunic.png" alt="341 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">341 Tunic</h3>
+                        <p class="product-desc">Asymmetrical Elegance with Striking Contrast. Features a stylish asymmetrical button-front closure and a chic stand-up collar.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('341 Tunic', 190, 'category-pictures/Tops pictures/341-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(15)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 337 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/337-tunic.png" alt="337 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">337 Tunic</h3>
+                        <p class="product-desc">Classic Elegance with Refined Contrast. Features a clean button-front design with elegant contrasting piping.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('337 Tunic', 190, 'category-pictures/Tops pictures/337-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(16)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 376 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/376-tunic.png" alt="376 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">376 Tunic</h3>
+                        <p class="product-desc">Artistic Design, Professional Grace. Features a captivating wave-like detail and a refined neckline.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('376 Tunic', 179, 'category-pictures/Tops pictures/376-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(17)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 223 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/223-tunic.png" alt="223 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">223 Tunic</h3>
+                        <p class="product-desc">Bold Design, Contemporary Professionalism. Features a distinctive contrasting central panel and a unique square neckline.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('223 Tunic', 190, 'category-pictures/Tops pictures/223-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(18)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 355 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/355-tunic.png" alt="355 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">355 Tunic</h3>
+                        <p class="product-desc">Distinctive Design, Elegant Professionalism. Features a unique scoop neckline with a contrasting collar and side-button detail.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('355 Tunic', 190, 'category-pictures/Tops pictures/355-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(19)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 53 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/053-tunic.png" alt="053 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">053 Tunic</h3>
+                        <p class="product-desc">Classic Charm, Professional Polish. Features a classic button-front design with crisp contrasting piping.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('053 Tunic', 190, 'category-pictures/Tops pictures/053-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(20)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 388 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/388-tunic.png" alt="388 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">388 Tunic</h3>
+                        <p class="product-desc">Dynamic Design, Effortless Style. Features a bold, contrasting crossover design and a flattering V-neckline.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('388 Tunic', 190, 'category-pictures/Tops pictures/388-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(21)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 108 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/108-tunic.png" alt="108 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">108 Tunic</h3>
+                        <p class="product-desc">Elegant Crossover, Polished Piped Details. Features a stylish crossover V-neckline with contrasting piping.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('108 Tunic', 179, 'category-pictures/Tops pictures/108-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(22)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 233 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/233-tunic.png" alt="233 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">233 Tunic</h3>
+                        <p class="product-desc">Sleek Lines, Modern Professionalism. Features elegant contrasting piping and thoughtful side slits.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('233 Tunic', 179, 'category-pictures/Tops pictures/233-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(23)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 89 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/089-tunic.png" alt="089 Tunic">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">089 Tunic</h3>
+                        <p class="product-desc">Modern Elegance with Clean Lines. Features a distinctive square neckline and clean, contrasting piping.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(to right, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('089 Tunic', 179, 'category-pictures/Tops pictures/089-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(24)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 354 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/354-tunic-men.png" alt="354 Men's V-neck Top">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">354 Men's V-neck Top</h3>
+                        <p class="product-desc">Classic Comfort, Professional Ease. Features a comfortable V-neck and essential pockets.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('354 Men\'s V-neck Top', 179, 'category-pictures/Tops pictures/354-tunic-men.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(25)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 179 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/179-tunic.png" alt="179 Top">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">179 Top</h3>
+                        <p class="product-desc">Practical Design, Professional Ease. Features a convenient zip-front opening and practical pockets.</p>
+                        <div class="product-price">R190.00</div>
+                        <div class="price-range">(R205 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('179 Top', 190, 'category-pictures/Tops pictures/179-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(26)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 117 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Tops pictures/117-tunic.png" alt="117 Top">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">117 Top</h3>
+                        <p class="product-desc">Classic Professionalism, Practical Design. Features a refined collar and a clean button-front closure with strategically placed pockets.</p>
+                        <div class="product-price">R179.00</div>
+                        <div class="price-range">(R195 for 3XL-4XL)</div>
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('117 Top', 179, 'category-pictures/Tops pictures/117-tunic.png')">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(27)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Tops Section -->
+    <section class="features-section" style="background-color: var(--light-bg); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-title" style="text-align: center;">
+                <h2>Why Choose Our Tops</h2>
+                <p>Designed with healthcare professionals in mind, our tops combine comfort, durability, and style</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Feature 1 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Premium Fabric</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">High-quality, breathable materials that maintain their shape and color after repeated washing</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Perfect Fit</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Thoughtfully designed with a range of sizes to ensure comfort for every body type</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Antimicrobial</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Special treatment to protect against bacteria and maintain freshness throughout your shift</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Smart Storage</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Multiple functional pockets strategically placed for easy access to essential tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Bulk Order CTA Section -->
+    <section style="background: linear-gradient(to right, var(--primary), #2a4a7d); padding: 4rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Need Tops for Your Team?</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                Get special pricing and dedicated support for bulk orders. Perfect for hospitals, clinics, and medical practices.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-users" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Team Pricing</h3>
+                    <p style="opacity: 0.9;">Special discounts for orders over 10 pieces</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-truck-fast" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Fast Delivery</h3>
+                    <p style="opacity: 0.9;">Priority processing for bulk orders</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-headset" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Dedicated Support</h3>
+                    <p style="opacity: 0.9;">Personal assistance throughout your order</p>
+                </div>
+            </div>
+            <a href="tel:+27123456789" class="btn btn-primary" style="background: var(--accent); margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-phone"></i>
+                <span>Call for Bulk Pricing</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27123456789?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20tops." class="whatsapp-button" id="whatsappButton" target="_blank">
+        <div class="text">
+            <i class="fab fa-whatsapp"></i> Chat with Us
+        </div>
+    </a>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Tarabuca</h3>
+                    <p>Premium quality medical wear, lifestyle apparel, and homeware designed for professionals who value comfort, style, and functionality.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#medical">Medical Collection</a></li>
+                        <li><a href="index.html#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="index.html#homeware">Homeware</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Way, Johannesburg, South Africa</li>
+                        <li><i class="fas fa-phone"></i> +27 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Mobile navigation
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    if (mobileNav.classList.contains('active')) {
+        mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+    if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Cart Functionality
+const cartPopup = document.getElementById('cartPopup');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartCount = document.getElementById('cartCount');
+const cartIcon = document.getElementById('cartIcon');
+const closeCart = document.getElementById('closeCart');
+
+let cart = [];
+
+// Load cart from localStorage if available
+function loadCart() {
+    if (localStorage.getItem('cart')) {
+        try {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCartUI();
+        } catch (e) {
+            console.error('Error loading cart from localStorage:', e);
+            cart = [];
+        }
+    }
+}
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Add to cart function
+function addToCart(name, price, image, color = 'Navy', size = '32') {
+    // Check if item already in cart
+    const existingItem = cart.find(item => item.name === name && item.color === color && item.size === size);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: Date.now(),
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1,
+            color: color,
+            size: size
+        });
+    }
+    
+    // Save to localStorage
+    saveCart();
+    
+    // Update UI
+    updateCartUI();
+    
+    // Show cart popup
+    if (cartPopup) cartPopup.classList.add('active');
+    
+    // Show added to cart message
+    const message = document.createElement('div');
+    message.textContent = `${name} (${size}, ${color}) added to cart!`;
+    message.style.position = 'fixed';
+    message.style.top = '20px';
+    message.style.right = '20px';
+    message.style.padding = '10px 20px';
+    message.style.backgroundColor = '#4CAF50';
+    message.style.color = 'white';
+    message.style.borderRadius = '5px';
+    message.style.zIndex = '1000';
+    message.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+        message.remove();
+    }, 3000);
+}
+
+// Update cart UI
+function updateCartUI() {
+    if (!cartItems || !cartTotal || !cartCount) return;
+    
+    // Clear cart items
+    cartItems.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        `;
+        cartTotal.textContent = 'R0.00';
+        cartCount.textContent = '0';
+        return;
+    }
+    
+    let total = 0;
+    let itemCount = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        itemCount += item.quantity;
+        
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <div class="cart-item-img">
+                <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-title">${item.name}</div>
+                ${item.color ? `<div class="cart-item-color">Color: ${item.color}</div>` : ''}
+                ${item.size ? `<div class="cart-item-size">Size: ${item.size}</div>` : ''}
+                <div class="cart-item-price">R${item.price.toFixed(2)}</div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                    <span class="quantity-value">${item.quantity}</span>
+                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
+                </div>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${item.id})">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        
+        cartItems.appendChild(cartItem);
+    });
+    
+    cartTotal.textContent = `R${total.toFixed(2)}`;
+    cartCount.textContent = itemCount;
+}
+
+// Update item quantity in cart
+function updateCartQuantity(id, change) {
+    const item = cart.find(item => item.id === id);
+    
+    if (item) {
+        item.quantity += change;
+        
+        if (item.quantity < 1) {
+            removeFromCart(id);
+            return;
+        }
+        
+        saveCart();
+        updateCartUI();
+    }
+}
+
+// Remove item from cart
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveCart();
+    updateCartUI();
+}
+
+// Toggle cart visibility
+if (cartIcon) {
+    cartIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (cartPopup) cartPopup.classList.toggle('active');
+    });
+}
+
+// Close cart
+if (closeCart) {
+    closeCart.addEventListener('click', () => {
+        if (cartPopup) cartPopup.classList.remove('active');
+    });
+}
+
+// Close cart when clicking outside
+document.addEventListener('click', (e) => {
+    if (cartPopup && cartIcon && 
+        !cartPopup.contains(e.target) && 
+        !cartIcon.contains(e.target) && 
+        !e.target.closest('.cart-popup')) {
+        cartPopup.classList.remove('active');
+    }
+});
+
+// Product data for quick view
+const productsData = [
+    {
+        id: 52,
+        name: "052 Tunic",
+        description: "Professional Elegance, Practical Design. Introducing the 052 Tunic, a sophisticated and functional piece designed for the modern professional. This elegant tunic features a refined neckline with subtle contrasting trim, and thoughtfully placed pockets that combine style with essential utility. Crafted for comfort and a polished appearance, the 052 offers a seamless blend of professionalism and effortless grace.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/052-tunic-removebg-preview.png"
+    },
+    {
+        id: 387,
+        name: "387 Tunic",
+        description: "Modern Elegance with Asymmetrical Charm. Introducing the 387 Tunic, a contemporary and sophisticated piece designed to elevate your professional image. This tunic features a striking asymmetrical front closure with elegant button detailing, complemented by a chic stand-up collar. With its clean lines and refined design, the 387 offers a perfect blend of modern elegance and professional poise, ensuring you make a distinguished impression.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/387-tunic-removebg-preview.png"
+    },
+    {
+        id: 254,
+        name: "254 Tunic",
+        description: "Refined and functional piece with a crisp, clean design, subtly enhanced by a neat collar and practical button detailing. The 254 Tunic offers a timeless appeal with its classic silhouette and thoughtful construction, making it an essential addition to any professional wardrobe.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/254-tunic.png"
+    },
+    {
+        id: 389,
+        name: "389 Tunic",
+        description: "Contemporary Design, Uncompromised Functionality. The 389 Tunic features a unique squared neckline and artfully placed pockets, creating a modern silhouette that doesn't sacrifice practicality. This design offers a fresh take on professional attire while maintaining the functionality needed for demanding work environments.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/389-Tunic.png"
+    },
+    {
+        id: 373,
+        name: "373 Tunic",
+        description: "Sleek Comfort in Stretch Fabric. Crafted from high-quality T.R stretch fabric, the 373 Tunic offers exceptional flexibility and a flattering fit that moves with you throughout your busy day. This innovative fabric provides both comfort and durability, making it ideal for long shifts and active professionals.",
+        price: 220,
+        priceXL: 245,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/373-tunic-removebg-preview.png"
+    },
+    {
+        id: 102,
+        name: "102 Tunic",
+        description: "Classic Style, Practical Elegance. The 102 Tunic features a timeless V-neck with crisp contrasting piping and ample pockets, combining traditional design elements with modern functionality. This versatile piece transitions seamlessly from clinical settings to professional meetings.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/102-tunic-removebg-preview.png"
+    },
+    {
+        id: 386,
+        name: "386 Tunic",
+        description: "Classic Comfort, Essential Professionalism. The 386 Tunic features a clean V-neck design with practical and accessible pockets, offering a straightforward yet sophisticated option for healthcare professionals who value simplicity and functionality.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/386-tunic.png"
+    },
+    {
+        id: 272,
+        name: "272 Tunic",
+        description: "Contemporary Design, Dynamic Style. The 272 Tunic features a unique, contoured design with elegant contrasting piping that creates visual interest while maintaining a professional appearance. This design offers a modern alternative to traditional tunics.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/272-tunic.png"
+    },
+    {
+        id: 339,
+        name: "339 Tunic",
+        description: "Effortless Style with Modern Convenience. The 339 Tunic features a practical zip-front opening and a tailored collar, offering quick and easy wearability without compromising on professional appearance. Perfect for busy professionals who need to dress efficiently.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/339-Tunic.png"
+    },
+    {
+        id: 247,
+        name: "247 Tunic",
+        description: "Classic Elegance with Refined Details. The 247 Tunic features elegant covered button details and a classic collar, creating a polished look that exudes professionalism and attention to detail. This design offers timeless appeal with modern comfort.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/247-tunic.png"
+    },
+    {
+        id: 340,
+        name: "340 Tunic",
+        description: "Distinctive Style, Effortless Poise. The 340 Tunic features a unique open V-neckline with a stand-up collar and full button-front, creating an elegant silhouette that stands out while maintaining professional integrity. This design offers both style and substance.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/340-tunic.png"
+    },
+    {
+        id: 349,
+        name: "349 Tunic",
+        description: "Modern Convenience, Crisp Professionalism. The 349 Tunic features a practical zip-front detail and a clean, contemporary silhouette that offers both style and functionality. This design is perfect for professionals who appreciate modern aesthetics.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/349-tunic.png"
+    },
+    {
+        id: 342,
+        name: "342 Tunic",
+        description: "Asymmetrical Flair, Modern Functionality. The 342 Tunic features a stylish asymmetrical zip-front opening and an elegant contrasting collar, creating visual interest while maintaining practical design elements essential for healthcare professionals.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/342-tunic.png"
+    },
+    {
+        id: 47,
+        name: "047 Tunic",
+        description: "Distinctive Style in Periwinkle and Navy. The 047 Tunic features a classic button-front design with striking contrasting accents in periwinkle and navy, offering a unique color combination that stands out while maintaining professional standards.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Periwinkle and Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/047-tunic.png"
+    },
+    {
+        id: 335,
+        name: "335 Tunic",
+        description: "Distinctive Design, Elegant Contrast. The 335 Tunic features a striking button-front closure with elegant contrasting piping that creates a sophisticated visual appeal. This design balances traditional elements with contemporary styling.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/335-tunic.png"
+    },
+    {
+        id: 341,
+        name: "341 Tunic",
+        description: "Asymmetrical Elegance with Striking Contrast. The 341 Tunic features a stylish asymmetrical button-front closure and a chic stand-up collar, creating a dynamic silhouette that combines fashion-forward design with professional requirements.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/341-tunic.png"
+    },
+    {
+        id: 337,
+        name: "337 Tunic",
+        description: "Classic Elegance with Refined Contrast. The 337 Tunic features a clean button-front design with elegant contrasting piping, offering a timeless look with subtle detailing that enhances its professional appearance.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/337-tunic.png"
+    },
+    {
+        id: 376,
+        name: "376 Tunic",
+        description: "Artistic Design, Professional Grace. The 376 Tunic features a captivating wave-like detail and a refined neckline, creating an artistic flair while maintaining the professionalism required in healthcare settings. This design offers a unique expression of style.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/376-tunic.png"
+    },
+    {
+        id: 223,
+        name: "223 Tunic",
+        description: "Bold Design, Contemporary Professionalism. The 223 Tunic features a distinctive contrasting central panel and a unique square neckline, creating a bold statement piece that remains appropriate for professional environments.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/223-tunic.png"
+    },
+    {
+        id: 355,
+        name: "355 Tunic",
+        description: "Distinctive Design, Elegant Professionalism. The 355 Tunic features a unique scoop neckline with a contrasting collar and side-button detail, creating an elegant silhouette that combines innovative design with traditional professionalism.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/355-tunic.png"
+    },
+    {
+        id: 53,
+        name: "053 Tunic",
+        description: "Classic Charm, Professional Polish. The 053 Tunic features a classic button-front design with crisp contrasting piping, offering a timeless look that never goes out of style while providing the functionality needed for healthcare professionals.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/053-tunic.png"
+    },
+    {
+        id: 388,
+        name: "388 Tunic",
+        description: "Dynamic Design, Effortless Style. The 388 Tunic features a bold, contrasting crossover design and a flattering V-neckline, creating a dynamic visual appeal that combines fashion-forward elements with professional requirements.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/388-tunic.png"
+    },
+    {
+        id: 108,
+        name: "108 Tunic",
+        description: "Elegant Crossover, Polished Piped Details. The 108 Tunic features a stylish crossover V-neckline with contrasting piping, creating an elegant silhouette that offers both visual interest and professional polish.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/108-tunic.png"
+    },
+    {
+        id: 233,
+        name: "233 Tunic",
+        description: "Sleek Lines, Modern Professionalism. The 233 Tunic features elegant contrasting piping and thoughtful side slits, creating a sleek silhouette that combines modern design elements with professional functionality.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/233-tunic.png"
+    },
+    {
+        id: 89,
+        name: "089 Tunic",
+        description: "Modern Elegance with Clean Lines. The 089 Tunic features a distinctive square neckline and clean, contrasting piping, creating a contemporary look that emphasizes clean lines and sophisticated design.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/089-tunic.png"
+    },
+    {
+        id: 354,
+        name: "354 Men's V-neck Top",
+        description: "Classic Comfort, Professional Ease. Designed specifically for male healthcare professionals, the 354 Men's V-neck Top features a comfortable V-neck and essential pockets, offering a straightforward yet professional option for daily wear.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/354-tunic-men.png"
+    },
+    {
+        id: 179,
+        name: "179 Top",
+        description: "Practical Design, Professional Ease. The 179 Top features a convenient zip-front opening and practical pockets, offering easy wearability and functionality for busy healthcare professionals who need quick dressing solutions.",
+        price: 190,
+        priceXL: 205,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/179-tunic.png"
+    },
+    {
+        id: 117,
+        name: "117 Top",
+        description: "Classic Professionalism, Practical Design. The 117 Top features a refined collar and a clean button-front closure with strategically placed pockets, offering a traditional yet highly functional option for healthcare professionals.",
+        price: 179,
+        priceXL: 195,
+        sizes: "28-54",
+        colors: ["White", "Navy"],
+        category: "TOP",
+        image: "category-pictures/Tops pictures/117-tunic.png"
+    }
+];
+
+// Quick View Modal Functions
+let currentProductIndex = 0;
+let quantity = 1;
+let selectedColor = 'Plain White';
+let selectedSize = '32';
+
+function openQuickView(index) {
+    currentProductIndex = index;
+    const product = productsData[index];
+    
+    document.getElementById('modalImg').src = product.image;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)} (R${product.priceXL.toFixed(2)} for 3XL-4XL)`;
+    document.getElementById('modalDesc').textContent = product.description;
+    document.getElementById('modalCode').textContent = product.id;
+    document.getElementById('modalSizes').textContent = product.sizes;
+    document.getElementById('modalColors').textContent = product.colors.join(', ');
+    document.getElementById('modalCategory').textContent = product.category;
+    
+    // Reset quantity
+    quantity = 1;
+    document.getElementById('quantityValue').textContent = quantity;
+    
+    // Generate color swatches
+    const colorSwatches = document.getElementById('modalColorSwatches');
+    colorSwatches.innerHTML = '';
+    
+    product.colors.forEach(color => {
+        const colorName = color.toLowerCase();
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = getColorCode(colorName);
+        swatch.title = color;
+        swatch.onclick = () => selectModalColor(color, swatch);
+        colorSwatches.appendChild(swatch);
+    });
+    
+    // Auto-select first color
+    if (product.colors.length > 0) {
+        selectModalColor(product.colors[0], colorSwatches.firstChild);
+    }
+    
+    // Show modal
+    document.getElementById('quickViewModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    document.getElementById('quickViewModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectModalColor(color, element) {
+    selectedColor = color;
+    
+    // Remove selected class from all swatches
+    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
+    swatches.forEach(swatch => swatch.classList.remove('selected'));
+    
+    // Add selected class to clicked swatch
+    element.classList.add('selected');
+}
+
+function updateQuantity(change) {
+    quantity += change;
+    if (quantity < 1) quantity = 1;
+    if (quantity > 10) quantity = 10;
+    document.getElementById('quantityValue').textContent = quantity;
+}
+
+function addToCartFromModal() {
+    const product = productsData[currentProductIndex];
+    const price = ['3XL', '4XL'].includes(selectedSize) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, selectedColor, selectedSize);
+    closeQuickView();
+}
+
+function getColorCode(colorName) {
+    const colors = {
+        'white': '#FFFFFF',
+        'plain white': '#FFFFFF',
+        'navy': '#000080',
+        'plain navy': '#000080',
+        'white navy': 'linear-gradient(to right, #FFFFFF 50%, #000080 50%)',
+        'navy white': 'linear-gradient(to right, #000080 50%, #FFFFFF 50%)',
+        'periwinkle and navy': 'linear-gradient(to right, #CBC3E3 50%, #000080 50%)'
+    };
+    
+    return colors[colorName] || '#CCCCCC';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('quickViewModal');
+    if (event.target === modal) {
+        closeQuickView();
+    }
+};
+
+// Search Functionality
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const searchResults = document.getElementById('searchResults');
+
+// Sample product data for search
+const searchProducts = [
+    { id: 52, name: '052 Tunic', category: 'Tops', price: 179.00, image: 'category-pictures/Tops pictures/052-tunic-removebg-preview.png' },
+    { id: 387, name: '387 Tunic', category: 'Tops', price: 190.00, image: 'category-pictures/Tops pictures/387-tunic-removebg-preview.png' },
+    { id: 102, name: '102 Tunic', category: 'Tops', price: 179.00, image: 'category-pictures/Tops pictures/102-tunic-removebg-preview.png' },
+    { id: 373, name: '373 Tunic', category: 'Tops', price: 220.00, image: 'category-pictures/Tops pictures/373-tunic-removebg-preview.png' }
+];
+
+// Search functionality
+function performSearch() {
+    if (!searchInput || !searchResults) return;
+    
+    const query = searchInput.value.toLowerCase().trim();
+    
+    if (query === '') {
+        searchResults.classList.remove('active');
+        return;
+    }
+    
+    const results = searchProducts.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.category.toLowerCase().includes(query)
+    );
+    
+    displaySearchResults(results);
+}
+
+// Display search results
+function displaySearchResults(results) {
+    if (!searchResults) return;
+    
+    searchResults.innerHTML = '';
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No products found</div>';
+        searchResults.classList.add('active');
+        return;
+    }
+    
+    results.forEach(product => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.innerHTML = `
+            <div class="search-result-img">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="search-result-details">
+                <div class="search-result-title">${product.name}</div>
+                <div class="search-result-category">${product.category}</div>
+            </div>
+            <div class="search-result-price">R${product.price.toFixed(2)}</div>
+        `;
+        
+        resultItem.addEventListener('click', () => {
+            // For demo, just show an alert
+            alert(`Selected: ${product.name}\nPrice: R${product.price.toFixed(2)}`);
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+        });
+        
+        searchResults.appendChild(resultItem);
+    });
+    
+    searchResults.classList.add('active');
+}
+
+// Event listeners for search
+if (searchInput) {
+    searchInput.addEventListener('input', performSearch);
+}
+
+if (searchButton) {
+    searchButton.addEventListener('click', performSearch);
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+    if (searchResults && searchInput && searchButton &&
+        !searchResults.contains(e.target) && 
+        e.target !== searchInput && 
+        e.target !== searchButton) {
+        searchResults.classList.remove('active');
+    }
+});
+
+// WhatsApp button functionality
+const whatsappButton = document.getElementById('whatsappButton');
+if (whatsappButton) {
+    whatsappButton.addEventListener('click', function() {
+        // Add animation effect on click
+        this.style.transform = 'scale(0.9)';
+        this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+        
+        setTimeout(() => {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        }, 300);
+    });
+}
+
+// Size and Color Selection Functionality
+document.querySelectorAll('.product-card').forEach(card => {
+    const colorSwatches = card.querySelectorAll('.color-swatch');
+    const sizeButtons = card.querySelectorAll('.size-btn');
+    const addToCartButton = card.querySelector('.btn-primary');
+    let selectedColor = card.querySelector('.color-swatch')?.title || 'Plain White'; // Default to first color
+    let selectedSize = card.querySelector('.size-btn.selected')?.textContent || '32'; // Default to selected size
+
+    // Color selection
+    colorSwatches.forEach(swatch => {
+        swatch.addEventListener('click', function() {
+            // Remove selected class from all swatches in this card
+            colorSwatches.forEach(s => s.classList.remove('selected'));
+            
+            // Add selected class to clicked swatch
+            this.classList.add('selected');
+            selectedColor = this.title;
+
+            // Update price based on size
+            updatePriceDisplay();
+        });
+    });
+
+    // Size selection
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove selected class from all buttons in this card
+            sizeButtons.forEach(btn => btn.classList.remove('selected'));
+            
+            // Add selected class to clicked button
+            this.classList.add('selected');
+            selectedSize = this.textContent;
+
+            // Update price based on size
+            updatePriceDisplay();
+        });
+    });
+
+    // Function to update price display based on size
+    function updatePriceDisplay() {
+        const priceElement = card.querySelector('.product-price');
+        const productName = card.querySelector('.product-title').textContent;
+        const basePrice = productName === '387 Tunic' ? 190 : 179; // Adjust base price based on product
+        const xlPrice = productName === '387 Tunic' ? 205 : 195; // Adjust XL price based on product
+        let newPrice = ['3XL', '4XL'].includes(selectedSize) ? xlPrice : basePrice;
+        priceElement.textContent = `R${newPrice.toFixed(2)}`;
+    }
+
+    // Update add to cart button functionality
+    addToCartButton.addEventListener('click', function() {
+        const name = card.querySelector('.product-title').textContent;
+        const image = card.querySelector('.product-img img').src;
+        const price = ['3XL', '4XL'].includes(selectedSize) ? 
+            (name === '387 Tunic' ? 205 : 195) : 
+            (name === '387 Tunic' ? 190 : 179);
+        
+        addToCart(name, price, image, selectedColor, selectedSize);
+    });
+});
+
+// Load cart on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+});
+</script>
+</body>
+</html>

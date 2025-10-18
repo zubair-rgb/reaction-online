@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarabuca - Secure Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #4CAF50;
+            --accent: #4CAF50;
+            --light: #f8f9fa;
+            --dark: #2a2d34;
+            --gray: #6c757d;
+            --light-bg: #f0f4f8;
+            --text: #333;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 110px;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Top Bar Styles */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Sticky Header */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER STRUCTURE */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.5rem;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+        
+        .logo-placeholder {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder img {
+            max-height: 198px;
+            width: auto;
+        }
+        
+        .search-container {
+            flex: 1;
+            min-width: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .search-box:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: none;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            background-color: var(--light-bg);
+            transition: var(--transition);
+            min-width: 60px;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .header-icons a {
+            color: var(--dark);
+            font-size: 1.3rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .header-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 10px;
+        }
+        
+        /* Navigation - Desktop */
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            min-width: 200px;
+            padding: 1rem;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-radius: 5px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 110px);
+            background-color: white;
+            z-index: 990;
+            transform: translateX(100%);
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-dropdown {
+            padding-left: 20px;
+        }
+        
+        .mobile-dropdown a {
+            font-size: 1rem !important;
+            padding: 8px 0 !important;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 70px;
+            height: 70px;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-button:hover {
+            background: var(--whatsapp-dark);
+            transform: scale(1.05);
+            width: 230px;
+        }
+        
+        .whatsapp-button .logo-container {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button .logo-container img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+        
+        .whatsapp-button .text {
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.4s ease;
+        }
+        
+        .whatsapp-button:hover .text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .whatsapp-button .icon {
+            position: absolute;
+            right: 20px;
+            font-size: 28px;
+            transition: all 0.4s ease;
+        }
+        
+        .whatsapp-button:hover .icon {
+            transform: rotate(360deg);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Checkout Page Specific Styles */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .checkout-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .checkout-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        .order-summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 58, 95, 0.2);
+        }
+        
+        .payment-option {
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(26, 58, 95, 0.05);
+        }
+        
+        .payment-option input {
+            margin-right: 10px;
+        }
+        
+        .payment-details {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .payment-details.active {
+            display: block;
+        }
+        
+        .bank-details {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .btn-place-order {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1.5rem;
+        }
+        
+        .btn-place-order:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+        
+        .btn-place-order:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .encryption-notice {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .checkout-cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .checkout-cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .checkout-cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .checkout-cart-item-details {
+            flex: 1;
+        }
+        
+        .checkout-cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .checkout-cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .checkout-cart-item-quantity {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #adb5bd;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+            
+            .header-top-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-logo {
+                flex-shrink: 0;
+            }
+            
+            .logo-placeholder img {
+                max-height: 80px;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-nav {
+                top: 110px;
+                height: calc(100vh - 110px);
+            }
+            
+            .header-icons a {
+                font-size: 1.2rem;
+            }
+            
+            .logo-placeholder img {
+                max-height: 100px;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        
+        /* Checkout Page Specific Styles - IMPROVED */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .checkout-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .checkout-steps {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .step.active .step-number {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .step.completed .step-number {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .step.active .step-label {
+            color: var(--primary);
+        }
+        
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .checkout-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .checkout-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .checkout-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        .order-summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            border-top: 2px solid var(--light-bg);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 58, 95, 0.2);
+        }
+        
+        .form-input.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .payment-option {
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .payment-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(26, 58, 95, 0.05);
+        }
+        
+        .payment-option input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .payment-details {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .payment-details.active {
+            display: block;
+        }
+        
+        .bank-details {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .btn-place-order {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-place-order:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+        
+        .btn-place-order:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .encryption-notice {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .checkout-cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .checkout-cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .checkout-cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .checkout-cart-item-details {
+            flex: 1;
+        }
+        
+        .checkout-cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .checkout-cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .checkout-cart-item-quantity {
+            color: var(--gray);
+        }
+        
+        .checkout-cart-item-attributes {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        .btn-place-order.processing .loading-spinner {
+            display: inline-block;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Confirmation Page Styles */
+        .confirmation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .confirmation-card {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .confirmation-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-message {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .order-details {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .order-detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .confirmation-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e6ed;
+            transform: translateY(-2px);
+        }
+        
+        /* Empty cart message */
+        .empty-cart-message {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+        }
+        
+        .empty-cart-message i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        /* Form status messages */
+        .form-status {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            display: block;
+        }
+        
+        .form-status.error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            display: block;
+        }
+        
+        .form-status i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 12 345 6789</a>
+                <a href="mailto:info@tarabuca.co.za"><i class="fas fa-envelope"></i> info@tarabuca.co.za</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sticky Header -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top-row">
+                    <!-- Logo -->
+                    <div class="header-logo">
+                        <div class="logo-placeholder">
+                            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Medical & Lifestyle Logo">
+                        </div>
+                    </div>
+                    
+                    <!-- Icons and Mobile Menu -->
+                    <div class="header-icons">
+                        <a href="#"><i class="far fa-user"></i></a>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                        
+                        <button class="mobile-menu-btn" id="mobileMenuBtn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#medical">Medical <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="scrubs.html">Scrubs</a>
+                            <a href="tops.html">Tops</a>
+                            <a href="dresses.html">Dresses</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="skirts.html">Skirts</a>
+                            <a href="lab-coats.html">Lab Coats</a>
+                            <a href="jackets.html">Jackets</a>
+                            <a href="equipment.html">Equipment</a>
+                            <a href="medical-bags.html">Bags</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#lifestyle-compression">Compression</a>
+                            <a href="#lifestyle-windbreaker">Wind Breaker</a>
+                            <a href="#lifestyle-awards">Awards/Medals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#homeware">Homeware <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#homeware-duvets">Duvets</a>
+                            <a href="#homeware-sheets">Bed Sheets</a>
+                            <a href="#homeware-inners">Inners</a>
+                            <a href="#homeware-pillows">Pillows</a>
+                            <a href="#homeware-comforters">Comforters</a>
+                        </div>
+                    </li>
+                    <li><a href="#custom">Custom Solutions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#medical">Medical</a>
+                <div class="mobile-dropdown">
+                    <a href="scrubs.html">Scrubs</a>
+                    <a href="tops.html">Tops</a>
+                    <a href="dresses.html">Dresses</a>
+                    <a href="pants.html">Pants</a>
+                    <a href="skirts.html">Skirts</a>
+                    <a href="lab-coats.html">Lab Coats</a>
+                    <a href="jackets.html">Jackets</a>
+                    <a href="equipment.html">Equipment</a>
+                    <a href="medical-bags.html">Bags</a>
+                </div>
+            </li>
+            <li>
+                <a href="#lifestyle">Lifestyle</a>
+                <div class="mobile-dropdown">
+                    <a href="compression.html">Compression</a>
+                    <a href="wind-breakers.html">Wind Breaker</a>
+                    <a href="awards.html">Awards/Medals</a>
+                </div>
+            </li>
+            <li>
+                <a href="#homeware">Homeware</a>
+                <div class="mobile-dropdown">
+                    <a href="#homeware-duvets">Duvets</a>
+                    <a href="#homeware-sheets">Bed Sheets</a>
+                    <a href="#homeware-inners">Inners</a>
+                    <a href="#homeware-pillows">Pillows</a>
+                    <a href="#homeware-comforters">Comforters</a>
+                </div>
+            </li>
+            <li><a href="#custom">Custom Solutions</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Checkout Content -->
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <div class="checkout-steps">
+                <div class="step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Cart</div>
+                </div>
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Information</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="checkout-title">Secure Checkout</h1>
+        
+        <!-- Status Messages -->
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> Your order has been submitted successfully! Redirecting...
+        </div>
+        
+        <div class="error-message-global" id="errorMessage">
+            <i class="fas fa-exclamation-circle"></i> <span id="errorText">There was an error submitting your order. Please try again.</span>
+        </div>
+        
+        <div class="checkout-grid">
+            <!-- Order Summary -->
+            <div class="checkout-section">
+                <h2>Order Summary</h2>
+                <div id="checkoutItems">
+                    <!-- Cart items will be populated here -->
+                </div>
+                
+                <div class="order-summary-item">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R0.00</span>
+                </div>
+                <div class="order-summary-total">
+                    <span>Total</span>
+                    <span id="checkoutTotal">R0.00</span>
+                </div>
+            </div>
+            
+            <!-- Customer Information & Payment -->
+            <div class="checkout-section">
+                <h2>Customer Information</h2>
+                
+                <!-- Updated Form with NEW Formspree endpoint -->
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                        <div class="error-message" id="nameError">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="address">Delivery Address *</label>
+                        <textarea id="address" name="address" class="form-input" rows="3" required></textarea>
+                        <div class="error-message" id="addressError">Please enter your delivery address</div>
+                    </div>
+                    
+                    <h2 style="margin-top: 2rem;">Payment Method *</h2>
+                    
+                    <div class="payment-option" onclick="selectPayment('bank')">
+                        <input type="radio" id="bankTransfer" name="paymentMethod" value="bank" required>
+                        <div>
+                            <label for="bankTransfer">Direct Bank Transfer</label>
+                            <div class="payment-details" id="bankDetails">
+                                <div class="bank-details">
+                                    <p>Please transfer the total amount to our bank account. Banking details will be sent to your WhatsApp after order confirmation.</p>
+                                    <p>Your order will be processed once payment is confirmed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-option" onclick="selectPayment('store')">
+                        <input type="radio" id="payInStore" name="paymentMethod" value="store">
+                        <div>
+                            <label for="payInStore">Pay In Store</label>
+                            <div class="payment-details" id="storeDetails">
+                                <div class="bank-details">
+                                    <p>You can confirm your order now and pay when you collect from our store.</p>
+                                    <p>Address: 123 Medical Way, Johannesburg, South Africa</p>
+                                    <p>Hours: Mon-Fri: 8:00 - 17:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn-place-order" id="placeOrderBtn" onclick="submitOrder()" disabled>
+                        <span>Place Order</span>
+                        <div class="loading-spinner"></div>
+                    </button>
+                    
+                    <div class="encryption-notice">
+                        <i class="fas fa-lock"></i>
+                        <span>Your information is encrypted and secure</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" id="whatsappButton">
+        <div class="logo-container">
+            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Logo">
+        </div>
+        <div class="text">Chat with Us</div>
+        <div class="icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Tarabuca</h3>
+                    <p>Premium quality medical wear, lifestyle apparel, and homeware designed for professionals who value comfort, style, and functionality.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#medical">Medical Collection</a></li>
+                        <li><a href="#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="#custom">Custom Solutions</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Way, Johannesburg, South Africa</li>
+                        <li><i class="fas fa-phone"></i> +27 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load cart from localStorage
+        let cart = [];
+        
+        function loadCart() {
+            if (localStorage.getItem('cart')) {
+                try {
+                    cart = JSON.parse(localStorage.getItem('cart'));
+                    updateCheckoutUI();
+                } catch (e) {
+                    console.error('Error loading cart from localStorage:', e);
+                    cart = [];
+                    updateCheckoutUI();
+                }
+            } else {
+                updateCheckoutUI();
+            }
+        }
+        
+        // Update checkout UI with cart items
+        function updateCheckoutUI() {
+            const checkoutItems = document.getElementById('checkoutItems');
+            const subtotalEl = document.getElementById('subtotal');
+            const checkoutTotalEl = document.getElementById('checkoutTotal');
+            const cartCount = document.getElementById('cartCount');
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            
+            if (!checkoutItems) return;
+            
+            // Clear checkout items
+            checkoutItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                checkoutItems.innerHTML = `
+                    <div class="empty-cart-message">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Please add items to your cart before proceeding to checkout.</p>
+                        <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">Continue Shopping</a>
+                    </div>
+                `;
+                subtotalEl.textContent = 'R0.00';
+                checkoutTotalEl.textContent = 'R0.00';
+                cartCount.textContent = '0';
+                if (placeOrderBtn) placeOrderBtn.disabled = true;
+                return;
+            }
+            
+            let subtotal = 0;
+            let itemCount = 0;
+            
+            // Add each cart item to the checkout
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                itemCount += item.quantity;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'checkout-cart-item';
+                
+                let attributesHtml = '';
+                if (item.color || item.size) {
+                    attributesHtml = `<div class="checkout-cart-item-attributes">`;
+                    if (item.color) attributesHtml += `Color: ${item.color} `;
+                    if (item.size) attributesHtml += `Size: ${item.size}`;
+                    attributesHtml += `</div>`;
+                }
+                
+                cartItem.innerHTML = `
+                    <div class="checkout-cart-item-img">
+                        <img src="${item.image || 'category-pictures/placeholder.jpg'}" alt="${item.name}">
+                    </div>
+                    <div class="checkout-cart-item-details">
+                        <div class="checkout-cart-item-title">${item.name}</div>
+                        ${attributesHtml}
+                        <div class="checkout-cart-item-price">R${item.price.toFixed(2)}</div>
+                        <div class="checkout-cart-item-quantity">Quantity: ${item.quantity}</div>
+                    </div>
+                `;
+                
+                checkoutItems.appendChild(cartItem);
+            });
+            
+            const total = subtotal;
+            
+            subtotalEl.textContent = `R${subtotal.toFixed(2)}`;
+            checkoutTotalEl.textContent = `R${total.toFixed(2)}`;
+            cartCount.textContent = itemCount;
+            
+            if (placeOrderBtn) {
+                placeOrderBtn.disabled = false;
+            }
+        }
+        
+        // Payment method selection
+        function selectPayment(method) {
+            // Update radio button selection
+            document.getElementById(method === 'bank' ? 'bankTransfer' : 'payInStore').checked = true;
+            
+            // Remove selected class from all payment options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Hide all payment details
+            document.querySelectorAll('.payment-details').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Add selected class to clicked option and show details
+            const selectedOption = document.getElementById(method === 'bank' ? 'bankTransfer' : 'payInStore').closest('.payment-option');
+            selectedOption.classList.add('selected');
+            
+            const detailsId = method === 'bank' ? 'bankDetails' : 'storeDetails';
+            document.getElementById(detailsId).classList.add('active');
+        }
+        
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            
+            // Hide all error messages first
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate address
+            const address = document.getElementById('address').value.trim();
+            if (!address) {
+                document.getElementById('addressError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate payment method
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            if (!paymentMethod) {
+                document.getElementById('errorText').textContent = 'Please select a payment method';
+                document.getElementById('errorMessage').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate cart is not empty
+            if (cart.length === 0) {
+                document.getElementById('errorText').textContent = 'Your cart is empty. Please add items to your cart before placing an order.';
+                document.getElementById('errorMessage').style.display = 'block';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // Submit order function
+        function submitOrder() {
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const total = parseFloat(document.getElementById('checkoutTotal').textContent.replace('R', ''));
+            
+            // Generate order details
+            const orderId = 'TAR' + Date.now();
+            const orderItems = cart.map(item => 
+                `${item.name} (Qty: ${item.quantity}, Color: ${item.color || 'N/A'}, Size: ${item.size || 'N/A'}) - R${(item.price * item.quantity).toFixed(2)}`
+            ).join('\n');
+            
+            // Show loading state
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            placeOrderBtn.classList.add('processing');
+            placeOrderBtn.disabled = true;
+            document.getElementById('checkoutForm').classList.add('form-processing');
+            
+            // Hide any previous messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Prepare Formspree data with UPDATED endpoint
+            const formData = new FormData();
+            formData.append('_subject', `New Order #${orderId} - Tarabuca Website`);
+            formData.append('_replyto', email);
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('address', address);
+            formData.append('orderId', orderId);
+            formData.append('orderItems', orderItems);
+            formData.append('orderTotal', `R${total.toFixed(2)}`);
+            formData.append('paymentMethod', paymentMethod);
+            formData.append('orderSummary', 
+                `ORDER DETAILS:\n` +
+                `Order ID: ${orderId}\n` +
+                `Customer: ${name}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n` +
+                `Address: ${address}\n` +
+                `Payment Method: ${paymentMethod}\n\n` +
+                `ITEMS:\n${orderItems}\n\n` +
+                `TOTAL: R${total.toFixed(2)}`
+            );
+            
+            // Submit to Formspree with UPDATED endpoint
+            fetch('https://formspree.io/f/meorpwoy', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Save order to localStorage
+                    saveOrder({
+                        name, email, phone, address, paymentMethod,
+                        cart, total, orderId
+                    });
+                    
+                    // Clear cart
+                    localStorage.removeItem('cart');
+                    cart = [];
+                    
+                    // If bank transfer, open WhatsApp
+                    if (paymentMethod === 'bank') {
+                        setTimeout(() => {
+                            const phoneNumber = '27123456789';
+                            const message = `Hello%20Tarabuca%21%20I%20would%20like%20to%20receive%20banking%20details%20for%20my%20order.%0AOrder%20ID:%20${orderId}%0AOrder%20Total:%20R${total.toFixed(2)}%0AName:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}`;
+                            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                        }, 1000);
+                    }
+                    
+                    // Redirect to confirmation page after delay
+                    setTimeout(() => {
+                        window.location.href = 'confirmation.html?order=' + orderId;
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting order:', error);
+                document.getElementById('errorText').textContent = 'There was an error submitting your order. Please try again or contact us directly.';
+                document.getElementById('errorMessage').style.display = 'block';
+                
+                // Reset button state
+                placeOrderBtn.classList.remove('processing');
+                placeOrderBtn.disabled = false;
+                document.getElementById('checkoutForm').classList.remove('form-processing');
+            });
+        }
+        
+        // Save order to localStorage
+        function saveOrder(orderData) {
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            const orderWithId = {
+                ...orderData,
+                date: new Date().toISOString(),
+                status: 'pending'
+            };
+            
+            orders.push(orderWithId);
+            localStorage.setItem('orders', JSON.stringify(orders));
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            
+            // Mobile navigation
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileNav.classList.toggle('active');
+                    if (mobileNav.classList.contains('active')) {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+                
+                // Close mobile nav when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            
+            // WhatsApp button functionality
+            const whatsappButton = document.getElementById('whatsappButton');
+            if (whatsappButton) {
+                whatsappButton.addEventListener('click', function() {
+                    const phoneNumber = '27123456789';
+                    const message = 'Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20my%20order.';
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Add animation effect on click
+                    this.style.transform = 'scale(0.9)';
+                    this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        this.style.boxShadow = '';
+                    }, 300);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

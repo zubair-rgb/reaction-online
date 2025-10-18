@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarabuca - Medical Skirts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5f;        /* Deep Navy Blue */
+            --secondary: #4CAF50;      /* Green Accent */
+            --accent: #4CAF50;         /* Green Accent */
+            --light: #f8f9fa;
+            --dark: #2a2d34;           /* Charcoal */
+            --gray: #6c757d;
+            --light-bg: #f0f4f8;       /* Light background */
+            --text: #333;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 110px;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Top Bar Styles */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
+            height: auto;
+            overflow: visible;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Sticky Header */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* NEW HEADER STRUCTURE */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.5rem;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+        
+        .logo-placeholder {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder img {
+            max-height: 198px;
+            width: auto;
+        }
+        
+        .search-container {
+            flex: 1;
+            min-width: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .search-box:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: none;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            background-color: var(--light-bg);
+            transition: var(--transition);
+            min-width: 60px;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-result-item:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .search-result-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .search-result-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .search-result-details {
+            flex: 1;
+        }
+        
+        .search-result-title {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+        
+        .search-result-category {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .search-result-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .no-results {
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .header-icons a {
+            color: var(--dark);
+            font-size: 1.3rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .header-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 10px;
+        }
+        
+        /* Navigation - Desktop */
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            min-width: 200px;
+            padding: 1rem;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-radius: 5px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 110px);
+            background-color: white;
+            z-index: 990;
+            transform: translateX(-100%);
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-dropdown {
+            padding-left: 20px;
+        }
+        
+        .mobile-dropdown a {
+            font-size: 1rem !important;
+            padding: 8px 0 !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .product-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            min-height: 70px;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .price-range {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+
+        .color-options {
+            margin: 1rem 0;
+        }
+
+        .color-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary);
+        }
+
+        .color-swatch::after {
+            content: attr(title);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .color-swatch:hover::after {
+            opacity: 1;
+        }
+
+        /* Size Options */
+        .size-options {
+            margin: 1rem 0;
+        }
+
+        .size-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .size-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .size-btn {
+            min-width: 40px;
+            height: 30px;
+            padding: 0 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .size-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .size-btn.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            border: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: #152a47;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-quickview {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-quickview:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Quick View Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 2rem auto;
+            position: relative;
+            animation: modalFadeIn 0.4s;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+
+        .modal-image {
+            flex: 1;
+            padding: 2rem;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image img {
+            max-width: 100%;
+            max-height: 400px;
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-desc {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .modal-specs {
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: var(--dark);
+        }
+
+        .spec-value {
+            color: var(--gray);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .quantity-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        .quantity-value {
+            min-width: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Search Results */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            background-color: var(--light-bg);
+        }
+
+        .search-result-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .search-result-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .search-result-details {
+            flex: 1;
+        }
+
+        .search-result-title {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .search-result-category {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .search-result-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .no-results {
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Fixed WhatsApp Button - Text Only */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: auto;
+            height: auto;
+            min-height: 60px;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .whatsapp-button:hover {
+            background: var(--whatsapp-dark);
+            transform: scale(1.05);
+            padding: 15px 30px;
+        }
+
+        /* Remove logo container and image */
+        .whatsapp-button .logo-container {
+            display: none;
+        }
+
+        .whatsapp-button .logo-container img {
+            display: none;
+        }
+
+        .whatsapp-button .text {
+            font-weight: bold;
+            font-size: 16px;
+            white-space: nowrap;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .whatsapp-button:hover .text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .whatsapp-button .icon {
+            font-size: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .whatsapp-button:hover .icon {
+            transform: rotate(360deg);
+        }
+
+        /* Cart Popup Styles */
+        .cart-popup {
+            position: fixed;
+            top: 110px;
+            right: 20px;
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1.5rem;
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cart-popup.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+
+        .close-cart:hover {
+            color: var(--accent);
+        }
+
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: var(--transition);
+        }
+
+        .cart-item:hover {
+            background-color: var(--light-bg);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        .quantity-value {
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+
+        .remove-item:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-cart {
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-checkout {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-checkout:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+
+        .btn-view-cart {
+            background-color: var(--light);
+            color: var(--dark);
+            border: 1px solid #ddd;
+        }
+
+        .btn-view-cart:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p, .footer-column li {
+            color: #adb5bd;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+            
+            .header-top-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-logo {
+                flex-shrink: 0;
+            }
+            
+            .logo-placeholder img {
+                max-height: 80px;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+            }
+            
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                min-height: 50px;
+                padding: 12px 20px;
+            }
+            
+            .whatsapp-button .text {
+                font-size: 14px;
+            }
+            
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .features-section .container > div {
+                gap: 1.5rem;
+            }
+            
+            /* Product Grid: 2 cards per row on mobile */
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            /* Adjust product card for mobile */
+            .product-card {
+                font-size: 0.9rem;
+            }
+            
+            .product-content {
+                padding: 1rem;
+            }
+            
+            .product-title {
+                font-size: 1.1rem;
+            }
+            
+            .product-price {
+                font-size: 1rem;
+            }
+            
+            .product-desc {
+                min-height: auto;
+            }
+            
+            .size-btn {
+                min-width: 35px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top-row {
+                flex-wrap: wrap;
+            }
+            
+            .header-logo {
+                order: 1;
+            }
+            
+            .header-icons {
+                order: 3;
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            .mobile-menu-btn {
+                order: 2;
+                margin-left: auto;
+            }
+            
+            .search-container {
+                order: 4;
+            }
+            
+            .mobile-nav {
+                top: 110px;
+                height: calc(100vh - 110px);
+            }
+            
+            .header-icons a {
+                font-size: 1.2rem;
+            }
+            
+            .logo-placeholder img {
+                max-height: 70px; /* Reduced for better mobile fit */
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                min-height: 45px;
+            }
+            
+            .whatsapp-button .text {
+                font-size: 13px;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            /* Adjust search bar for very small screens */
+            .search-box input {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .search-box button {
+                padding: 0 1rem;
+            }
+            
+            .features-section {
+                padding: 2rem 0;
+            }
+
+            .features-section .container > div {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Features Section Styles */
+        .features-section {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 2rem auto 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            text-align: center;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top-row">
+                    <!-- Mobile Menu Button (Left Side) -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Logo (Centered) -->
+                    <div class="header-logo">
+                        <div class="logo-placeholder">
+                            <img src="category-pictures\IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Medical & Lifestyle Logo">
+                        </div>
+                    </div>
+                    
+                    <!-- Icons and Search -->
+                    <div class="header-icons">
+                        <a href="#"><i class="far fa-user"></i></a>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Search Container -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search skirts...">
+                        <button id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="search-results" id="searchResults">
+                        <!-- Search results will be populated here -->
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#medical">Medical <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="scrubs.html">Scrubs</a>
+                            <a href="tops.html">Tops</a>
+                            <a href="dresses.html">Dresses</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="skirts.html" class="active">Skirts</a>
+                            <a href="lab-coats.html">Lab Coats</a>
+                            <a href="jackets.html">Jackets</a>
+                            <a href="equipment.html">Equipment</a>
+                            <a href="medical-bags.html">Bags</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="compression.html">Compression</a>
+                            <a href="wind-breakers.html">Wind Breaker</a>
+                            <a href="awards-medals.html">Awards/Medals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#homeware">Homeware <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                            <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                            <a href="#homeware-inners">Inners (Coming Soon)</a>
+                            <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                            <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#medical">Medical</a>
+                <div class="mobile-dropdown">
+                    <a href="scrubs.html">Scrubs</a>
+                    <a href="tops.html">Tops</a>
+                    <a href="dresses.html">Dresses</a>
+                    <a href="pants.html">Pants</a>
+                    <a href="skirts.html" class="active">Skirts</a>
+                    <a href="lab-coats.html">Lab Coats</a>
+                    <a href="jackets.html">Jackets</a>
+                    <a href="equipment.html">Equipment</a>
+                    <a href="medical-bags.html">Bags</a>
+                </div>
+            </li>
+            <li>
+                <a href="#lifestyle">Lifestyle</a>
+                <div class="mobile-dropdown">
+                    <a href="compression.html">Compression</a>
+                    <a href="wind-breakers.html">Wind Breaker</a>
+                    <a href="awards-medals.html">Awards/Medals</a>
+                </div>
+            </li>
+            <li>
+                <a href="#homeware">Homeware</a>
+                <div class="mobile-dropdown">
+                    <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                    <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                    <a href="#homeware-inners">Inners (Coming Soon)</a>
+                    <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                    <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                </div>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">R0.00</span>
+        </div>
+        <div class="cart-actions">
+            <a href="checkout.html" class="btn-cart btn-checkout">Proceed to Checkout</a>
+            <a href="#" class="btn-cart btn-view-cart">View Cart</a>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuickView()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-price" id="modalPrice"></div>
+                    <p class="modal-desc" id="modalDesc"></p>
+                    
+                    <div class="modal-specs">
+                        <div class="spec-item">
+                            <div class="spec-label">Product Code:</div>
+                            <div class="spec-value" id="modalCode"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Available Sizes:</div>
+                            <div class="spec-value" id="modalSizes"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Available Colors:</div>
+                            <div class="spec-value" id="modalColors"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Category:</div>
+                            <div class="spec-value" id="modalCategory"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-options">
+                        <span class="color-label">Select Color:</span>
+                        <div class="color-swatches" id="modalColorSwatches"></div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                        <span class="quantity-value" id="quantityValue">1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="closeQuickView()">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Premium Medical Skirts</h1>
+            <p>Discover our collection of elegant and functional medical skirts designed for healthcare professionals who demand both style and comfort.</p>
+        </div>
+    </section>
+        
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/9613-skirt.png" alt="9613 Skirt: Back Vent Pleat">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">9613 Skirt: Back Vent Pleat</h3>
+                        <p class="product-desc">Introducing the 9613 Skirt, a meticulously crafted piece that offers both refined style and practical movement. Designed with a sophisticated back vent pleat, this skirt ensures ease of motion while maintaining a polished and professional silhouette.</p>
+                        <div class="product-price">R150.00</div>
+                        <div class="price-range">(R160 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(0)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">New Arrival</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/370-skirt.png" alt="370 Skirt">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">370 Skirt: Elegant Movement in Stretch Fabric</h3>
+                        <p class="product-desc">Presenting the 370 Skirt, a beautifully crafted piece designed for both sophistication and dynamic comfort. Made from premium T.R stretch fabric, this skirt offers exceptional flexibility and a flattering drape.</p>
+                        <div class="product-price">R250.00</div>
+                        <div class="price-range">(R260 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(1)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/183-lined-skirt.png" alt="183 Skirt">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">183 Skirt: Refined Form, Effortless Movement</h3>
+                        <p class="product-desc">Introducing the 183 Lined Skirt, a foundational piece designed for both impeccable presentation and comfortable wear. This skirt offers a clean, elegant silhouette with its full lining, ensuring a smooth and polished drape.</p>
+                        <div class="product-price">R175.00</div>
+                        <div class="price-range">(R185 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge">Premium</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/128-permanent-pleated-skirt.png" alt="128 Permanent Pleated Skirt">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">128 Permanent Pleated Skirt</h3>
+                        <p class="product-desc">Introducing the 128 Permanent Pleated Skirt, a sophisticated and practical piece designed for enduring style and graceful movement. This skirt features meticulously crafted permanent pleats that maintain their form, ensuring a crisp and polished appearance throughout your day.</p>
+                        <div class="product-price">R170.00</div>
+                        <div class="price-range">(R185 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/371-skirt.png" alt="371 Skirt">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">371 Skirt: Sleek Comfort in Stretch Fabric</h3>
+                        <p class="product-desc">Introducing the 371 Skirt, a modern essential crafted for both impeccable style and unparalleled comfort. Made from high-quality T.R stretch fabric, this skirt offers exceptional flexibility and a flattering, form-fitting silhouette.</p>
+                        <div class="product-price">R170.00</div>
+                        <div class="price-range">(R185 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-badge">Premium</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Skirts pictures/176-skirt.png" alt="176 Skirt">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">176 Skirt: Adaptive Comfort, Flawless Silhouette</h3>
+                        <p class="product-desc">Introducing the 176 Skirt, a truly dynamic piece crafted for both exceptional comfort and a consistently polished appearance. Made from innovative 4-Way Stretch fabric, this skirt offers unparalleled freedom of movement while maintaining its elegant form throughout your demanding day.</p>
+                        <div class="product-price">R175.00</div>
+                        <div class="price-range">(R190 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches">
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection Added -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector">
+                                <span class="size-btn">28</span>
+                                <span class="size-btn">30</span>
+                                <span class="size-btn selected">32</span>
+                                <span class="size-btn">34</span>
+                                <span class="size-btn">36</span>
+                                <span class="size-btn">38</span>
+                                <span class="size-btn">40</span>
+                                <span class="size-btn">42</span>
+                                <span class="size-btn">44</span>
+                                <span class="size-btn">46</span>
+                                <span class="size-btn">48</span>
+                                <span class="size-btn">50</span>
+                                <span class="size-btn">52</span>
+                                <span class="size-btn">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Why Choose Our Skirts Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Skirts</h2>
+                <p>Designed with healthcare professionals in mind, our skirts combine comfort, durability, and professional style</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Premium Fabric</h3>
+                    <p>High-quality materials that maintain their shape and color after repeated washing</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Perfect Fit</h3>
+                    <p>Available in sizes 28-54 (S-4XL) to ensure comfort for every body type</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Functional Design</h3>
+                    <p>Features like stretch fabric and pleats for ease of movement</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Professional Style</h3>
+                    <p>Elegant designs that maintain a polished, professional appearance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Bulk Order CTA Section -->
+    <section style="background: linear-gradient(to right, var(--primary), #2a4a7d); padding: 4rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Need Skirts for Your Team?</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                Get special pricing and dedicated support for bulk orders. Perfect for hospitals, clinics, and medical practices.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-users" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Team Pricing</h3>
+                    <p style="opacity: 0.9;">Special discounts for orders over 10 pieces</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-truck-fast" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Fast Delivery</h3>
+                    <p style="opacity: 0.9;">Priority processing for bulk orders</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-headset" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Dedicated Support</h3>
+                    <p style="opacity: 0.9;">Personal assistance throughout your order</p>
+                </div>
+            </div>
+            <a href="tel:+27123456789" class="btn btn-primary" style="background: var(--accent); margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-phone"></i>
+                <span>Call for Bulk Pricing</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27123456789?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20skirts." class="whatsapp-button" id="whatsappButton" target="_blank">
+        <div class="text">
+            <i class="fab fa-whatsapp"></i> Chat with Us
+        </div>
+    </a>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Tarabuca</h3>
+                    <p>Premium quality medical wear, lifestyle apparel, and homeware designed for professionals who value comfort, style, and functionality.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#medical">Medical Collection</a></li>
+                        <li><a href="#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="#homeware">Homeware</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Way, Johannesburg, South Africa</li>
+                        <li><i class="fas fa-phone"></i> +27 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+// Mobile navigation
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+
+if (mobileMenuBtn && mobileNav) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+        if (mobileNav.classList.contains('active')) {
+            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+    
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+}
+
+// Cart Functionality
+const cartPopup = document.getElementById('cartPopup');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartCount = document.getElementById('cartCount');
+const cartIcon = document.getElementById('cartIcon');
+const closeCart = document.getElementById('closeCart');
+
+let cart = [];
+let isAddingToCart = false; // Lock to prevent multiple additions
+
+// Load cart from localStorage if available
+function loadCart() {
+    if (localStorage.getItem('cart')) {
+        try {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCartUI();
+        } catch (e) {
+            console.error('Error loading cart from localStorage:', e);
+            cart = [];
+        }
+    }
+}
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Add to cart function - now requires explicit color and size selection
+function addToCart(name, price, image, color, size) {
+    // Prevent multiple simultaneous additions
+    if (isAddingToCart) {
+        console.log('Add to cart in progress, please wait...');
+        return;
+    }
+    
+    // Validate that color and size are selected
+    if (!color || !size) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    isAddingToCart = true;
+    
+    // Check if item already in cart
+    const existingItem = cart.find(item => item.name === name && item.color === color && item.size === size);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: Date.now(),
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1,
+            color: color,
+            size: size
+        });
+    }
+    
+    // Save to localStorage
+    saveCart();
+    
+    // Update UI
+    updateCartUI();
+    
+    // Show cart popup
+    if (cartPopup) cartPopup.classList.add('active');
+    
+    // Show added to cart message
+    showCartMessage(`${name} (${size}, ${color}) added to cart!`);
+    
+    // Release lock after short delay
+    setTimeout(() => {
+        isAddingToCart = false;
+    }, 500);
+}
+
+// Show cart message with error support
+function showCartMessage(message, type = 'success') {
+    const existingMessage = document.querySelector('.cart-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'cart-message';
+    messageDiv.textContent = message;
+    messageDiv.style.position = 'fixed';
+    messageDiv.style.top = '20px';
+    messageDiv.style.right = '20px';
+    messageDiv.style.padding = '10px 20px';
+    messageDiv.style.backgroundColor = type === 'error' ? '#f44336' : '#4CAF50';
+    messageDiv.style.color = 'white';
+    messageDiv.style.borderRadius = '5px';
+    messageDiv.style.zIndex = '1000';
+    messageDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+    messageDiv.style.transition = 'all 0.3s ease';
+    
+    document.body.appendChild(messageDiv);
+    
+    setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Update cart UI
+function updateCartUI() {
+    if (!cartItems || !cartTotal || !cartCount) return;
+    
+    // Clear cart items
+    cartItems.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        `;
+        cartTotal.textContent = 'R0.00';
+        cartCount.textContent = '0';
+        return;
+    }
+    
+    let total = 0;
+    let itemCount = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        itemCount += item.quantity;
+        
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <div class="cart-item-img">
+                <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-title">${item.name}</div>
+                ${item.color ? `<div class="cart-item-color">Color: ${item.color}</div>` : ''}
+                ${item.size ? `<div class="cart-item-size">Size: ${item.size}</div>` : ''}
+                <div class="cart-item-price">R${item.price.toFixed(2)}</div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                    <span class="quantity-value">${item.quantity}</span>
+                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
+                </div>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${item.id})">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        
+        cartItems.appendChild(cartItem);
+    });
+    
+    cartTotal.textContent = `R${total.toFixed(2)}`;
+    cartCount.textContent = itemCount;
+}
+
+// Update item quantity in cart
+function updateCartQuantity(id, change) {
+    const item = cart.find(item => item.id === id);
+    
+    if (item) {
+        item.quantity += change;
+        
+        if (item.quantity < 1) {
+            removeFromCart(id);
+            return;
+        }
+        
+        saveCart();
+        updateCartUI();
+    }
+}
+
+// Remove item from cart
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveCart();
+    updateCartUI();
+}
+
+// Toggle cart visibility
+if (cartIcon) {
+    cartIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (cartPopup) cartPopup.classList.toggle('active');
+    });
+}
+
+// Close cart
+if (closeCart) {
+    closeCart.addEventListener('click', () => {
+        if (cartPopup) cartPopup.classList.remove('active');
+    });
+}
+
+// Close cart when clicking outside
+document.addEventListener('click', (e) => {
+    if (cartPopup && cartIcon && 
+        !cartPopup.contains(e.target) && 
+        !cartIcon.contains(e.target) && 
+        !e.target.closest('.cart-popup')) {
+        cartPopup.classList.remove('active');
+    }
+});
+
+// Product data for quick view
+const productsData = [
+    {
+        id: 9613,
+        name: "9613 Skirt: Back Vent Pleat",
+        description: "Introducing the 9613 Skirt, a meticulously crafted piece that offers both refined style and practical movement. Designed with a sophisticated back vent pleat, this skirt ensures ease of motion while maintaining a polished and professional silhouette.",
+        price: 150,
+        priceXL: 160,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/9613-skirt.png"
+    },
+    {
+        id: 370,
+        name: "370 Skirt: Elegant Movement in Stretch Fabric",
+        description: "Presenting the 370 Skirt, a beautifully crafted piece designed for both sophistication and dynamic comfort. Made from premium T.R stretch fabric, this skirt offers exceptional flexibility and a flattering drape. Its thoughtful design ensures graceful movement and a polished appearance, making the 370 an ideal choice for those who seek a seamless blend of elegant style and practical wearability in their professional attire.",
+        price: 250,
+        priceXL: 260,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/370-skirt.png"
+    },
+    {
+        id: 183,
+        name: "183 Skirt: Refined Form, Effortless Movement",
+        description: "Introducing the 183 Lined Skirt, a foundational piece designed for both impeccable presentation and comfortable wear. This skirt offers a clean, elegant silhouette with its full lining, ensuring a smooth and polished drape. Designed to provide ease of movement while maintaining a professional aesthetic, the 183 is an essential addition for those seeking a blend of refined style and practical comfort in their professional attire.",
+        price: 175,
+        priceXL: 185,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/183-lined-skirt.png"
+    },
+    {
+        id: 128,
+        name: "128 Permanent Pleated Skirt",
+        description: "Introducing the 128 Permanent Pleated Skirt, a sophisticated and practical piece designed for enduring style and graceful movement. This skirt features meticulously crafted permanent pleats that maintain their form, ensuring a crisp and polished appearance throughout your day. The 128 offers a perfect blend of classic elegance and dynamic functionality, making it an essential addition to any professional wardrobe.",
+        price: 170,
+        priceXL: 185,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/128-permanent-pleated-skirt.png"
+    },
+    {
+        id: 371,
+        name: "371 Skirt: Sleek Comfort in Stretch Fabric",
+        description: "Introducing the 371 Skirt, a modern essential crafted for both impeccable style and unparalleled comfort. Made from high-quality T.R stretch fabric, this skirt offers exceptional flexibility and a flattering, form-fitting silhouette. Designed for ease of movement and a polished appearance, the 371 is an ideal choice for those who seek a seamless blend of sophistication and practical wearability in their professional attire.",
+        price: 170,
+        priceXL: 185,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/371-skirt.png"
+    },
+    {
+        id: 176,
+        name: "176 Skirt: Adaptive Comfort, Flawless Silhouette",
+        description: "Introducing the 176 Skirt, a truly dynamic piece crafted for both exceptional comfort and a consistently polished appearance. Made from innovative 4-Way Stretch fabric, this skirt offers unparalleled freedom of movement while maintaining its elegant form throughout your demanding day. The 176 is the ideal choice for those who seek a perfect blend of adaptive comfort, professional style, and enduring sophistication.",
+        price: 175,
+        priceXL: 190,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "SKIRT",
+        image: "category-pictures/Skirts pictures/176-skirt.png"
+    }
+];
+
+// Quick View Modal Functions
+let currentProductIndex = 0;
+let quantity = 1;
+let selectedColor = '';
+let selectedSize = '';
+
+function openQuickView(index) {
+    currentProductIndex = index;
+    const product = productsData[index];
+    
+    document.getElementById('modalImg').src = product.image;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)} (R${product.priceXL.toFixed(2)} for 3XL-4XL)`;
+    document.getElementById('modalDesc').textContent = product.description;
+    document.getElementById('modalCode').textContent = product.id;
+    document.getElementById('modalCategory').textContent = product.category;
+    
+    // Reset quantity and selections
+    quantity = 1;
+    selectedColor = '';
+    selectedSize = '';
+    document.getElementById('quantityValue').textContent = quantity;
+    
+    // Generate color swatches
+    const colorSwatches = document.getElementById('modalColorSwatches');
+    colorSwatches.innerHTML = '';
+    
+    product.colors.forEach(color => {
+        const colorName = color.toLowerCase();
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = getColorCode(colorName);
+        swatch.title = color;
+        swatch.onclick = () => selectColor(color, swatch);
+        colorSwatches.appendChild(swatch);
+    });
+    
+    // Generate size options
+    const sizeOptions = document.getElementById('modalSizeOptions');
+    sizeOptions.innerHTML = '';
+    
+    product.sizes.forEach(size => {
+        const sizeBtn = document.createElement('button');
+        sizeBtn.className = 'size-btn';
+        sizeBtn.textContent = size;
+        sizeBtn.onclick = () => selectSize(size, sizeBtn);
+        sizeOptions.appendChild(sizeBtn);
+    });
+    
+    // Update modal info
+    document.getElementById('modalColors').textContent = product.colors.join(', ');
+    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
+    
+    // Show modal
+    document.getElementById('quickViewModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    document.getElementById('quickViewModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectColor(color, element) {
+    selectedColor = color;
+    
+    // Remove selected class from all swatches
+    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
+    swatches.forEach(swatch => swatch.classList.remove('selected'));
+    
+    // Add selected class to clicked swatch
+    element.classList.add('selected');
+}
+
+function selectSize(size, element) {
+    selectedSize = size;
+    
+    // Remove selected class from all size buttons
+    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
+    
+    // Add selected class to clicked button
+    element.classList.add('selected');
+}
+
+function updateQuantity(change) {
+    quantity += change;
+    if (quantity < 1) quantity = 1;
+    if (quantity > 10) quantity = 10;
+    document.getElementById('quantityValue').textContent = quantity;
+}
+
+function addToCartFromModal() {
+    const product = productsData[currentProductIndex];
+    
+    // Validate selection
+    if (!selectedColor || !selectedSize) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    const price = ['3XL', '4XL'].includes(selectedSize) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, selectedColor, selectedSize);
+    closeQuickView();
+}
+
+function getColorCode(colorName) {
+    const colors = {
+        'white': '#FFFFFF',
+        'navy': '#000080'
+    };
+    
+    return colors[colorName] || '#CCCCCC';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('quickViewModal');
+    if (event.target === modal) {
+        closeQuickView();
+    }
+};
+
+// Search Functionality
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const searchResults = document.getElementById('searchResults');
+
+// Sample product data for search
+const searchProducts = [
+    { id: 9613, name: '9613 Skirt: Back Vent Pleat', category: 'Skirts', price: 150.00, image: 'category-pictures/Skirts pictures/9613-skirt.png' },
+    { id: 370, name: '370 Skirt: Elegant Movement in Stretch Fabric', category: 'Skirts', price: 250.00, image: 'category-pictures/Skirts pictures/370-skirt.png' },
+    { id: 183, name: '183 Skirt: Refined Form, Effortless Movement', category: 'Skirts', price: 175.00, image: 'category-pictures/Skirts pictures/183-lined-skirt.png' },
+    { id: 128, name: '128 Permanent Pleated Skirt', category: 'Skirts', price: 170.00, image: 'category-pictures/Skirts pictures/128-permanent-pleated-skirt.png' },
+    { id: 371, name: '371 Skirt: Sleek Comfort in Stretch Fabric', category: 'Skirts', price: 170.00, image: 'category-pictures/Skirts pictures/371-skirt.png' },
+    { id: 176, name: '176 Skirt: Adaptive Comfort, Flawless Silhouette', category: 'Skirts', price: 175.00, image: 'category-pictures/Skirts pictures/176-skirt.png' }
+];
+
+// Search functionality
+function performSearch() {
+    if (!searchInput || !searchResults) return;
+    
+    const query = searchInput.value.toLowerCase().trim();
+    
+    if (query === '') {
+        searchResults.classList.remove('active');
+        return;
+    }
+    
+    const results = searchProducts.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.category.toLowerCase().includes(query)
+    );
+    
+    displaySearchResults(results);
+}
+
+// Display search results
+function displaySearchResults(results) {
+    if (!searchResults) return;
+    
+    searchResults.innerHTML = '';
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No products found</div>';
+        searchResults.classList.add('active');
+        return;
+    }
+    
+    results.forEach(product => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.innerHTML = `
+            <div class="search-result-img">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="search-result-details">
+                <div class="search-result-title">${product.name}</div>
+                <div class="search-result-category">${product.category}</div>
+            </div>
+            <div class="search-result-price">R${product.price.toFixed(2)}</div>
+        `;
+        
+        resultItem.addEventListener('click', () => {
+            // Find the index of the product in productsData
+            const index = productsData.findIndex(p => p.id === product.id);
+            if (index !== -1) {
+                openQuickView(index);
+            }
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+        });
+        
+        searchResults.appendChild(resultItem);
+    });
+    
+    searchResults.classList.add('active');
+}
+
+// Event listeners for search
+if (searchInput) {
+    searchInput.addEventListener('input', performSearch);
+}
+
+if (searchButton) {
+    searchButton.addEventListener('click', performSearch);
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+    if (searchResults && searchInput && searchButton &&
+        !searchResults.contains(e.target) && 
+        e.target !== searchInput && 
+        e.target !== searchButton) {
+        searchResults.classList.remove('active');
+    }
+});
+
+// WhatsApp button functionality
+const whatsappButton = document.getElementById('whatsappButton');
+if (whatsappButton) {
+    whatsappButton.addEventListener('click', function() {
+        // Add animation effect on click
+        this.style.transform = 'scale(0.9)';
+        this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+        
+        setTimeout(() => {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        }, 300);
+    });
+}
+
+// Product Card Initialization with proper event handling
+function initializeProductCards() {
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach((card, index) => {
+        // Skip if already initialized
+        if (card.hasAttribute('data-initialized')) {
+            return;
+        }
+        
+        const colorSwatches = card.querySelectorAll('.color-swatch');
+        const sizeButtons = card.querySelectorAll('.size-btn');
+        const addToCartButton = card.querySelector('.btn-primary');
+        const quickViewButton = card.querySelector('.btn-secondary');
+        
+        let selectedColor = '';
+        let selectedSize = '';
+        
+        // No default selections - user must choose
+        
+        // Color selection
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                colorSwatches.forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedColor = this.title || this.getAttribute('data-color') || '';
+                
+                // Update price based on size
+                updatePriceDisplay();
+            });
+        });
+        
+        // Size selection
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedSize = this.textContent || '';
+                
+                // Update price based on size
+                updatePriceDisplay();
+            });
+        });
+        
+        // Function to update price display based on size
+        function updatePriceDisplay() {
+            const priceElement = card.querySelector('.product-price');
+            const priceRangeElement = card.querySelector('.price-range');
+            const productName = card.querySelector('.product-title').textContent;
+            
+            // Check if this product has XL pricing
+            const hasXLPricing = priceRangeElement && priceRangeElement.textContent.includes('3XL');
+            
+            if (hasXLPricing && selectedSize) {
+                const basePrice = parseInt(priceElement.textContent.replace('R', ''));
+                const xlPrice = parseInt(priceRangeElement.textContent.match(/R(\d+)/)[1]);
+                let newPrice = ['3XL', '4XL'].includes(selectedSize) ? xlPrice : basePrice;
+                priceElement.textContent = `R${newPrice.toFixed(2)}`;
+            }
+        }
+        
+        // Add to cart with proper event handling
+        if (addToCartButton) {
+            const handleAddToCart = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Validate selection
+                if (!selectedColor || !selectedSize) {
+                    showCartMessage('Please select both color and size before adding to cart!', 'error');
+                    return;
+                }
+                
+                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
+                const image = card.querySelector('.product-img img')?.src || '';
+                const priceRangeElement = card.querySelector('.price-range');
+                const hasXLPricing = priceRangeElement && priceRangeElement.textContent.includes('3XL');
+                
+                let price = parseInt(card.querySelector('.product-price').textContent.replace('R', ''));
+                if (hasXLPricing) {
+                    price = ['3XL', '4XL'].includes(selectedSize) ? 
+                        parseInt(priceRangeElement.textContent.match(/R(\d+)/)[1]) : 
+                        parseInt(card.querySelector('.product-price').textContent.replace('R', ''));
+                }
+                
+                addToCart(name, price, image, selectedColor, selectedSize);
+            };
+            
+            addToCartButton.addEventListener('click', handleAddToCart);
+        }
+        
+        // Quick view button
+        if (quickViewButton) {
+            quickViewButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                openQuickView(index);
+            });
+        }
+        
+        // Mark as initialized
+        card.setAttribute('data-initialized', 'true');
+    });
+}
+
+// Enhanced add to cart function for product cards with proper event handling
+function addToCartFromCard(button) {
+    const card = button.closest('.product-card');
+    const name = card.querySelector('.product-title').textContent;
+    const priceText = card.querySelector('.product-price').textContent;
+    const price = parseFloat(priceText.replace('R', '').replace(',', ''));
+    const image = card.querySelector('.product-img img').src;
+    
+    // Get selected color
+    let color = '';
+    const selectedColorSwatch = card.querySelector('.color-swatch.selected');
+    if (selectedColorSwatch) {
+        color = selectedColorSwatch.getAttribute('title') || '';
+    }
+    
+    // Get selected size
+    let size = '';
+    const selectedSizeBtn = card.querySelector('.size-btn.selected');
+    if (selectedSizeBtn) {
+        size = selectedSizeBtn.textContent || '';
+    }
+    
+    // Validate selection
+    if (!color || !size) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    addToCart(name, price, image, color, size);
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    initializeProductCards();
+    
+    // Re-initialize if needed (for dynamic content)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                initializeProductCards();
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+});
+
+// Make functions available globally for onclick attributes
+window.updateCartQuantity = updateCartQuantity;
+window.removeFromCart = removeFromCart;
+window.openQuickView = openQuickView;
+window.closeQuickView = closeQuickView;
+window.updateQuantity = updateQuantity;
+window.addToCartFromModal = addToCartFromModal;
+window.addToCartFromCard = addToCartFromCard;
+</script>
+</body>
+</html>

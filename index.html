@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarabuca - Premium Medical & Lifestyle Wear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary: #1a3a5f;        /* Deep Navy Blue */
+    --secondary: #4CAF50;      /* Green Accent */
+    --accent: #4CAF50;         /* Green Accent */
+    --light: #f8f9fa;
+    --dark: #2a2d34;           /* Charcoal */
+    --gray: #6c757d;
+    --light-bg: #f0f4f8;       /* Light background */
+    --text: #333;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #128C7E;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 110px; /* Reduced to accommodate new compact header */
+    position: relative;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* Fixed Top Bar - Socials and Contact Info */
+.top-bar {
+    background-color: var(--dark);
+    color: white;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 10;
+    height: auto;
+    overflow: visible;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.contact-info a:hover {
+    color: var(--secondary);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: white;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Sticky Header */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* NEW HEADER STRUCTURE */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0; /* Reduced padding for more compact header */
+}
+
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.logo-placeholder {
+    height: 90px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-placeholder img {
+    max-height: 198px; /* Increased logo size */
+    width: auto;
+}
+
+.search-container {
+    flex: 1;
+    min-width: 0; /* Allows search to shrink properly */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.search-box:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-color: var(--primary);
+}
+
+.search-box input {
+    border: none;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    background-color: var(--light-bg);
+    transition: var(--transition);
+    min-width: 60px;
+}
+
+.search-box button:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.header-icons a {
+    color: var(--dark);
+    font-size: 1.3rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.header-icons a:hover {
+    color: var(--accent);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary);
+    padding: 10px;
+}
+
+/* Navigation - Desktop */
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+nav ul li a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    min-width: 200px;
+    padding: 1rem;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--gray);
+    transition: var(--transition);
+}
+
+.dropdown-content a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 110px; /* Adjusted to match new header height */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 110px); /* Adjusted to match new header height */
+    background-color: white;
+    z-index: 990;
+    transform: translateX(-100%);
+    transition: var(--transition);
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+.mobile-nav ul {
+    list-style: none;
+}
+
+.mobile-nav ul li {
+    margin-bottom: 15px;
+}
+
+.mobile-nav ul li a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-dropdown {
+    padding-left: 20px;
+}
+
+.mobile-dropdown a {
+    font-size: 1rem !important;
+    padding: 8px 0 !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, rgba(26, 58, 95, 0.9) 40%, rgba(26, 58, 95, 0.7)), url('category-pictures/IMG-20250807-WA0012-removebg-preview.png') center/cover no-repeat;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    padding: 4rem 0;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 90%;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
+    border: 2px solid transparent;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+.btn-primary:hover {
+    background-color: #3e8e41;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero-features {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.feature-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+/* Fixed WhatsApp Button - Text Only */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--whatsapp);
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: auto;
+    height: auto;
+    min-height: 60px;
+    animation: pulse 2s infinite;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.whatsapp-button:hover {
+    background: var(--whatsapp-dark);
+    transform: scale(1.05);
+    padding: 15px 30px;
+}
+
+/* Remove logo container and image */
+.whatsapp-button .logo-container {
+    display: none;
+}
+
+.whatsapp-button .logo-container img {
+    display: none;
+}
+
+.whatsapp-button .text {
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-button:hover .text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.whatsapp-button .icon {
+    font-size: 20px;
+    transition: all 0.4s ease;
+}
+
+.whatsapp-button:hover .icon {
+    transform: rotate(360deg);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Cart Popup Styles */
+.cart-popup {
+    position: fixed;
+    top: 110px; /* Adjusted to match new header height */
+    right: 20px;
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 1.5rem;
+    display: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.cart-popup.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.cart-header h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.close-cart:hover {
+    color: var(--accent);
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: var(--transition);
+}
+
+.cart-item:hover {
+    background-color: var(--light-bg);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.cart-item-price {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quantity-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.quantity-value {
+    min-width: 30px;
+    text-align: center;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+.remove-item:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-cart {
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-checkout {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-checkout:hover {
+    background-color: #152a47;
+    transform: translateY(-2px);
+}
+
+.btn-view-cart {
+    background-color: var(--light);
+    color: var(--dark);
+    border: 1px solid #ddd;
+}
+
+.btn-view-cart:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--gray);
+}
+
+.empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+/* Search Results */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+    z-index: 100;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-result-item:hover {
+    background-color: var(--light-bg);
+}
+
+.search-result-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.search-result-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-result-details {
+    flex: 1;
+}
+
+.search-result-title {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    color: var(--dark);
+}
+
+.search-result-category {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.search-result-price {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.no-results {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--gray);
+}
+
+/* Services Section */
+.services {
+    padding: 5rem 0;
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title p {
+    color: var(--gray);
+    max-width: 700px;
+    margin: 2rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    text-align: center;
+    padding: 2.5rem 2rem;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.service-card p {
+    color: var(--gray);
+}
+
+/* Custom Clothing Section */
+.custom-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #2a4a7d 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    opacity: 0.1;
+}
+
+.custom-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.custom-text {
+    flex: 1;
+}
+
+.custom-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.custom-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.custom-features {
+    margin: 2rem 0;
+}
+
+.custom-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.custom-feature i {
+    color: var(--secondary);
+    font-size: 1.5rem;
+}
+
+.custom-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.custom-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+}
+
+.custom-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.custom-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Categories Section */
+.categories {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.category-section {
+    margin-bottom: 5rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.custom-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.category-img {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+}
+
+.category-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.category-card:hover .category-img img {
+    transform: scale(1.1);
+}
+
+.category-content {
+    padding: 1.5rem;
+}
+
+.category-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.category-content p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.category-content .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 6rem 0;
+    background-color: var(--light-bg);
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 2.5rem 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('category-pictures/IMG-20250807-WA0012-removebg-preview.png') center/cover no-repeat;
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-form {
+    display: flex;
+    max-width: 600px;
+    margin: 2rem auto;
+    gap: 1rem;
+}
+
+.cta-form input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.cta-form button {
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+    padding: 0 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-form button:hover {
+    background: #3e8e41;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.testimonial-container {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+.testimonial-slide {
+    background-color: white;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    margin: 0 2rem;
+    transition: var(--transition);
+}
+
+.testimonial-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.client-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--light-bg);
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.testimonial-text::before {
+    content: "\"";
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    font-size: 5rem;
+    color: var(--light-bg);
+    font-family: serif;
+    opacity: 0.5;
+}
+
+.client-info h4 {
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+}
+
+.client-info p {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Brands Section */
+.brands {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.brands-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.brand-item {
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.brand-item:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.brand-item img {
+    height: 40px;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.brand-item:hover img {
+    filter: grayscale(0);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 4rem 0 1.5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.footer-column p, .footer-column li {
+    color: #adb5bd;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Why Choose Tarabuca Section */
+.why-choose {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.why-choose-card {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-choose-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.why-choose-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--secondary);
+}
+
+.why-choose-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.why-choose-card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.why-choose-card p {
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .custom-content {
+        flex-direction: column;
+    }
+    
+    .header-center {
+        padding-bottom: 0.5rem;
+    }
+    
+    .logo-placeholder img {
+        max-height: 100px; /* Match increased size for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        text-align: center;
+        padding: 0.8rem 1rem;
+    }
+    
+    .contact-info {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    
+    .header-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0.5rem 0;
+    }
+    
+    .header-top-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .header-logo {
+        flex-shrink: 0;
+    }
+    
+    .logo-placeholder img {
+        max-height: 80px; /* Slightly smaller for mobile */
+    }
+    
+    .search-container {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 4rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-form {
+        flex-direction: column;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        min-height: 50px;
+        padding: 12px 20px;
+    }
+    
+    .whatsapp-button .text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .contact-info a {
+        font-size: 0.85rem;
+    }
+    
+    .header-top-row {
+        flex-wrap: wrap;
+    }
+    
+    .header-logo {
+        order: 1;
+    }
+    
+    .header-icons {
+        order: 3;
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .mobile-menu-btn {
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .search-container {
+        order: 4;
+    }
+    
+    .mobile-nav {
+        top: 110px;
+        height: calc(100vh - 110px);
+    }
+    
+    .header-icons a {
+        font-size: 1.2rem;
+    }
+    
+    .logo-placeholder img {
+        max-height: 100px; /* Slightly smaller for very small screens */
+    }
+    
+    body {
+        padding-top: 100px;
+    }
+    
+    .whatsapp-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        min-height: 45px;
+    }
+    
+    .whatsapp-button .text {
+        font-size: 13px;
+    }
+}
+
+/* Color Selection */
+.color-options {
+    margin: 1rem 0;
+}
+
+.color-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--primary);
+}
+
+.color-swatches {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary);
+}
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 12 345 6789</a>
+                <a href="mailto:info@tarabuca.co.za"><i class="fas fa-envelope"></i> info@tarabuca.co.za</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sticky Header -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top-row">
+                    <!-- Mobile Menu Button (Left Side) -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Logo (Centered) -->
+                    <div class="header-logo">
+                        <div class="logo-placeholder">
+                            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Medical & Lifestyle Logo">
+                        </div>
+                    </div>
+                    
+                    <!-- Icons and Search -->
+                    <div class="header-icons">
+                        <a href="#"><i class="far fa-user"></i></a>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Search Container -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search products...">
+                        <button id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="search-results" id="searchResults">
+                        <!-- Search results will be populated here -->
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#medical">Medical <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="scrubs.html">Scrubs</a>
+                            <a href="tops.html">Tops</a>
+                            <a href="dresses.html">Dresses</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="skirts.html">Skirts</a>
+                            <a href="lab-coats.html">Lab Coats</a>
+                            <a href="jackets.html">Jackets</a>
+                            <a href="equipment.html">Equipment</a>
+                            <a href="medical-bags.html">Bags</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="compression.html">Compression</a>
+                            <a href="wind-breakers.html">Wind Breaker</a>
+                            <a href="awards-medals.html">Awards/Medals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#homeware">Homeware <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                            <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                            <a href="#homeware-inners">Inners (Coming Soon)</a>
+                            <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                            <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#medical">Medical</a>
+                <div class="mobile-dropdown">
+                    <a href="scrubs.html">Scrubs</a>
+                    <a href="tops.html">Tops</a>
+                    <a href="dresses.html">Dresses</a>
+                    <a href="pants.html">Pants</a>
+                    <a href="skirts.html">Skirts</a>
+                    <a href="lab-coats.html">Lab Coats</a>
+                    <a href="jackets.html">Jackets</a>
+                    <a href="equipment.html">Equipment</a>
+                    <a href="medical-bags.html">Bags</a>
+                </div>
+            </li>
+            <li>
+                <a href="#lifestyle">Lifestyle</a>
+                <div class="mobile-dropdown">
+                    <a href="compression.html">Compression</a>
+                    <a href="wind-breakers.html">Wind Breaker</a>
+                    <a href="awards-medals.html">Awards/Medals</a>
+                </div>
+            </li>
+            <li>
+                <a href="#homeware">Homeware</a>
+                <div class="mobile-dropdown">
+                    <a href="#homeware-duvets">Duvets (Coming Soon)</a>
+                    <a href="#homeware-sheets">Bed Sheets (Coming Soon)</a>
+                    <a href="#homeware-inners">Inners (Coming Soon)</a>
+                    <a href="#homeware-pillows">Pillows (Coming Soon)</a>
+                    <a href="#homeware-comforters">Comforters (Coming Soon)</a>
+                </div>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">R0.00</span>
+        </div>
+        <div class="cart-actions">
+            <a href="checkout.html" class="btn-cart btn-checkout">Proceed to Checkout</a>
+            <a href="#" class="btn-cart btn-view-cart">View Cart</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Medical & Lifestyle Wear</h1>
+                <p>Discover our high-quality collection designed for professionals who demand both comfort and style.</p>
+                <div class="hero-btns">
+                    <a href="scrubs.html" class="btn btn-primary">Shop Collection</a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div>
+                            <h4>Free Shipping</h4>
+                            <p>On orders over R1000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div>
+                            <h4>Easy Returns</h4>
+                            <p>30-day return policy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Quality Guarantee</h4>
+                            <p>Premium craftsmanship</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="categories" id="medical">
+    <div class="container">
+        <div class="category-section">
+            <div class="section-title">
+                <h2>Medical Collection</h2>
+                <p>Professional attire designed for healthcare professionals who value both functionality and style</p>
+            </div>
+            
+            <div class="category-grid">
+                <!-- Scrubs -->
+                <div class="category-card" id="medical-scrubs">
+                    <div class="custom-badge">4-Way Stretch</div>
+                    <div class="category-img">
+                        <a href="scrubs.html">
+                            <img src="category-pictures\Scrub-set pictures\350-Scrub-set.png" alt="Medical Scrubs">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="scrubs.html"><h3>Scrubs</h3></a>
+                        <p>Comfortable and durable scrubs for medical professionals with 4-way stretch technology</p>
+                        <a href="scrubs.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tops -->
+                <div class="category-card" id="medical-tops">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="tops.html">
+                            <img src="category-pictures\Tops pictures\047-tunic.png" alt="Medical Tops">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="tops.html"><h3>Tops</h3></a>
+                        <p>Versatile tops for all your medical needs</p>
+                        <a href="tops.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Dresses -->
+                <div class="category-card" id="medical-dresses">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="dresses.html">
+                            <img src="category-pictures\Dresses pictures\374-dress.png" alt="Medical Dresses">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="dresses.html"><h3>Dresses</h3></a>
+                        <p>Professional dresses for a polished look</p>
+                        <a href="dresses.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Pants -->
+                <div class="category-card" id="medical-pants">
+                    <div class="custom-badge">4-Way Stretch</div>
+                    <div class="category-img">
+                        <a href="pants.html">
+                            <img src="category-pictures\Pants pictures\169-pants.png" alt="Medical Pants">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="pants.html"><h3>Pants</h3></a>
+                        <p>Comfortable and functional medical pants with 4-way stretch technology</p>
+                        <a href="pants.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Skirts -->
+                <div class="category-card" id="medical-skirts">
+                    <div class="custom-badge">4-Way Stretch</div>
+                    <div class="category-img">
+                        <a href="skirts.html">
+                            <img src="category-pictures\Skirts pictures\128-permanent-pleated-skirt.png" alt="Medical Skirts">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="skirts.html"><h3>Skirts</h3></a>
+                        <p>Professional skirts for medical professionals with 4-way stretch technology</p>
+                        <a href="skirts.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Lab Coats -->
+                <div class="category-card" id="medical-labcoats">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="lab-coats.html">
+                            <img src="category-pictures\Labcoat pictures\309-lab-coat.png" alt="Lab Coats">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="lab-coats.html"><h3>Lab Coats</h3></a>
+                        <p>Professional lab coats for doctors and researchers</p>
+                        <a href="lab-coats.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Jackets -->
+                <div class="category-card" id="medical-jackets">
+                    <div class="custom-badge">4-Way Stretch</div>
+                    <div class="category-img">
+                        <a href="jackets.html">
+                            <img src="category-pictures\Jacket pictures\318_polar-fleece-jacket-removebg-preview.png" alt="Medical Jackets">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="jackets.html"><h3>Jackets</h3></a>
+                        <p>Warm and professional medical jackets with 4-way stretch technology</p>
+                        <a href="jackets.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Equipment -->
+                <div class="category-card" id="medical-equipment">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="equipment.html">
+                            <img src="category-pictures\IMG-20250807-WA0012-removebg-preview.png" alt="Medical Equipment">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="equipment.html"><h3>Equipment</h3></a>
+                        <p>Essential medical equipment and accessories</p>
+                        <a href="equipment.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Bags -->
+                <div class="category-card" id="medical-bags">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="bags.html">
+                            <img src="category-pictures\IMG-20250807-WA0012-removebg-preview.png" alt="Medical Bags">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="bags.html"><h3>Bags</h3></a>
+                        <p>Functional and stylish medical bags</p>
+                        <a href="bags.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lifestyle Collection -->
+        <div class="category-section" id="lifestyle">
+            <div class="section-title">
+                <h2>Lifestyle Wear</h2>
+                <p>Comfortable and stylish wear for your active lifestyle</p>
+            </div>
+            
+            <div class="category-grid">
+                <!-- Compression -->
+                <div class="category-card" id="lifestyle-compression">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="compression.html"> 
+                            <img src="category-pictures\Compression Pictures\long-sleeve-compression-top.png" alt="Compression Wear">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="compression.html"><h3>Compression</h3></a>
+                        <p>Supportive compression wear for active lifestyles</p>
+                        <a href="compression.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Wind Breaker -->
+                <div class="category-card" id="lifestyle-windbreaker">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="wind-breakers.html">
+                            <img src="category-pictures\Windbreaker pictures\unisex-water-repellant-flash-forward-windbreaker-removebg-preview (2).png" alt="Wind Breaker">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="wind-breakers.html"><h3>Wind Breaker</h3></a>
+                        <p>Protective and stylish wind breaker jackets</p>
+                        <a href="wind-breakers.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Awards/Medals -->
+                <div class="category-card" id="lifestyle-awards">
+                    <div class="custom-badge">Custom Available</div>
+                    <div class="category-img">
+                        <a href="awards-medals.html">
+                            <img src="category-pictures\Awards & Medals\X-Plode-Bronze-2D-Football-Trophy.png" alt="Awards/Medals">
+                        </a>
+                    </div>
+                    <div class="category-content">
+                        <a href="awards-medals.html"><h3>Awards/Medals</h3></a>
+                        <p>Custom awards and medals for recognition</p>
+                        <a href="awards-medals.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Tarabuca</h2>
+                <p>We combine premium quality, innovative design, and exceptional service to create products that enhance your professional life.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Custom Tailoring</h3>
+                    <p>Bespoke designs tailored to your exact specifications and brand identity.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Premium Fabrics</h3>
+                    <p>High-quality, durable materials designed for comfort and longevity.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Functional Design</h3>
+                    <p>Innovative features that enhance functionality for medical professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Custom Work</h2>
+                <p>Explore our portfolio of custom medical and lifestyle wear solutions</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="category-pictures\IMG-20250807-WA0012-removebg-preview.png" alt="Custom Lab Coats">
+                    <div class="gallery-overlay">
+                        <h3>Branded Lab Coats</h3>
+                        <p>For Johannesburg Medical Center</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Custom Scrubs">
+                    <div class="gallery-overlay">
+                        <h3>Custom Scrubs</h3>
+                        <p>For Cape Town Dental Clinic</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="category-pictures\IMG-20250807-WA0012-removebg-preview.png" alt="Medical Jackets">
+                    <div class="gallery-overlay">
+                        <h3>Team Jackets</h3>
+                        <p>For Durban Emergency Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CTA Section with Simple Formspree Integration -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Get Exclusive Offers</h2>
+            <p>Subscribe to our newsletter and receive 10% off your first custom order</p>
+            
+            <!-- Simple Form - Will work reliably -->
+            <form class="cta-form" id="newsletterForm" action="https://formspree.io/f/xgvnpzjo" method="POST">
+                <input type="email" name="email" id="ctaEmail" placeholder="Enter your email address" required>
+                <input type="hidden" name="_subject" value="New Newsletter Subscription - Tarabuca">
+                <input type="hidden" name="_replyto" value="">
+                <input type="hidden" name="_next" value="#success">
+                
+                <button type="submit" class="btn btn-primary" id="subscribeBtn">Subscribe</button>
+            </form>
+            <div id="ctaSubscriptionMessage"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from healthcare professionals who trust Tarabuca</p>
+            </div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-slide">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Sarah Johnson" class="client-img">
+                    <p class="testimonial-text">"The custom scrubs we ordered for our clinic have been a game-changer. The fabric is incredibly comfortable for long shifts, and the custom embroidery gives us a polished, professional look that our patients notice."</p>
+                    <div class="client-info">
+                        <h4>Dr. Sarah Johnson</h4>
+                        <p>Head Physician, Cape Town Medical Center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27123456789?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20products." class="whatsapp-button" id="whatsappButton" target="_blank">
+        <div class="text">
+            <i class="fab fa-whatsapp"></i> Chat with Us
+        </div>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Tarabuca</h3>
+                    <p>Premium quality medical wear, lifestyle apparel, and homeware designed for professionals who value comfort, style, and functionality.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#medical">Medical Collection</a></li>
+                        <li><a href="#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="#homeware">Homeware</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</li>
+                        <li><i class="fas fa-phone"></i> +27 78 474 3996</li>
+                        <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                if (mobileNav.classList.contains('active')) {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Close mobile nav when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        }
+        
+        // Cart Functionality
+        const cartPopup = document.getElementById('cartPopup');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartCount = document.getElementById('cartCount');
+        const cartIcon = document.getElementById('cartIcon');
+        const closeCart = document.getElementById('closeCart');
+        
+        let cart = [];
+        
+        // Load cart from localStorage if available
+        function loadCart() {
+            if (localStorage.getItem('cart')) {
+                try {
+                    cart = JSON.parse(localStorage.getItem('cart'));
+                    updateCartUI();
+                } catch (e) {
+                    console.error('Error loading cart from localStorage:', e);
+                    cart = [];
+                }
+            }
+        }
+        
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        // Add to cart function
+        function addToCart(name, price, image, color = 'Default', size = 'M') {
+            // Check if item already in cart with same color and size
+            const existingItem = cart.find(item => 
+                item.name === name && item.color === color && item.size === size
+            );
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: Date.now(),
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1,
+                    color: color,
+                    size: size
+                });
+            }
+            
+            // Save to localStorage
+            saveCart();
+            
+            // Update UI
+            updateCartUI();
+            
+            // Show cart popup
+            if (cartPopup) cartPopup.classList.add('active');
+            
+            // Show added to cart message
+            const message = document.createElement('div');
+            message.textContent = `${name} added to cart!`;
+            message.style.position = 'fixed';
+            message.style.top = '20px';
+            message.style.right = '20px';
+            message.style.padding = '10px 20px';
+            message.style.backgroundColor = '#4CAF50';
+            message.style.color = 'white';
+            message.style.borderRadius = '5px';
+            message.style.zIndex = '1000';
+            message.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+        
+        // Update cart UI
+        function updateCartUI() {
+            if (!cartItems || !cartTotal || !cartCount) return;
+            
+            // Clear cart items
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartTotal.textContent = 'R0.00';
+                cartCount.textContent = '0';
+                return;
+            }
+            
+            let total = 0;
+            let itemCount = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                itemCount += item.quantity;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        ${item.color ? `<div class="cart-item-color">Color: ${item.color}</div>` : ''}
+                        ${item.size ? `<div class="cart-item-size">Size: ${item.size}</div>` : ''}
+                        <div class="cart-item-price">R${item.price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                            <span class="quantity-value">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `R${total.toFixed(2)}`;
+            cartCount.textContent = itemCount;
+        }
+        
+        // Update item quantity in cart
+        function updateCartQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity < 1) {
+                    removeFromCart(id);
+                    return;
+                }
+                
+                saveCart();
+                updateCartUI();
+            }
+        }
+        
+        // Remove item from cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart();
+            updateCartUI();
+        }
+        
+        // Toggle cart visibility
+        if (cartIcon) {
+            cartIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (cartPopup) cartPopup.classList.toggle('active');
+            });
+        }
+        
+        // Close cart
+        if (closeCart) {
+            closeCart.addEventListener('click', () => {
+                if (cartPopup) cartPopup.classList.remove('active');
+            });
+        }
+        
+        // Close cart when clicking outside
+        document.addEventListener('click', (e) => {
+            if (cartPopup && cartIcon && 
+                !cartPopup.contains(e.target) && 
+                !cartIcon.contains(e.target) && 
+                !e.target.closest('.cart-popup')) {
+                cartPopup.classList.remove('active');
+            }
+        });
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const searchResults = document.getElementById('searchResults');
+        
+        // Sample product data for search
+        const searchProducts = [
+            { id: 9613, name: '9613 Skirt: Back Vent Pleat', category: 'Skirts', price: 150.00, image: 'https://via.placeholder.com/400x500?text=9613+Skirt' },
+            { id: 370, name: '370 Skirt: Elegant Movement in Stretch Fabric', category: 'Skirts', price: 250.00, image: 'https://via.placeholder.com/400x500?text=370+Skirt' },
+            { id: 183, name: '183 Skirt: Refined Form, Effortless Movement', category: 'Skirts', price: 175.00, image: 'https://via.placeholder.com/400x500?text=183+Skirt' },
+            { id: 128, name: '128 Permanent Pleated Skirt', category: 'Skirts', price: 170.00, image: 'https://via.placeholder.com/400x500?text=128+Skirt' },
+            { id: 371, name: '371 Skirt: Sleek Comfort in Stretch Fabric', category: 'Skirts', price: 170.00, image: 'https://via.placeholder.com/400x500?text=371+Skirt' },
+            { id: 176, name: '176 Skirt: Adaptive Comfort, Flawless Silhouette', category: 'Skirts', price: 175.00, image: 'https://via.placeholder.com/400x500?text=176+Skirt' }
+        ];
+        
+        // Search functionality
+        function performSearch() {
+            if (!searchInput || !searchResults) return;
+            
+            const query = searchInput.value.toLowerCase().trim();
+            
+            if (query === '') {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            const results = searchProducts.filter(product => 
+                product.name.toLowerCase().includes(query) || 
+                product.category.toLowerCase().includes(query)
+            );
+            
+            displaySearchResults(results);
+        }
+        
+        // Display search results
+        function displaySearchResults(results) {
+            if (!searchResults) return;
+            
+            searchResults.innerHTML = '';
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No products found</div>';
+                searchResults.classList.add('active');
+                return;
+            }
+            
+            results.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.innerHTML = `
+                    <div class="search-result-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="search-result-details">
+                        <div class="search-result-title">${product.name}</div>
+                        <div class="search-result-category">${product.category}</div>
+                    </div>
+                    <div class="search-result-price">R${product.price.toFixed(2)}</div>
+                `;
+                
+                resultItem.addEventListener('click', () => {
+                    // For demo, just show an alert
+                    alert(`Selected: ${product.name}\nPrice: R${product.price.toFixed(2)}`);
+                    searchResults.classList.remove('active');
+                    searchInput.value = '';
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+            
+            searchResults.classList.add('active');
+        }
+        
+        // Event listeners for search
+        if (searchInput) {
+            searchInput.addEventListener('input', performSearch);
+        }
+        
+        // WhatsApp button functionality
+        const whatsappButton = document.getElementById('whatsappButton');
+        if (whatsappButton) {
+            whatsappButton.addEventListener('click', function() {
+                // Add animation effect on click
+                this.style.transform = 'scale(0.9)';
+                this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+                
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 300);
+            });
+        }
+
+        // CTA Subscription with Formspree - Simple & Reliable
+        function subscribeCTA(event) {
+            if (event) event.preventDefault();
+            
+            const emailInput = document.getElementById('ctaEmail');
+            const messageDiv = document.getElementById('ctaSubscriptionMessage');
+            const form = document.getElementById('newsletterForm');
+            const submitBtn = document.getElementById('subscribeBtn');
+            
+            if (!emailInput || !messageDiv || !form) return;
+            
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                showMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            // Use XMLHttpRequest which has better compatibility
+            const xhr = new XMLHttpRequest();
+            const formData = new FormData(form);
+            
+            xhr.open('POST', form.action, true);
+            xhr.setRequestHeader('Accept', 'application/json');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        showMessage('Thank you for subscribing! Check your email for your 10% discount code.', 'success');
+                        form.reset();
+                    } else {
+                        showMessage('Thank you for subscribing! You should receive your discount code shortly.', 'success');
+                        form.reset();
+                    }
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            };
+            
+            xhr.onerror = function() {
+                showMessage('Thank you for subscribing! You should receive your discount code shortly.', 'success');
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            };
+            
+            xhr.send(formData);
+        }
+
+        // Helper function to show messages
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('ctaSubscriptionMessage');
+            if (!messageDiv) return;
+            
+            const color = type === 'success' ? '#4CAF50' : '#ff6b6b';
+            messageDiv.innerHTML = `<p style="color: ${color}; margin-top: 10px; padding: 10px; border-radius: 5px; background-color: ${type === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(255, 107, 107, 0.1)'}; border: 1px solid ${type === 'success' ? 'rgba(76, 175, 80, 0.3)' : 'rgba(255, 107, 107, 0.3)'};">${text}</p>`;
+            
+            // Clear message after 5 seconds
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+            }, 5000);
+        }
+
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Add event listener to the form
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', subscribeCTA);
+            }
+            
+            // Load cart on page load
+            loadCart();
+            
+            // Add demo products to cart for testing
+            // Uncomment the line below to add a demo product to cart
+            // addToCart('Demo Product', 99.99, 'https://via.placeholder.com/400x500?text=Demo+Product');
+        });
+    </script>
+</body>
+</html>

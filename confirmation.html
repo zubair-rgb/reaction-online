@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarabuca - Order Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5f;        /* Deep Navy Blue */
+            --secondary: #4CAF50;      /* Green Accent */
+            --accent: #4CAF50;         /* Green Accent */
+            --light: #f8f9fa;
+            --dark: #2a2d34;           /* Charcoal */
+            --gray: #6c757d;
+            --light-bg: #f0f4f8;       /* Light background */
+            --text: #333;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 110px; /* Reduced to accommodate new compact header */
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Top Bar Styles */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Sticky Header */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER STRUCTURE */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0; /* Reduced padding for more compact header */
+        }
+        
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.5rem;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+        
+        .logo-placeholder {
+            height: 90px; /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder img {
+            max-height: 198px; /* Increased logo size */
+            width: auto;
+        }
+        
+        .search-container {
+            flex: 1;
+            min-width: 0; /* Allows search to shrink properly */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .search-box:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: none;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            background-color: var(--light-bg);
+            transition: var(--transition);
+            min-width: 60px;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .header-icons a {
+            color: var(--dark);
+            font-size: 1.3rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .header-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 10px;
+        }
+        
+        /* Navigation - Desktop */
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            min-width: 200px;
+            padding: 1rem;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-radius: 5px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 110px; /* Adjusted to match new header height */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 110px); /* Adjusted to match new header height */
+            background-color: white;
+            z-index: 990;
+            transform: translateX(100%);
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-dropdown {
+            padding-left: 20px;
+        }
+        
+        .mobile-dropdown a {
+            font-size: 1rem !important;
+            padding: 8px 0 !important;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 70px;
+            height: 70px;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-button:hover {
+            background: var(--whatsapp-dark);
+            transform: scale(1.05);
+            width: 230px;
+        }
+        
+        .whatsapp-button .logo-container {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button .logo-container img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+        
+        .whatsapp-button .text {
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.4s ease;
+        }
+        
+        .whatsapp-button:hover .text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .whatsapp-button .icon {
+            position: absolute;
+            right: 20px;
+            font-size: 28px;
+            transition: all 0.4s ease;
+        }
+        
+        .whatsapp-button:hover .icon {
+            transform: rotate(360deg);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Confirmation Page Styles */
+        .confirmation-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            animation: bounce 1s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+        
+        .confirmation-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .confirmation-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .confirmation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .confirmation-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .order-details {
+            margin-bottom: 2rem;
+        }
+        
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        .order-detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .order-detail-label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .order-detail-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .order-items {
+            margin-top: 2rem;
+        }
+        
+        .order-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .order-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .order-item-details {
+            flex: 1;
+        }
+        
+        .order-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .order-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .order-item-quantity {
+            color: var(--gray);
+        }
+        
+        .order-summary {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            border-top: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .next-steps {
+            margin-top: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .confirmation-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #152a47;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--dark);
+            flex: 1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e6ed;
+            transform: translateY(-2px);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-2px);
+        }
+        
+        .bank-details {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .bank-details h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .bank-info {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .bank-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: rgba(76, 175, 80, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #adb5bd;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+            
+            .header-top-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-logo {
+                flex-shrink: 0;
+            }
+            
+            .logo-placeholder img {
+                max-height: 80px; /* Slightly smaller for mobile */
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-nav {
+                top: 110px;
+                height: calc(100vh - 110px);
+            }
+            
+            .header-icons a {
+                font-size: 1.2rem;
+            }
+            
+            .logo-placeholder img {
+                max-height: 100px; /* Slightly smaller for very small screens */
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .confirmation-title {
+                font-size: 2rem;
+            }
+            
+            .confirmation-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 12 345 6789</a>
+                <a href="mailto:info@tarabuca.co.za"><i class="fas fa-envelope"></i> info@tarabuca.co.za</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sticky Header -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top-row">
+                    <!-- Logo -->
+                    <div class="header-logo">
+                        <div class="logo-placeholder">
+                            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Medical & Lifestyle Logo">
+                        </div>
+                    </div>
+                    
+                    <!-- Icons and Mobile Menu -->
+                    <div class="header-icons">
+                        <a href="#"><i class="far fa-user"></i></a>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                        
+                        <button class="mobile-menu-btn" id="mobileMenuBtn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#medical">Medical <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="scrubs.html">Scrubs</a>
+                            <a href="tops.html">Tops</a>
+                            <a href="dresses.html">Dresses</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="skirts.html">Skirts</a>
+                            <a href="lab-coats.html">Lab Coats</a>
+                            <a href="jackets.html">Jackets</a>
+                            <a href="equipment.html">Equipment</a>
+                            <a href="medical-bags.html">Bags</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#lifestyle-compression">Compression</a>
+                            <a href="#lifestyle-windbreaker">Wind Breaker</a>
+                            <a href="#lifestyle-awards">Awards/Medals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#homeware">Homeware <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#homeware-duvets">Duvets</a>
+                            <a href="#homeware-sheets">Bed Sheets</a>
+                            <a href="#homeware-inners">Inners</a>
+                            <a href="#homeware-pillows">Pillows</a>
+                            <a href="#homeware-comforters">Comforters</a>
+                        </div>
+                    </li>
+                    <li><a href="#custom">Custom Solutions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#medical">Medical</a>
+                <div class="mobile-dropdown">
+                    <a href="scrubs.html">Scrubs</a>
+                    <a href="tops.html">Tops</a>
+                    <a href="dresses.html">Dresses</a>
+                    <a href="pants.html">Pants</a>
+                    <a href="skirts.html">Skirts</a>
+                    <a href="lab-coats.html">Lab Coats</a>
+                    <a href="jackets.html">Jackets</a>
+                    <a href="equipment.html">Equipment</a>
+                    <a href="medical-bags.html">Bags</a>
+                </div>
+            </li>
+            <li>
+                <a href="#lifestyle">Lifestyle</a>
+                <div class="mobile-dropdown">
+                    <a href="compression.html">Compression</a>
+                    <a href="wind-breakers.html">Wind Breaker</a>
+                    <a href="awards.html">Awards/Medals</a>
+                </div>
+            </li>
+            <li>
+                <a href="#homeware">Homeware</a>
+                <div class="mobile-dropdown">
+                    <a href="#homeware-duvets">Duvets</a>
+                    <a href="#homeware-sheets">Bed Sheets</a>
+                    <a href="#homeware-inners">Inners</a>
+                    <a href="#homeware-pillows">Pillows</a>
+                    <a href="#homeware-comforters">Comforters</a>
+                </div>
+            </li>
+            <li><a href="#custom">Custom Solutions</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Confirmation Content -->
+    <div class="confirmation-container">
+        <div class="confirmation-header">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 class="confirmation-title">Order Confirmed!</h1>
+            <p class="confirmation-subtitle">Thank you for your order. We've received your order and will begin processing it right away.</p>
+        </div>
+        
+        <div class="confirmation-grid">
+            <!-- Order Details -->
+            <div>
+                <div class="confirmation-card">
+                    <h2 class="card-title">Order Details</h2>
+                    
+                    <div class="order-details">
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Order Number:</span>
+                            <span class="order-detail-value" id="orderId">TAR123456</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Order Date:</span>
+                            <span class="order-detail-value" id="orderDate">October 15, 2023</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Payment Method:</span>
+                            <span class="order-detail-value" id="paymentMethod">Bank Transfer</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Shipping Method:</span>
+                            <span class="order-detail-value" id="shippingMethod">Standard Delivery</span>
+                        </div>
+                    </div>
+                    
+                    <div class="order-items" id="orderItems">
+                        <!-- Order items will be populated here -->
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="orderSubtotal">R0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="orderShipping">R0.00</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="orderTotal">R0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customer Information -->
+                <div class="confirmation-card">
+                    <h2 class="card-title">Customer Information</h2>
+                    
+                    <div class="order-details">
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Full Name:</span>
+                            <span class="order-detail-value" id="customerName">John Doe</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Email Address:</span>
+                            <span class="order-detail-value" id="customerEmail">john.doe@example.com</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Phone Number:</span>
+                            <span class="order-detail-value" id="customerPhone">+27 12 345 6789</span>
+                        </div>
+                        <div class="order-detail-row">
+                            <span class="order-detail-label">Delivery Address:</span>
+                            <span class="order-detail-value" id="customerAddress">123 Medical Way, Johannesburg, South Africa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Next Steps & Actions -->
+            <div>
+                <div class="confirmation-card">
+                    <h2 class="card-title">Next Steps</h2>
+                    
+                    <div class="next-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Order Processing</h4>
+                                <p>We'll prepare your items for shipping. This usually takes 1-2 business days.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Shipping</h4>
+                                <p>Your order will be shipped via your selected method. You'll receive a tracking number.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Delivery</h4>
+                                <p>Your order will arrive at your specified address within the estimated timeframe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <a href="index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Bank Transfer Details (if applicable) -->
+                <div class="confirmation-card" id="bankDetailsCard" style="display: none;">
+                    <h2 class="card-title">Bank Transfer Details</h2>
+                    
+                    <div class="bank-details">
+                        <h4>Please transfer the total amount to:</h4>
+                        <div class="bank-info">
+                            <p><strong>Bank:</strong> Standard Bank</p>
+                            <p><strong>Account Name:</strong> Tarabuca Medical & Lifestyle</p>
+                            <p><strong>Account Number:</strong> 0123456789</p>
+                            <p><strong>Branch Code:</strong> 051001</p>
+                            <p><strong>Reference:</strong> <span id="orderReference">TAR123456</span></p>
+                        </div>
+                        
+                        <div class="highlight">
+                            <p><strong>Important:</strong> Please use your order number as reference when making payment. Your order will be processed once payment is confirmed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <a href="#" class="btn btn-whatsapp" id="whatsappConfirmBtn">
+                            <i class="fab fa-whatsapp"></i> Confirm via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Store Pickup Details (if applicable) -->
+                <div class="confirmation-card" id="storeDetailsCard" style="display: none;">
+                    <h2 class="card-title">Store Pickup Details</h2>
+                    
+                    <div class="bank-details">
+                        <h4>You can collect your order from:</h4>
+                        <div class="bank-info">
+                            <p><strong>Address:</strong> 123 Medical Way, Johannesburg, South Africa</p>
+                            <p><strong>Hours:</strong> Mon-Fri: 8:00 - 17:00, Sat: 9:00 - 13:00</p>
+                            <p><strong>Contact:</strong> +27 12 345 6789</p>
+                        </div>
+                        
+                        <div class="highlight">
+                            <p><strong>Please bring:</strong> Your order confirmation and a valid ID when collecting your order.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" id="whatsappButton">
+        <div class="logo-container">
+            <img src="category-pictures/IMG-20250807-WA0012-removebg-preview.png" alt="Tarabuca Logo">
+        </div>
+        <div class="text">Chat with Us</div>
+        <div class="icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Tarabuca</h3>
+                    <p>Premium quality medical wear, lifestyle apparel, and homeware designed for professionals who value comfort, style, and functionality.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#medical">Medical Collection</a></li>
+                        <li><a href="#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="#custom">Custom Solutions</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Way, Johannesburg, South Africa</li>
+                        <li><i class="fas fa-phone"></i> +27 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load the latest order from localStorage
+        function loadOrderConfirmation() {
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            if (orders.length === 0) {
+                // No orders found, redirect to home
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Get the latest order
+            const latestOrder = orders[orders.length - 1];
+            
+            // Update confirmation page with order details
+            document.getElementById('orderId').textContent = latestOrder.orderId;
+            document.getElementById('orderReference').textContent = latestOrder.orderId;
+            document.getElementById('orderDate').textContent = new Date(latestOrder.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('paymentMethod').textContent = 
+                latestOrder.paymentMethod === 'bank' ? 'Bank Transfer' : 'Pay In Store';
+            document.getElementById('shippingMethod').textContent = 
+                latestOrder.shippingMethod === 'standard' ? 'Standard Delivery' : 
+                latestOrder.shippingMethod === 'express' ? 'Express Delivery' : 'Free Delivery';
+            
+            // Update customer information
+            document.getElementById('customerName').textContent = latestOrder.name;
+            document.getElementById('customerEmail').textContent = latestOrder.email;
+            document.getElementById('customerPhone').textContent = latestOrder.phone;
+            document.getElementById('customerAddress').textContent = latestOrder.address;
+            
+            // Update order summary
+            document.getElementById('orderSubtotal').textContent = `R${latestOrder.subtotal.toFixed(2)}`;
+            document.getElementById('orderShipping').textContent = 
+                latestOrder.shippingCost === 0 ? 'FREE' : `R${latestOrder.shippingCost.toFixed(2)}`;
+            document.getElementById('orderTotal').textContent = `R${latestOrder.total.toFixed(2)}`;
+            
+            // Show appropriate payment details
+            if (latestOrder.paymentMethod === 'bank') {
+                document.getElementById('bankDetailsCard').style.display = 'block';
+            } else {
+                document.getElementById('storeDetailsCard').style.display = 'block';
+            }
+            
+            // Populate order items
+            const orderItems = document.getElementById('orderItems');
+            orderItems.innerHTML = '';
+            
+            if (latestOrder.cart && latestOrder.cart.length > 0) {
+                latestOrder.cart.forEach(item => {
+                    const orderItem = document.createElement('div');
+                    orderItem.className = 'order-item';
+                    
+                    let attributesHtml = '';
+                    if (item.color || item.size) {
+                        attributesHtml = `<div class="order-item-attributes">`;
+                        if (item.color) attributesHtml += `Color: ${item.color} `;
+                        if (item.size) attributesHtml += `Size: ${item.size}`;
+                        attributesHtml += `</div>`;
+                    }
+                    
+                    orderItem.innerHTML = `
+                        <div class="order-item-img">
+                            <img src="${item.image || 'category-pictures/placeholder.jpg'}" alt="${item.name}">
+                        </div>
+                        <div class="order-item-details">
+                            <div class="order-item-title">${item.name}</div>
+                            ${attributesHtml}
+                            <div class="order-item-price">R${item.price.toFixed(2)}</div>
+                            <div class="order-item-quantity">Quantity: ${item.quantity}</div>
+                        </div>
+                    `;
+                    
+                    orderItems.appendChild(orderItem);
+                });
+            }
+            
+            // Update cart count to 0 since order is placed
+            document.getElementById('cartCount').textContent = '0';
+        }
+        
+        // WhatsApp confirmation button
+        document.getElementById('whatsappConfirmBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            if (orders.length === 0) return;
+            
+            const latestOrder = orders[orders.length - 1];
+            const phoneNumber = '27123456789';
+            const message = `Hello%20Tarabuca%21%20I%20have%20made%20payment%20for%20my%20order.%0AOrder%20Number:%20${latestOrder.orderId}%0AName:%20${latestOrder.name}%0AAmount:%20R${latestOrder.total.toFixed(2)}`;
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderConfirmation();
+            
+            // Mobile navigation
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileNav.classList.toggle('active');
+                    if (mobileNav.classList.contains('active')) {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+                
+                // Close mobile nav when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            
+            // WhatsApp button functionality
+            const whatsappButton = document.getElementById('whatsappButton');
+            if (whatsappButton) {
+                whatsappButton.addEventListener('click', function() {
+                    const phoneNumber = '27123456789';
+                    const message = 'Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20my%20order.';
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Add animation effect on click
+                    this.style.transform = 'scale(0.9)';
+                    this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        this.style.boxShadow = '';
+                    }, 300);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
