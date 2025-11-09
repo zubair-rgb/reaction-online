@@ -1615,6 +1615,11 @@
                         <div class="color-swatches" id="modalColorSwatches"></div>
                     </div>
                     
+                    <div class="size-options">
+                        <span class="size-label">Select Size:</span>
+                        <div class="size-selector" id="modalSizeOptions"></div>
+                    </div>
+                    
                     <div class="quantity-selector">
                         <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
                         <span class="quantity-value" id="quantityValue">1</span>
@@ -1644,7 +1649,7 @@
             <div class="products-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
+                    <div class="product-badge">Popular</div>
                     <div class="product-img">
                         <img src="category-pictures/Scrub-set pictures/350-Scrub-set-1.png" alt="350 Scrub Set">
                     </div>
@@ -1692,7 +1697,7 @@
                 
                 <!-- Product 2 -->
                 <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
+                    <div class="product-badge">Popular</div>
                     <div class="product-img">
                         <img src="category-pictures/Scrub-set pictures/381-MOCK-CROSSOVER-BLOUSE-JEGGINGS-PANTS-WITH-ELASTICATED-HEM-removebg-preview.png" alt="381 Mock Crossover Blouse Jeggings Pants">
                     </div>
@@ -1737,302 +1742,338 @@
                     </div>
                 </div>
                 
-                <!-- Product 3: BASIC 4 WAY SCRUB BLACK -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BLACK.png" alt="BASIC 4 WAY SCRUB BLACK">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB BLACK</h3>
-                        <p class="product-desc">Classic black scrub with 4-way stretch technology for maximum comfort and mobility during long shifts. Durable fabric that maintains its shape and color.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB BLACK', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BLACK.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(2)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
+<!-- Product 3: BASIC 4 WAY SCRUB BLACK -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BLACK.png" alt="BASIC 4 WAY SCRUB BLACK">
                 </div>
-                
-                <!-- Product 4: BASIC 4 WAY SCRUB GREEN -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-GREEN.png" alt="BASIC 4 WAY SCRUB GREEN">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB GREEN</h3>
-                        <p class="product-desc">Professional green scrub with 4-way stretch technology. Perfect for healthcare environments requiring comfort and durability throughout long shifts.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #008000;" title="Green"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB GREEN', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-GREEN.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(3)">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB BLACK</h3>
+                    <p class="product-desc">Classic black scrub with 4-way stretch technology for maximum comfort and mobility during long shifts. Durable fabric that maintains its shape and color.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Product 5: BASIC 4 WAY SCRUB BEIGE -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BEIGE.png" alt="BASIC 4 WAY SCRUB BEIGE">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB BEIGE</h3>
-                        <p class="product-desc">Light and neutral beige scrub with 4-way stretch technology. Offers professional appearance with maximum comfort and flexibility for healthcare professionals.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #F5F5DC;" title="Beige"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB BEIGE', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BEIGE.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(4)">
-                                <i class="fas fa-eye"></i>
-                            </button>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Product 6: BASIC 4 WAY SCRUB PURPLE -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PURPLE.png" alt="BASIC 4 WAY SCRUB PURPLE">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB PURPLE</h3>
-                        <p class="product-desc">Vibrant purple scrub with 4-way stretch technology. Combines professional functionality with a touch of personality and style for healthcare workers.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #800080;" title="Purple"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB PURPLE', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PURPLE.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(5)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 7: BASIC 4 WAY SCRUB POWDER BLUE -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-POWDER-BLUE.png" alt="BASIC 4 WAY SCRUB POWDER BLUE">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB POWDER BLUE</h3>
-                        <p class="product-desc">Soft powder blue scrub with 4-way stretch technology. Provides a calming professional appearance with exceptional comfort and mobility.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #B0E0E6;" title="Powder Blue"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB POWDER BLUE', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-POWDER-BLUE.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(6)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 8: BASIC 4 WAY SCRUB DUSTY PINK -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-DUSTY-PINK.png" alt="BASIC 4 WAY SCRUB DUSTY PINK">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB DUSTY PINK</h3>
-                        <p class="product-desc">Elegant dusty pink scrub with 4-way stretch technology. Offers a subtle, sophisticated color option with all the comfort and functionality needed for healthcare work.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #DCAE96;" title="Dusty Pink"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB DUSTY PINK', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-DUSTY-PINK.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(7)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 9: BASIC 4 WAY SCRUB PINK -->
-                <div class="product-card">
-                    <div class="product-badge">4-Way Stretch</div>
-                    <div class="product-img">
-                        <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PINK.png" alt="BASIC 4 WAY SCRUB PINK">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">BASIC 4 WAY SCRUB PINK</h3>
-                        <p class="product-desc">Bright pink scrub with 4-way stretch technology. Adds a pop of color to your professional wardrobe while providing maximum comfort and flexibility.</p>
-                        <div class="product-price">R550.00</div>
-                        
-                        <div class="color-options">
-                            <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFC0CB;" title="Pink"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="size-options">
-                            <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
-                                <span class="size-btn">5XL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('BASIC 4 WAY SCRUB PINK', 550, 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PINK.png')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(8)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB BLACK', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BLACK.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(2)">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- Product 4: BASIC 4 WAY SCRUB GREEN -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-GREEN.png" alt="BASIC 4 WAY SCRUB GREEN">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB GREEN</h3>
+                    <p class="product-desc">Professional green scrub with 4-way stretch technology. Perfect for healthcare environments requiring comfort and durability throughout long shifts.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #008000;" title="Green"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB GREEN', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-GREEN.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(3)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: BASIC 4 WAY SCRUB BEIGE -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BEIGE.png" alt="BASIC 4 WAY SCRUB BEIGE">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB BEIGE</h3>
+                    <p class="product-desc">Light and neutral beige scrub with 4-way stretch technology. Offers professional appearance with maximum comfort and flexibility for healthcare professionals.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #F5F5DC;" title="Beige"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB BEIGE', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-BEIGE.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(4)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: BASIC 4 WAY SCRUB PURPLE -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PURPLE.png" alt="BASIC 4 WAY SCRUB PURPLE">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB PURPLE</h3>
+                    <p class="product-desc">Vibrant purple scrub with 4-way stretch technology. Combines professional functionality with a touch of personality and style for healthcare workers.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #800080;" title="Purple"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB PURPLE', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PURPLE.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(5)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7: BASIC 4 WAY SCRUB POWDER BLUE -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-POWDER-BLUE.png" alt="BASIC 4 WAY SCRUB POWDER BLUE">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB POWDER BLUE</h3>
+                    <p class="product-desc">Soft powder blue scrub with 4-way stretch technology. Provides a calming professional appearance with exceptional comfort and mobility.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #B0E0E6;" title="Powder Blue"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB POWDER BLUE', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-POWDER-BLUE.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(6)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8: BASIC 4 WAY SCRUB DUSTY PINK -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-DUSTY-PINK.png" alt="BASIC 4 WAY SCRUB DUSTY PINK">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB DUSTY PINK</h3>
+                    <p class="product-desc">Elegant dusty pink scrub with 4-way stretch technology. Offers a subtle, sophisticated color option with all the comfort and functionality needed for healthcare work.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #DCAE96;" title="Dusty Pink"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB DUSTY PINK', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-DUSTY-PINK.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(7)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9: BASIC 4 WAY SCRUB PINK -->
+            <div class="product-card">
+                <div class="product-badge">4-Way Stretch</div>
+                <div class="product-img">
+                    <img src="category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PINK.png" alt="BASIC 4 WAY SCRUB PINK">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">BASIC 4 WAY SCRUB PINK</h3>
+                    <p class="product-desc">Bright pink scrub with 4-way stretch technology. Adds a pop of color to your professional wardrobe while providing maximum comfort and flexibility.</p>
+
+                    <div class="product-price">R320.00</div>
+                    <div class="price-range">(R350 for 3XL-5XL)</div>
+
+                    <div class="color-options">
+                        <span class="color-label">Colors:</span>
+                        <div class="color-swatches">
+                            <span class="color-swatch selected" style="background-color: #FFC0CB;" title="Pink"></span>
+                        </div>
+                    </div>
+
+                    <div class="size-options">
+                        <span class="size-label">Size:</span>
+                        <div class="size-selector" data-base-price="320" data-plus-price="350">
+                            <span class="size-btn" data-size="XS">XS</span>
+                            <span class="size-btn" data-size="S">S</span>
+                            <span class="size-btn selected" data-size="M">M</span>
+                            <span class="size-btn" data-size="L">L</span>
+                            <span class="size-btn" data-size="XL">XL</span>
+                            <span class="size-btn" data-size="2XL">2XL</span>
+                            <span class="size-btn" data-size="3XL">3XL</span>
+                            <span class="size-btn" data-size="4XL">4XL</span>
+                            <span class="size-btn" data-size="5XL">5XL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary" 
+                                onclick="addToCartDynamic(this, 'BASIC 4 WAY SCRUB PINK', 'category-pictures/Scrub-set pictures/BASIC-4-WAY-SCRUB-PINK.png')">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-quickview" onclick="openQuickView(8)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Why Choose Our Scrubs Section -->
     <section class="features-section" style="background-color: var(--light-bg); padding: 5rem 0;">
@@ -2114,7 +2155,7 @@
     </section>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27123456789?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20scrubs." class="whatsapp-button" id="whatsappButton" target="_blank">
+    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20dresses." class="whatsapp-button" id="whatsappButton" target="_blank">
         <div class="text">
             <i class="fab fa-whatsapp"></i> Chat with Us
         </div>
@@ -2175,6 +2216,7 @@
     </footer>
 
 <script>
+
 // Mobile navigation
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileNav = document.getElementById('mobileNav');
@@ -2445,7 +2487,8 @@ const productsData = [
         id: "SC002-BLACK",
         name: "BASIC 4 WAY SCRUB BLACK",
         description: "Classic black scrub with 4-way stretch technology for maximum comfort and mobility during long shifts. Durable fabric that maintains its shape and color.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Black"],
         category: "BASIC SCRUB",
@@ -2455,7 +2498,8 @@ const productsData = [
         id: "SC002-GREEN",
         name: "BASIC 4 WAY SCRUB GREEN",
         description: "Professional green scrub with 4-way stretch technology. Perfect for healthcare environments requiring comfort and durability throughout long shifts.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Green"],
         category: "BASIC SCRUB",
@@ -2465,7 +2509,8 @@ const productsData = [
         id: "SC002-BEIGE",
         name: "BASIC 4 WAY SCRUB BEIGE",
         description: "Light and neutral beige scrub with 4-way stretch technology. Offers professional appearance with maximum comfort and flexibility for healthcare professionals.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Beige"],
         category: "BASIC SCRUB",
@@ -2475,7 +2520,8 @@ const productsData = [
         id: "SC002-PURPLE",
         name: "BASIC 4 WAY SCRUB PURPLE",
         description: "Vibrant purple scrub with 4-way stretch technology. Combines professional functionality with a touch of personality and style for healthcare workers.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Purple"],
         category: "BASIC SCRUB",
@@ -2485,7 +2531,8 @@ const productsData = [
         id: "SC002-POWDER-BLUE",
         name: "BASIC 4 WAY SCRUB POWDER BLUE",
         description: "Soft powder blue scrub with 4-way stretch technology. Provides a calming professional appearance with exceptional comfort and mobility.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Powder Blue"],
         category: "BASIC SCRUB",
@@ -2495,7 +2542,8 @@ const productsData = [
         id: "SC002-DUSTY-PINK",
         name: "BASIC 4 WAY SCRUB DUSTY PINK",
         description: "Elegant dusty pink scrub with 4-way stretch technology. Offers a subtle, sophisticated color option with all the comfort and functionality needed for healthcare work.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Dusty Pink"],
         category: "BASIC SCRUB",
@@ -2505,7 +2553,8 @@ const productsData = [
         id: "SC002-PINK",
         name: "BASIC 4 WAY SCRUB PINK",
         description: "Bright pink scrub with 4-way stretch technology. Adds a pop of color to your professional wardrobe while providing maximum comfort and flexibility.",
-        price: 550,
+        price: 320,
+        priceXL: 350,
         sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
         colors: ["Pink"],
         category: "BASIC SCRUB",
@@ -2751,6 +2800,54 @@ if (whatsappButton) {
     });
 }
 
+// Dynamic pricing for 4-way scrubs
+function initializeDynamicPricing() {
+    const sizeSelectors = document.querySelectorAll('.size-selector[data-base-price]');
+    
+    sizeSelectors.forEach(selector => {
+        const basePrice = parseFloat(selector.getAttribute('data-base-price'));
+        const plusPrice = parseFloat(selector.getAttribute('data-plus-price'));
+        const sizeButtons = selector.querySelectorAll('.size-btn');
+        
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update selected state
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Update price display
+                const size = this.getAttribute('data-size');
+                const priceElement = this.closest('.product-card').querySelector('.product-price');
+                const newPrice = ['3XL', '4XL', '5XL'].includes(size) ? plusPrice : basePrice;
+                priceElement.textContent = `R${newPrice.toFixed(2)}`;
+            });
+        });
+    });
+}
+
+// Dynamic add to cart function for 4-way scrubs
+function addToCartDynamic(button, name, image) {
+    const productCard = button.closest('.product-card');
+    const selectedColor = productCard.querySelector('.color-swatch.selected');
+    const selectedSize = productCard.querySelector('.size-btn.selected');
+    
+    if (!selectedColor || !selectedSize) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    const color = selectedColor.title || selectedColor.getAttribute('data-color') || '';
+    const size = selectedSize.textContent || selectedSize.getAttribute('data-size') || '';
+    
+    // Get the correct price based on size
+    const sizeSelector = productCard.querySelector('.size-selector');
+    const basePrice = parseFloat(sizeSelector.getAttribute('data-base-price'));
+    const plusPrice = parseFloat(sizeSelector.getAttribute('data-plus-price'));
+    const price = ['3XL', '4XL', '5XL'].includes(size) ? plusPrice : basePrice;
+    
+    addToCart(name, price, image, color, size);
+}
+
 // Product Card Initialization with proper event handling
 function initializeProductCards() {
     const productCards = document.querySelectorAll('.product-card');
@@ -2764,7 +2861,7 @@ function initializeProductCards() {
         const colorSwatches = card.querySelectorAll('.color-swatch');
         const sizeButtons = card.querySelectorAll('.size-btn');
         const addToCartButton = card.querySelector('.btn-primary');
-        const quickViewButton = card.querySelector('.btn-secondary');
+        const quickViewButton = card.querySelector('.btn-quickview');
         
         let selectedColor = '';
         let selectedSize = '';
@@ -2858,12 +2955,14 @@ function initializeProductCards() {
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
     initializeProductCards();
+    initializeDynamicPricing();
     
     // Re-initialize if needed (for dynamic content)
     const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.addedNodes.length) {
                 initializeProductCards();
+                initializeDynamicPricing();
             }
         });
     });
@@ -2881,6 +2980,7 @@ window.openQuickView = openQuickView;
 window.closeQuickView = closeQuickView;
 window.updateQuantity = updateQuantity;
 window.addToCartFromModal = addToCartFromModal;
+window.addToCartDynamic = addToCartDynamic;
 </script>
 </body>
 </html>

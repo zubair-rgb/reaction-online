@@ -1611,7 +1611,7 @@
     <!-- Quick View Modal -->
     <div class="modal" id="quickViewModal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeQuickView()">&times;</button>
+            <button class="close-modal" id="closeModal">&times;</button>
             <div class="modal-body">
                 <div class="modal-image">
                     <img id="modalImg" src="" alt="Product Image">
@@ -1651,14 +1651,14 @@
                     </div>
                     
                     <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                        <button class="quantity-btn" id="decreaseQuantity">-</button>
                         <span class="quantity-value" id="quantityValue">1</span>
-                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                        <button class="quantity-btn" id="increaseQuantity">+</button>
                     </div>
                     
                     <div class="modal-actions">
-                        <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
-                        <button class="btn btn-outline" onclick="closeQuickView()">Continue Shopping</button>
+                        <button class="btn btn-primary" id="addToCartFromModal">Add to Cart</button>
+                        <button class="btn btn-outline" id="continueShopping">Continue Shopping</button>
                     </div>
                 </div>
             </div>
@@ -1691,17 +1691,17 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #50C878;" title="Emerald"></span>
-                                <span class="color-swatch" style="background-color: #808080;" title="Grey"></span>
-                                <span class="color-swatch" style="background-color: #800000;" title="Maroon"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FF0000;" title="Red"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
-                                <span class="color-swatch" style="background-color: #87CEEB;" title="Sky"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White"></span>
-                                <span class="color-swatch" style="background-color: #FFFF00;" title="Yellow"></span>
-                                <span class="color-swatch" style="background-color: #36454F;" title="Charcoal"></span>
+                                <span class="color-swatch selected" style="background-color: #000000;" title="Black" data-color="Black"></span>
+                                <span class="color-swatch" style="background-color: #50C878;" title="Emerald" data-color="Emerald"></span>
+                                <span class="color-swatch" style="background-color: #808080;" title="Grey" data-color="Grey"></span>
+                                <span class="color-swatch" style="background-color: #800000;" title="Maroon" data-color="Maroon"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FF0000;" title="Red" data-color="Red"></span>
+                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal" data-color="Royal"></span>
+                                <span class="color-swatch" style="background-color: #87CEEB;" title="Sky" data-color="Sky"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #FFFF00;" title="Yellow" data-color="Yellow"></span>
+                                <span class="color-swatch" style="background-color: #36454F;" title="Charcoal" data-color="Charcoal"></span>
                             </div>
                         </div>
                         
@@ -1709,18 +1709,18 @@
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">XXS</span>
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn selected">S</span>
-                                <span class="size-btn">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                                <span class="size-btn" data-size="XXS">XXS</span>
+                                <span class="size-btn" data-size="XS">XS</span>
+                                <span class="size-btn selected" data-size="S">S</span>
+                                <span class="size-btn" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('Long Sleeve Compression Top', 255, 'category-pictures/Compression Pictures/long-sleeve-compression-top.png', 'Black', 'S')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(0)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="Long Sleeve Compression Top" data-price="255" data-image="category-pictures/Compression Pictures/long-sleeve-compression-top.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="0">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1740,10 +1740,10 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000000;" title="Black" data-color="Black"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal" data-color="Royal"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
@@ -1751,18 +1751,18 @@
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">XXS</span>
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn selected">S</span>
-                                <span class="size-btn">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                                <span class="size-btn" data-size="XXS">XXS</span>
+                                <span class="size-btn" data-size="XS">XS</span>
+                                <span class="size-btn selected" data-size="S">S</span>
+                                <span class="size-btn" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('Long Compression Pants', 250, 'category-pictures/Compression Pictures/Compression-Long-pants.png', 'Black', 'S')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(1)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="Long Compression Pants" data-price="250" data-image="category-pictures/Compression Pictures/Compression-Long-pants.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="1">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1784,10 +1784,10 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FF0000;" title="Red"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
+                                <span class="color-swatch selected" style="background-color: #000000;" title="Black" data-color="Black"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FF0000;" title="Red" data-color="Red"></span>
+                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal" data-color="Royal"></span>
                             </div>
                         </div>
                         
@@ -1795,16 +1795,16 @@
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                                <span class="size-btn" data-size="S">S</span>
+                                <span class="size-btn selected" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('Compression Set (Top & Pants)', 480, 'category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png', 'Black', 'M')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(2)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="Compression Set (Top & Pants)" data-price="480" data-image="category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="2">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1970,28 +1970,54 @@
     </footer>
 
 <script>
-// Mobile navigation
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileNav = document.getElementById('mobileNav');
+// Product data for quick view
+const productsData = [
+    {
+        id: "LCB123",
+        name: "Long Sleeve Compression Top",
+        description: "Experience all-day comfort and performance with our Long Sleeve Compression Top. Crafted from high-quality, lightweight, and elastic materials, this top fits like a second skin, providing excellent support without sacrificing comfort. Engineered to keep you dry, the moisture-wicking fabric quickly draws sweat away from the body and dries rapidly. Anti-odour technology helps prevent the growth of bacteria, reducing unwanted odors and keeping you feeling fresh throughout your workout or busy day. The main body is made from 84% polyester and 16% elastane, while the mesh inserts are 92% polyester and 8% elastane, ensuring durability, flexibility, and comfort in every wear. Unlock your next level powerful moves with a compression fit that hugs your muscles.",
+        price: 255,
+        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
+        colors: ["Black", "Emerald", "Grey", "Maroon", "Navy", "Red", "Royal", "Sky", "White", "Yellow", "Charcoal"],
+        category: "COMPRESSION WEAR",
+        image: "category-pictures/Compression Pictures/long-sleeve-compression-top.png"
+    },
+    {
+        id: "LCC096",
+        name: "Long Compression Pants",
+        description: "This Full-length Compression Bottoms offer a comfortable fit thanks to their stay-cool construction. Combined with its built-in cooling technology keeping you dry and comfortable during exercise, these tights are ideal for sports or gym sessions. The leggings feature an elasticated waistband for optimized comfort and a flattering fit. Features include: Tough, lightweight fabric with all the performance benefits of compression wear; Stretch-mesh gusset & inseam panels deliver strategic ventilation; Updated ergonomic design keeps seams off high abrasion areas & increases durability; 4-way stretch construction moves better in every direction; Material wicks sweat & dries really fast.",
+        price: 250,
+        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
+        colors: ["Black", "Navy", "Royal", "White"],
+        category: "COMPRESSION WEAR",
+        image: "category-pictures/Compression Pictures/Compression-Long-pants.png"
+    },
+    {
+        id: "LCA094",
+        name: "Compression Set (Top & Pants)",
+        description: "This high-performance base layer will wick moisture away from the skin and keep you comfortable all day long. With the combination of the stylish space-dye and comfortable fabric, you will never want to take them off. The anti-microbial properties will keep you feeling fresh and dry. Features: The 2 piece compression sets are made of soft, breathable, and moisture-wicking fabrics, ergonomic compression fit for enhanced range of motion; Increase Muscular Power & Endurance with improved blood circulation; Breathable, Compression shirt and pants can wick away moisture from the body rapidly and accelerate the evaporation of the sweat, keeping you dry and comfortable while you work out and practice in both hot and cold weather; The High-Elastic fabric effectively protects muscles, prevents muscle vibration, maintaining physical function. Slim & tight fit perfect showing off muscle and physique; Great to wear for indoor/outdoor activities (running, cycling, jogging, fishing baseball, basketball, yoga, soccer, hockey, training, camping, hiking, workout, climbing, and any sports).",
+        price: 480,
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Black", "Navy", "Red", "Royal"],
+        category: "COMPRESSION WEAR SET",
+        image: "category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png"
+    },
+];
 
-if (mobileMenuBtn && mobileNav) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-        if (mobileNav.classList.contains('active')) {
-            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-    
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-}
+// Quick View Modal Functions
+let currentProductIndex = 0;
+let quantity = 1;
+let selectedColor = '';
+let selectedSize = '';
+
+// DOM Elements
+const quickViewModal = document.getElementById('quickViewModal');
+const closeModalBtn = document.getElementById('closeModal');
+const decreaseQuantityBtn = document.getElementById('decreaseQuantity');
+const increaseQuantityBtn = document.getElementById('increaseQuantity');
+const quantityValue = document.getElementById('quantityValue');
+const addToCartFromModalBtn = document.getElementById('addToCartFromModal');
+const continueShoppingBtn = document.getElementById('continueShopping');
 
 // Cart Functionality
 const cartPopup = document.getElementById('cartPopup');
@@ -2004,7 +2030,400 @@ const closeCart = document.getElementById('closeCart');
 let cart = [];
 let isAddingToCart = false; // Lock to prevent multiple additions
 
-// Load cart from localStorage if available
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    initializeProductCards();
+    initializeQuickView();
+    initializeCart();
+    initializeMobileNav();
+    
+    // Initialize search functionality
+    initializeSearch();
+});
+
+// Initialize product cards with color and size selection
+function initializeProductCards() {
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach((card, index) => {
+        // Skip if already initialized
+        if (card.hasAttribute('data-initialized')) {
+            return;
+        }
+        
+        const colorSwatches = card.querySelectorAll('.color-swatch');
+        const sizeButtons = card.querySelectorAll('.size-btn');
+        const addToCartButton = card.querySelector('.add-to-cart-btn');
+        const quickViewButton = card.querySelector('.btn-quickview');
+        
+        let selectedColor = '';
+        let selectedSize = '';
+        
+        // Set default selections
+        if (colorSwatches.length > 0) {
+            const defaultColor = card.querySelector('.color-swatch.selected');
+            if (defaultColor) {
+                selectedColor = defaultColor.getAttribute('data-color') || '';
+            }
+        }
+        
+        if (sizeButtons.length > 0) {
+            const defaultSize = card.querySelector('.size-btn.selected');
+            if (defaultSize) {
+                selectedSize = defaultSize.getAttribute('data-size') || '';
+            }
+        }
+        
+        // Color selection
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                colorSwatches.forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedColor = this.getAttribute('data-color') || '';
+            });
+        });
+        
+        // Size selection
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedSize = this.getAttribute('data-size') || '';
+            });
+        });
+        
+        // Add to cart with proper event handling
+        if (addToCartButton) {
+            const handleAddToCart = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Validate selection
+                if (!selectedColor || !selectedSize) {
+                    showCartMessage('Please select both color and size before adding to cart!', 'error');
+                    return;
+                }
+                
+                const name = addToCartButton.getAttribute('data-product');
+                const image = addToCartButton.getAttribute('data-image');
+                const price = parseFloat(addToCartButton.getAttribute('data-price'));
+                
+                addToCart(name, price, image, selectedColor, selectedSize);
+            };
+            
+            addToCartButton.addEventListener('click', handleAddToCart);
+        }
+        
+        // Quick view button
+        if (quickViewButton) {
+            quickViewButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const productIndex = parseInt(quickViewButton.getAttribute('data-product-index'));
+                openQuickView(productIndex);
+            });
+        }
+        
+        // Mark as initialized
+        card.setAttribute('data-initialized', 'true');
+    });
+}
+
+// Initialize quick view functionality
+function initializeQuickView() {
+    // Modal close button
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeQuickView);
+    }
+    
+    // Quantity buttons
+    if (decreaseQuantityBtn) {
+        decreaseQuantityBtn.addEventListener('click', () => updateQuantity(-1));
+    }
+    
+    if (increaseQuantityBtn) {
+        increaseQuantityBtn.addEventListener('click', () => updateQuantity(1));
+    }
+    
+    // Modal action buttons
+    if (addToCartFromModalBtn) {
+        addToCartFromModalBtn.addEventListener('click', addToCartFromModal);
+    }
+    
+    if (continueShoppingBtn) {
+        continueShoppingBtn.addEventListener('click', closeQuickView);
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === quickViewModal) {
+            closeQuickView();
+        }
+    });
+}
+
+// Initialize cart functionality
+function initializeCart() {
+    // Toggle cart visibility
+    if (cartIcon) {
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (cartPopup) cartPopup.classList.toggle('active');
+        });
+    }
+
+    // Close cart
+    if (closeCart) {
+        closeCart.addEventListener('click', () => {
+            if (cartPopup) cartPopup.classList.remove('active');
+        });
+    }
+
+    // Close cart when clicking outside
+    document.addEventListener('click', (e) => {
+        if (cartPopup && cartIcon && 
+            !cartPopup.contains(e.target) && 
+            !cartIcon.contains(e.target) && 
+            !e.target.closest('.cart-popup')) {
+            cartPopup.classList.remove('active');
+        }
+    });
+}
+
+// Initialize mobile navigation
+function initializeMobileNav() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            if (mobileNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    }
+}
+
+// Initialize search functionality
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const searchResults = document.getElementById('searchResults');
+
+    // Search functionality
+    function performSearch() {
+        if (!searchInput || !searchResults) return;
+        
+        const query = searchInput.value.toLowerCase().trim();
+        
+        if (query === '') {
+            searchResults.classList.remove('active');
+            return;
+        }
+        
+        const results = productsData.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.category.toLowerCase().includes(query)
+        );
+        
+        displaySearchResults(results);
+    }
+
+    // Display search results
+    function displaySearchResults(results) {
+        if (!searchResults) return;
+        
+        searchResults.innerHTML = '';
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">No products found</div>';
+            searchResults.classList.add('active');
+            return;
+        }
+        
+        results.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+                <div class="search-result-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="search-result-details">
+                    <div class="search-result-title">${product.name}</div>
+                    <div class="search-result-category">${product.category}</div>
+                </div>
+                <div class="search-result-price">R${product.price.toFixed(2)}</div>
+            `;
+            
+            resultItem.addEventListener('click', () => {
+                // Find the product index and open quick view
+                const index = productsData.findIndex(p => p.name === product.name);
+                if (index !== -1) {
+                    openQuickView(index);
+                }
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.classList.add('active');
+    }
+
+    // Event listeners for search
+    if (searchInput) {
+        searchInput.addEventListener('input', performSearch);
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    // Close search results when clicking outside
+    document.addEventListener('click', (e) => {
+        if (searchResults && searchInput && searchButton &&
+            !searchResults.contains(e.target) && 
+            e.target !== searchInput && 
+            e.target !== searchButton) {
+            searchResults.classList.remove('active');
+        }
+    });
+}
+
+// Quick View Functions
+function openQuickView(index) {
+    currentProductIndex = index;
+    const product = productsData[index];
+    
+    document.getElementById('modalImg').src = product.image;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)}`;
+    document.getElementById('modalDesc').textContent = product.description;
+    document.getElementById('modalCode').textContent = product.id;
+    document.getElementById('modalCategory').textContent = product.category;
+    
+    // Reset quantity and selections
+    quantity = 1;
+    selectedColor = '';
+    selectedSize = '';
+    quantityValue.textContent = quantity;
+    
+    // Generate color swatches
+    const colorSwatches = document.getElementById('modalColorSwatches');
+    colorSwatches.innerHTML = '';
+    
+    product.colors.forEach(color => {
+        const colorName = color.toLowerCase();
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = getColorCode(colorName);
+        swatch.title = color;
+        swatch.setAttribute('data-color', color);
+        swatch.addEventListener('click', () => selectColor(color, swatch));
+        colorSwatches.appendChild(swatch);
+    });
+    
+    // Generate size options
+    const sizeOptions = document.getElementById('modalSizeOptions');
+    sizeOptions.innerHTML = '';
+    
+    product.sizes.forEach(size => {
+        const sizeBtn = document.createElement('button');
+        sizeBtn.className = 'size-btn';
+        sizeBtn.textContent = size;
+        sizeBtn.setAttribute('data-size', size);
+        sizeBtn.addEventListener('click', () => selectSize(size, sizeBtn));
+        sizeOptions.appendChild(sizeBtn);
+    });
+    
+    // Update modal info
+    document.getElementById('modalColors').textContent = product.colors.join(', ');
+    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
+    
+    // Show modal
+    quickViewModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    quickViewModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectColor(color, element) {
+    selectedColor = color;
+    
+    // Remove selected class from all swatches
+    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
+    swatches.forEach(swatch => swatch.classList.remove('selected'));
+    
+    // Add selected class to clicked swatch
+    element.classList.add('selected');
+}
+
+function selectSize(size, element) {
+    selectedSize = size;
+    
+    // Remove selected class from all size buttons
+    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
+    
+    // Add selected class to clicked button
+    element.classList.add('selected');
+}
+
+function updateQuantity(change) {
+    quantity += change;
+    if (quantity < 1) quantity = 1;
+    if (quantity > 10) quantity = 10;
+    quantityValue.textContent = quantity;
+}
+
+function addToCartFromModal() {
+    const product = productsData[currentProductIndex];
+    
+    // Validate selection
+    if (!selectedColor || !selectedSize) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    addToCart(product.name, product.price, product.image, selectedColor, selectedSize);
+    closeQuickView();
+}
+
+function getColorCode(colorName) {
+    const colors = {
+        'black': '#000000',
+        'emerald': '#50C878',
+        'grey': '#808080',
+        'maroon': '#800000',
+        'navy': '#000080',
+        'red': '#FF0000',
+        'royal': '#4169E1',
+        'sky': '#87CEEB',
+        'white': '#FFFFFF',
+        'yellow': '#FFFF00',
+        'charcoal': '#36454F'
+    };
+    
+    return colors[colorName] || '#CCCCCC';
+}
+
+// Cart Functions
 function loadCart() {
     if (localStorage.getItem('cart')) {
         try {
@@ -2017,12 +2436,10 @@ function loadCart() {
     }
 }
 
-// Save cart to localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Add to cart function - now requires explicit color and size selection
 function addToCart(name, price, image, color, size) {
     // Prevent multiple simultaneous additions
     if (isAddingToCart) {
@@ -2075,7 +2492,6 @@ function addToCart(name, price, image, color, size) {
     }, 500);
 }
 
-// Show cart message with error support
 function showCartMessage(message, type = 'success') {
     const existingMessage = document.querySelector('.cart-message');
     if (existingMessage) {
@@ -2107,7 +2523,6 @@ function showCartMessage(message, type = 'success') {
     }, 3000);
 }
 
-// Update cart UI
 function updateCartUI() {
     if (!cartItems || !cartTotal || !cartCount) return;
     
@@ -2163,7 +2578,6 @@ function updateCartUI() {
     cartCount.textContent = itemCount;
 }
 
-// Update item quantity in cart
 function updateCartQuantity(id, change) {
     const item = cart.find(item => item.id === id);
     
@@ -2180,421 +2594,15 @@ function updateCartQuantity(id, change) {
     }
 }
 
-// Remove item from cart
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     saveCart();
     updateCartUI();
 }
 
-// Toggle cart visibility
-if (cartIcon) {
-    cartIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (cartPopup) cartPopup.classList.toggle('active');
-    });
-}
-
-// Close cart
-if (closeCart) {
-    closeCart.addEventListener('click', () => {
-        if (cartPopup) cartPopup.classList.remove('active');
-    });
-}
-
-// Close cart when clicking outside
-document.addEventListener('click', (e) => {
-    if (cartPopup && cartIcon && 
-        !cartPopup.contains(e.target) && 
-        !cartIcon.contains(e.target) && 
-        !e.target.closest('.cart-popup')) {
-        cartPopup.classList.remove('active');
-    }
-});
-
-// Product data for quick view
-const productsData = [
-    {
-        id: "LCB123",
-        name: "Long Sleeve Compression Top",
-        description: "Experience all-day comfort and performance with our Long Sleeve Compression Top. Crafted from high-quality, lightweight, and elastic materials, this top fits like a second skin, providing excellent support without sacrificing comfort. Engineered to keep you dry, the moisture-wicking fabric quickly draws sweat away from the body and dries rapidly. Anti-odour technology helps prevent the growth of bacteria, reducing unwanted odors and keeping you feeling fresh throughout your workout or busy day. The main body is made from 84% polyester and 16% elastane, while the mesh inserts are 92% polyester and 8% elastane, ensuring durability, flexibility, and comfort in every wear. Unlock your next level powerful moves with a compression fit that hugs your muscles.",
-        price: 255,
-        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
-        colors: ["Black", "Emerald", "Grey", "Maroon", "Navy", "Red", "Royal", "Sky", "White", "Yellow", "Charcoal"],
-        category: "COMPRESSION WEAR",
-        image: "category-pictures/Compression Pictures/long-sleeve-compression-top.png"
-    },
-    {
-        id: "LCC096",
-        name: "Long Compression Pants",
-        description: "This Full-length Compression Bottoms offer a comfortable fit thanks to their stay-cool construction. Combined with its built-in cooling technology keeping you dry and comfortable during exercise, these tights are ideal for sports or gym sessions. The leggings feature an elasticated waistband for optimized comfort and a flattering fit. Features include: Tough, lightweight fabric with all the performance benefits of compression wear; Stretch-mesh gusset & inseam panels deliver strategic ventilation; Updated ergonomic design keeps seams off high abrasion areas & increases durability; 4-way stretch construction moves better in every direction; Material wicks sweat & dries really fast.",
-        price: 250,
-        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
-        colors: ["Black", "Navy", "Royal", "White"],
-        category: "COMPRESSION WEAR",
-        image: "category-pictures/Compression Pictures/Compression-Long-pants.png"
-    },
-    {
-        id: "LCA094",
-        name: "Compression Set (Top & Pants)",
-        description: "This high-performance base layer will wick moisture away from the skin and keep you comfortable all day long. With the combination of the stylish space-dye and comfortable fabric, you will never want to take them off. The anti-microbial properties will keep you feeling fresh and dry. Features: The 2 piece compression sets are made of soft, breathable, and moisture-wicking fabrics, ergonomic compression fit for enhanced range of motion; Increase Muscular Power & Endurance with improved blood circulation; Breathable, Compression shirt and pants can wick away moisture from the body rapidly and accelerate the evaporation of the sweat, keeping you dry and comfortable while you work out and practice in both hot and cold weather; The High-Elastic fabric effectively protects muscles, prevents muscle vibration, maintaining physical function. Slim & tight fit perfect showing off muscle and physique; Great to wear for indoor/outdoor activities (running, cycling, jogging, fishing baseball, basketball, yoga, soccer, hockey, training, camping, hiking, workout, climbing, and any sports).",
-        price: 480,
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Black", "Navy", "Red", "Royal"],
-        category: "COMPRESSION WEAR SET",
-        image: "category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png"
-    },
-];
-
-// Quick View Modal Functions
-let currentProductIndex = 0;
-let quantity = 1;
-let selectedColor = '';
-let selectedSize = '';
-
-function openQuickView(index) {
-    currentProductIndex = index;
-    const product = productsData[index];
-    
-    document.getElementById('modalImg').src = product.image;
-    document.getElementById('modalTitle').textContent = product.name;
-    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)}`;
-    document.getElementById('modalDesc').textContent = product.description;
-    document.getElementById('modalCode').textContent = product.id;
-    document.getElementById('modalCategory').textContent = product.category;
-    
-    // Reset quantity and selections
-    quantity = 1;
-    selectedColor = '';
-    selectedSize = '';
-    document.getElementById('quantityValue').textContent = quantity;
-    
-    // Generate color swatches
-    const colorSwatches = document.getElementById('modalColorSwatches');
-    colorSwatches.innerHTML = '';
-    
-    product.colors.forEach(color => {
-        const colorName = color.toLowerCase();
-        const swatch = document.createElement('span');
-        swatch.className = 'color-swatch';
-        swatch.style.backgroundColor = getColorCode(colorName);
-        swatch.title = color;
-        swatch.onclick = () => selectColor(color, swatch);
-        colorSwatches.appendChild(swatch);
-    });
-    
-    // Generate size options
-    const sizeOptions = document.getElementById('modalSizeOptions');
-    sizeOptions.innerHTML = '';
-    
-    product.sizes.forEach(size => {
-        const sizeBtn = document.createElement('button');
-        sizeBtn.className = 'size-btn';
-        sizeBtn.textContent = size;
-        sizeBtn.onclick = () => selectSize(size, sizeBtn);
-        sizeOptions.appendChild(sizeBtn);
-    });
-    
-    // Update modal info
-    document.getElementById('modalColors').textContent = product.colors.join(', ');
-    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
-    
-    // Show modal
-    document.getElementById('quickViewModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeQuickView() {
-    document.getElementById('quickViewModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function selectColor(color, element) {
-    selectedColor = color;
-    
-    // Remove selected class from all swatches
-    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
-    swatches.forEach(swatch => swatch.classList.remove('selected'));
-    
-    // Add selected class to clicked swatch
-    element.classList.add('selected');
-}
-
-function selectSize(size, element) {
-    selectedSize = size;
-    
-    // Remove selected class from all size buttons
-    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
-    sizeBtns.forEach(btn => btn.classList.remove('selected'));
-    
-    // Add selected class to clicked button
-    element.classList.add('selected');
-}
-
-function updateQuantity(change) {
-    quantity += change;
-    if (quantity < 1) quantity = 1;
-    if (quantity > 10) quantity = 10;
-    document.getElementById('quantityValue').textContent = quantity;
-}
-
-function addToCartFromModal() {
-    const product = productsData[currentProductIndex];
-    
-    // Validate selection
-    if (!selectedColor || !selectedSize) {
-        showCartMessage('Please select both color and size before adding to cart!', 'error');
-        return;
-    }
-    
-    addToCart(product.name, product.price, product.image, selectedColor, selectedSize);
-    closeQuickView();
-}
-
-function getColorCode(colorName) {
-    const colors = {
-        'black': '#000000',
-        'emerald': '#50C878',
-        'grey': '#808080',
-        'maroon': '#800000',
-        'navy': '#000080',
-        'red': '#FF0000',
-        'royal': '#4169E1',
-        'sky': '#87CEEB',
-        'white': '#FFFFFF',
-        'yellow': '#FFFF00',
-        'charcoal': '#36454F'
-    };
-    
-    return colors[colorName] || '#CCCCCC';
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('quickViewModal');
-    if (event.target === modal) {
-        closeQuickView();
-    }
-};
-
-// Search Functionality
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const searchResults = document.getElementById('searchResults');
-
-// Sample product data for search
-const searchProducts = [
-    { id: 1, name: 'Long Sleeve Compression Top', category: 'Compression Wear', price: 255.00, image: 'category-pictures/Compression Pictures/long-sleeve-compression-top.png' },
-    { id: 2, name: 'Long Compression Pants', category: 'Compression Wear', price: 250.00, image: 'category-pictures/Compression Pictures/Compression-Long-pants.png' },
-    { id: 3, name: 'Compression Set (Top & Pants)', category: 'Compression Wear', price: 480.00, image: 'category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png' },
-];
-
-// Search functionality
-function performSearch() {
-    if (!searchInput || !searchResults) return;
-    
-    const query = searchInput.value.toLowerCase().trim();
-    
-    if (query === '') {
-        searchResults.classList.remove('active');
-        return;
-    }
-    
-    const results = searchProducts.filter(product => 
-        product.name.toLowerCase().includes(query) || 
-        product.category.toLowerCase().includes(query)
-    );
-    
-    displaySearchResults(results);
-}
-
-// Display search results
-function displaySearchResults(results) {
-    if (!searchResults) return;
-    
-    searchResults.innerHTML = '';
-    
-    if (results.length === 0) {
-        searchResults.innerHTML = '<div class="no-results">No products found</div>';
-        searchResults.classList.add('active');
-        return;
-    }
-    
-    results.forEach(product => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'search-result-item';
-        resultItem.innerHTML = `
-            <div class="search-result-img">
-                <img src="${product.image}" alt="${product.name}">
-            </div>
-            <div class="search-result-details">
-                <div class="search-result-title">${product.name}</div>
-                <div class="search-result-category">${product.category}</div>
-            </div>
-            <div class="search-result-price">R${product.price.toFixed(2)}</div>
-        `;
-        
-        resultItem.addEventListener('click', () => {
-            // Find the product index and open quick view
-            const index = productsData.findIndex(p => p.name === product.name);
-            if (index !== -1) {
-                openQuickView(index);
-            }
-            searchResults.classList.remove('active');
-            searchInput.value = '';
-        });
-        
-        searchResults.appendChild(resultItem);
-    });
-    
-    searchResults.classList.add('active');
-}
-
-// Event listeners for search
-if (searchInput) {
-    searchInput.addEventListener('input', performSearch);
-}
-
-if (searchButton) {
-    searchButton.addEventListener('click', performSearch);
-}
-
-// Close search results when clicking outside
-document.addEventListener('click', (e) => {
-    if (searchResults && searchInput && searchButton &&
-        !searchResults.contains(e.target) && 
-        e.target !== searchInput && 
-        e.target !== searchButton) {
-        searchResults.classList.remove('active');
-    }
-});
-
-// WhatsApp button functionality
-const whatsappButton = document.getElementById('whatsappButton');
-if (whatsappButton) {
-    whatsappButton.addEventListener('click', function() {
-        // Add animation effect on click
-        this.style.transform = 'scale(0.9)';
-        this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
-        
-        setTimeout(() => {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        }, 300);
-    });
-}
-
-// Product Card Initialization with proper event handling
-function initializeProductCards() {
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach((card, index) => {
-        // Skip if already initialized
-        if (card.hasAttribute('data-initialized')) {
-            return;
-        }
-        
-        const colorSwatches = card.querySelectorAll('.color-swatch');
-        const sizeButtons = card.querySelectorAll('.size-btn');
-        const addToCartButton = card.querySelector('.btn-primary');
-        const quickViewButton = card.querySelector('.btn-quickview');
-        
-        let selectedColor = '';
-        let selectedSize = '';
-        
-        // Set default selections
-        if (colorSwatches.length > 0) {
-            colorSwatches[0].classList.add('selected');
-            selectedColor = colorSwatches[0].title || colorSwatches[0].getAttribute('data-color') || '';
-        }
-        
-        if (sizeButtons.length > 0) {
-            sizeButtons[0].classList.add('selected');
-            selectedSize = sizeButtons[0].textContent || '';
-        }
-        
-        // Color selection
-        colorSwatches.forEach(swatch => {
-            swatch.addEventListener('click', function() {
-                colorSwatches.forEach(s => s.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedColor = this.title || this.getAttribute('data-color') || '';
-            });
-        });
-        
-        // Size selection
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                sizeButtons.forEach(btn => btn.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedSize = this.textContent || '';
-            });
-        });
-        
-        // Add to cart with proper event handling
-        if (addToCartButton) {
-            const handleAddToCart = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Validate selection
-                if (!selectedColor || !selectedSize) {
-                    showCartMessage('Please select both color and size before adding to cart!', 'error');
-                    return;
-                }
-                
-                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
-                const image = card.querySelector('.product-img img')?.src || '';
-                const priceText = card.querySelector('.product-price')?.textContent || 'R0.00';
-                const price = parseFloat(priceText.replace('R', '').replace(',', '')) || 0;
-                
-                addToCart(name, price, image, selectedColor, selectedSize);
-            };
-            
-            addToCartButton.addEventListener('click', handleAddToCart);
-        }
-        
-        // Quick view button
-        if (quickViewButton) {
-            quickViewButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openQuickView(index);
-            });
-        }
-        
-        // Mark as initialized
-        card.setAttribute('data-initialized', 'true');
-    });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadCart();
-    initializeProductCards();
-    
-    // Re-initialize if needed (for dynamic content)
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length) {
-                initializeProductCards();
-            }
-        });
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-});
-
 // Make functions available globally for onclick attributes
 window.updateCartQuantity = updateCartQuantity;
 window.removeFromCart = removeFromCart;
-window.openQuickView = openQuickView;
-window.closeQuickView = closeQuickView;
-window.updateQuantity = updateQuantity;
-window.addToCartFromModal = addToCartFromModal;
 </script>
 </body>
 </html>

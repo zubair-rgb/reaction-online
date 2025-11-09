@@ -1597,7 +1597,7 @@
     <!-- Quick View Modal -->
     <div class="modal" id="quickViewModal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeQuickView()">&times;</button>
+            <button class="close-modal" id="closeModal">&times;</button>
             <div class="modal-body">
                 <div class="modal-image">
                     <img id="modalImg" src="" alt="Product Image">
@@ -1637,14 +1637,14 @@
                     </div>
                     
                     <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                        <button class="quantity-btn" id="decreaseQuantity">-</button>
                         <span class="quantity-value" id="quantityValue">1</span>
-                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                        <button class="quantity-btn" id="increaseQuantity">+</button>
                     </div>
                     
                     <div class="modal-actions">
-                        <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
-                        <button class="btn btn-outline" onclick="closeQuickView()">Continue Shopping</button>
+                        <button class="btn btn-primary" id="addToCartFromModal">Add to Cart</button>
+                        <button class="btn btn-outline" id="continueShopping">Continue Shopping</button>
                     </div>
                 </div>
             </div>
@@ -1678,34 +1678,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('385 Sheath Dress', 370, 'category-pictures/Dresses pictures/385-sheath-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(0)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="385 Sheath Dress" data-price="370" data-image="category-pictures/Dresses pictures/385-sheath-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="0">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1727,34 +1727,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('324 Lined Dress Round Neck', 315, 'category-pictures/Dresses pictures/324-lined-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(1)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="324 Lined Dress Round Neck" data-price="315" data-image="category-pictures/Dresses pictures/324-lined-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="1">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1776,34 +1776,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('374 Dress', 255, 'category-pictures/Dresses pictures/374-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(2)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="374 Dress" data-price="255" data-image="category-pictures/Dresses pictures/374-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="2">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1825,34 +1825,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('333 Inset Collar Dress', 250, 'category-pictures/Dresses pictures/333-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(3)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="333 Inset Collar Dress" data-price="250" data-image="category-pictures/Dresses pictures/333-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="3">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1874,36 +1874,36 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
-                                <span class="color-swatch" style="background: linear-gradient(90deg, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
-                                <span class="color-swatch" style="background: linear-gradient(90deg, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White" data-color="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy" data-color="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(90deg, #FFFFFF 50%, #000080 50%);" title="White Navy" data-color="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(90deg, #000080 50%, #FFFFFF 50%);" title="Navy White" data-color="Navy White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('351 Square Neck Dress', 250, 'category-pictures/Dresses pictures/351-dress.png', 'Plain White', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(4)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="351 Square Neck Dress" data-price="250" data-image="category-pictures/Dresses pictures/351-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="4">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1925,34 +1925,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('353 Vent Pleat Side Button Dress', 250, 'category-pictures/Dresses pictures/353-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(5)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="353 Vent Pleat Side Button Dress" data-price="250" data-image="category-pictures/Dresses pictures/353-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="5">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1974,34 +1974,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('158 Zip Front Detail Dress', 235, 'category-pictures/Dresses pictures/158-dress.png', 'Navy', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(6)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="158 Zip Front Detail Dress" data-price="235" data-image="category-pictures/Dresses pictures/158-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="6">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -2023,36 +2023,36 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy"></span>
-                                <span class="color-swatch" style="background: linear-gradient(90deg, #FFFFFF 50%, #000080 50%);" title="White Navy"></span>
-                                <span class="color-swatch" style="background: linear-gradient(90deg, #000080 50%, #FFFFFF 50%);" title="Navy White"></span>
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="Plain White" data-color="Plain White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Plain Navy" data-color="Plain Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(90deg, #FFFFFF 50%, #000080 50%);" title="White Navy" data-color="White Navy"></span>
+                                <span class="color-swatch" style="background: linear-gradient(90deg, #000080 50%, #FFFFFF 50%);" title="Navy White" data-color="Navy White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('346 Dress', 250, 'category-pictures/Dresses pictures/346-dress.png', 'Plain White', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(7)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="346 Dress" data-price="250" data-image="category-pictures/Dresses pictures/346-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="7">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -2074,34 +2074,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('375 Dress', 370, 'category-pictures/Dresses pictures/375-dress.png', 'White', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(8)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="375 Dress" data-price="370" data-image="category-pictures/Dresses pictures/375-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="8">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -2123,34 +2123,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('228 Dress', 265, 'category-pictures/Dresses pictures/228-dress.png', 'White', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(9)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="228 Dress" data-price="265" data-image="category-pictures/Dresses pictures/228-dress.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="9">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -2172,34 +2172,34 @@
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
                             <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
                             <div class="size-selector">
-                                <span class="size-btn">28</span>
-                                <span class="size-btn">30</span>
-                                <span class="size-btn selected">32</span>
-                                <span class="size-btn">34</span>
-                                <span class="size-btn">36</span>
-                                <span class="size-btn">38</span>
-                                <span class="size-btn">40</span>
-                                <span class="size-btn">42</span>
-                                <span class="size-btn">44</span>
-                                <span class="size-btn">46</span>
-                                <span class="size-btn">48</span>
-                                <span class="size-btn">50</span>
-                                <span class="size-btn">52</span>
-                                <span class="size-btn">54</span>
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('369 Skirt', 220, 'category-pictures/Dresses pictures/369-skirt.png', 'White', '32')">Add to Cart</button>
-                            <button class="btn btn-quickview" onclick="openQuickView(10)">
+                            <button class="btn btn-primary add-to-cart-btn" data-product="369 Skirt" data-price="220" data-image="category-pictures/Dresses pictures/369-skirt.png">Add to Cart</button>
+                            <button class="btn btn-quickview" data-product-index="10">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -2271,28 +2271,134 @@
     </footer>
 
 <script>
-// Mobile navigation
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileNav = document.getElementById('mobileNav');
+// Product data for quick view
+const productsData = [
+    {
+        id: "385-SD",
+        name: "385 Sheath Dress",
+        description: "Introducing the 385 Sheath Dress, a testament to timeless design and modern utility. This piece embodies sophisticated simplicity with its clean lines and tailored fit, making it perfect for medical professionals who value both style and functionality.",
+        price: 370,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/385-sheath-dress.png"
+    },
+    {
+        id: "324-LDRN",
+        name: "324 Lined Dress Round Neck",
+        description: "Presenting the 324 Lined Dress, a quintessential piece for those who demand both impeccable presentation and practical design. Featuring a classic round neckline and full lining, this dress offers superior comfort and professional appearance throughout long shifts.",
+        price: 315,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/324-lined-dress.png"
+    },
+    {
+        id: "374-DR",
+        name: "374 Dress",
+        description: "Introducing the 374 Dress, a masterpiece of modern design crafted from luxurious T.R stretch fabric for ultimate comfort and freedom of movement. This dress features a flattering silhouette accentuated by a stylish PU belt, creating a refined and polished look.",
+        price: 255,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/374-dress.png"
+    },
+    {
+        id: "333-ICD",
+        name: "333 Inset Collar Dress",
+        description: "Discover the 333 Dress, a design that redefines professional wear with its contemporary asymmetrical detailing. This chic and functional dress offers a fresh take on classic nursewear, featuring a unique neckline and thoughtfully placed pockets that combine style with practicality.",
+        price: 250,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/333-dress.png"
+    },
+    {
+        id: "351-SND",
+        name: "351 Square Neck Dress",
+        description: "Introducing the 351 Dress, a timeless piece that beautifully marries classic design with modern accents. This sophisticated dress features a clean silhouette, elevated by subtle contrasting piping that adds a touch of contemporary flair.",
+        price: 250,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/351-dress.png"
+    },
+    {
+        id: "353-VPSBD",
+        name: "353 Vent Pleat Side Button Dress",
+        description: "Discover the 353 Dress, a sophisticated and contemporary take on professional attire. This design features a distinctive button-front closure and a chic high collar, offering a refined and polished look.",
+        price: 250,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/353-dress.png"
+    },
+    {
+        id: "158-ZFDD",
+        name: "158 Zip Front Detail Dress",
+        description: "Discover the 158 Dress, a contemporary design that prioritizes both ease of wear and professional elegance. This dress features a convenient zip-front detail, offering quick and effortless changes without compromising on style.",
+        price: 235,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Navy", "White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/158-dress.png"
+    },
+    {
+        id: "346-DR",
+        name: "346 Dress",
+        description: "Introducing the 346 Dress, a truly distinctive piece that combines modern asymmetry with classic elegance. This dress features a striking button-front closure with contrasting piping, creating a visually dynamic and sophisticated look.",
+        price: 250,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["Plain White", "Plain Navy", "White Navy", "Navy White"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/346-dress.png"
+    },
+    {
+        id: "375-DR",
+        name: "375 Dress",
+        description: "Presenting the 375 Dress, a design that effortlessly blends elegance with innovative comfort. Crafted from luxurious T.R stretch fabric, this dress offers exceptional freedom of movement, while the chic PU belt cinches for a flattering silhouette.",
+        price: 370,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/375-dress.png"
+    },
+    {
+        id: "228-DR",
+        name: "228 Dress",
+        description: "Introducing the 228 Dress, a sophisticated and practical design for the modern professional. This dress features a convenient front zip closure for ease of wear, complemented by a tailored bodice that ensures a polished silhouette.",
+        price: 265,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/228-dress.png"
+    },
+    {
+        id: "369-SK",
+        name: "369 Skirt",
+        description: "Discover the 369 Skirt, a testament to sophisticated tailoring and understated elegance. This gracefully designed skirt features a sleek silhouette that flatters and moves with you. The distinguishing covered belt, adorned with a subtle yet stylish chain detail, adds a touch of modern refinement.",
+        price: 220,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "Medical Dresses",
+        image: "category-pictures/Dresses pictures/369-skirt.png"
+    }
+];
 
-if (mobileMenuBtn && mobileNav) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-        if (mobileNav.classList.contains('active')) {
-            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-    
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-}
+// Quick View Modal Functions
+let currentProductIndex = 0;
+let quantity = 1;
+let selectedColor = '';
+let selectedSize = '';
+
+// DOM Elements
+const quickViewModal = document.getElementById('quickViewModal');
+const closeModalBtn = document.getElementById('closeModal');
+const decreaseQuantityBtn = document.getElementById('decreaseQuantity');
+const increaseQuantityBtn = document.getElementById('increaseQuantity');
+const quantityValue = document.getElementById('quantityValue');
+const addToCartFromModalBtn = document.getElementById('addToCartFromModal');
+const continueShoppingBtn = document.getElementById('continueShopping');
 
 // Cart Functionality
 const cartPopup = document.getElementById('cartPopup');
@@ -2305,7 +2411,404 @@ const closeCart = document.getElementById('closeCart');
 let cart = [];
 let isAddingToCart = false; // Lock to prevent multiple additions
 
-// Load cart from localStorage if available
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    initializeProductCards();
+    initializeQuickView();
+    initializeCart();
+    initializeMobileNav();
+    
+    // Initialize search functionality
+    initializeSearch();
+});
+
+// Initialize product cards with color and size selection
+function initializeProductCards() {
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach((card, index) => {
+        // Skip if already initialized
+        if (card.hasAttribute('data-initialized')) {
+            return;
+        }
+        
+        const colorSwatches = card.querySelectorAll('.color-swatch');
+        const sizeButtons = card.querySelectorAll('.size-btn');
+        const addToCartButton = card.querySelector('.add-to-cart-btn');
+        const quickViewButton = card.querySelector('.btn-quickview');
+        
+        let selectedColor = '';
+        let selectedSize = '';
+        
+        // Set default selections
+        if (colorSwatches.length > 0) {
+            const defaultColor = card.querySelector('.color-swatch.selected');
+            if (defaultColor) {
+                selectedColor = defaultColor.getAttribute('data-color') || '';
+            }
+        }
+        
+        if (sizeButtons.length > 0) {
+            const defaultSize = card.querySelector('.size-btn.selected');
+            if (defaultSize) {
+                selectedSize = defaultSize.getAttribute('data-size') || '';
+            }
+        }
+        
+        // Color selection
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                colorSwatches.forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedColor = this.getAttribute('data-color') || '';
+            });
+        });
+        
+        // Size selection
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedSize = this.getAttribute('data-size') || '';
+            });
+        });
+        
+        // Add to cart with proper event handling
+        if (addToCartButton) {
+            const handleAddToCart = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Validate selection
+                if (!selectedColor || !selectedSize) {
+                    showCartMessage('Please select both color and size before adding to cart!', 'error');
+                    return;
+                }
+                
+                const name = addToCartButton.getAttribute('data-product');
+                const image = addToCartButton.getAttribute('data-image');
+                const price = parseFloat(addToCartButton.getAttribute('data-price'));
+                
+                addToCart(name, price, image, selectedColor, selectedSize);
+            };
+            
+            addToCartButton.addEventListener('click', handleAddToCart);
+        }
+        
+        // Quick view button
+        if (quickViewButton) {
+            quickViewButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const productIndex = parseInt(quickViewButton.getAttribute('data-product-index'));
+                openQuickView(productIndex);
+            });
+        }
+        
+        // Mark as initialized
+        card.setAttribute('data-initialized', 'true');
+    });
+}
+
+// Initialize quick view functionality
+function initializeQuickView() {
+    // Modal close button
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeQuickView);
+    }
+    
+    // Quantity buttons
+    if (decreaseQuantityBtn) {
+        decreaseQuantityBtn.addEventListener('click', () => updateQuantity(-1));
+    }
+    
+    if (increaseQuantityBtn) {
+        increaseQuantityBtn.addEventListener('click', () => updateQuantity(1));
+    }
+    
+    // Modal action buttons
+    if (addToCartFromModalBtn) {
+        addToCartFromModalBtn.addEventListener('click', addToCartFromModal);
+    }
+    
+    if (continueShoppingBtn) {
+        continueShoppingBtn.addEventListener('click', closeQuickView);
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === quickViewModal) {
+            closeQuickView();
+        }
+    });
+}
+
+// Initialize cart functionality
+function initializeCart() {
+    // Toggle cart visibility
+    if (cartIcon) {
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (cartPopup) cartPopup.classList.toggle('active');
+        });
+    }
+
+    // Close cart
+    if (closeCart) {
+        closeCart.addEventListener('click', () => {
+            if (cartPopup) cartPopup.classList.remove('active');
+        });
+    }
+
+    // Close cart when clicking outside
+    document.addEventListener('click', (e) => {
+        if (cartPopup && cartIcon && 
+            !cartPopup.contains(e.target) && 
+            !cartIcon.contains(e.target) && 
+            !e.target.closest('.cart-popup')) {
+            cartPopup.classList.remove('active');
+        }
+    });
+}
+
+// Initialize mobile navigation
+function initializeMobileNav() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            if (mobileNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    }
+}
+
+// Initialize search functionality
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const searchResults = document.getElementById('searchResults');
+
+    // Search functionality
+    function performSearch() {
+        if (!searchInput || !searchResults) return;
+        
+        const query = searchInput.value.toLowerCase().trim();
+        
+        if (query === '') {
+            searchResults.classList.remove('active');
+            return;
+        }
+        
+        const results = productsData.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.category.toLowerCase().includes(query)
+        );
+        
+        displaySearchResults(results);
+    }
+
+    // Display search results
+    function displaySearchResults(results) {
+        if (!searchResults) return;
+        
+        searchResults.innerHTML = '';
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">No products found</div>';
+            searchResults.classList.add('active');
+            return;
+        }
+        
+        results.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+                <div class="search-result-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="search-result-details">
+                    <div class="search-result-title">${product.name}</div>
+                    <div class="search-result-category">${product.category}</div>
+                </div>
+                <div class="search-result-price">R${product.price.toFixed(2)}</div>
+            `;
+            
+            resultItem.addEventListener('click', () => {
+                // Find the product index and open quick view
+                const index = productsData.findIndex(p => p.name === product.name);
+                if (index !== -1) {
+                    openQuickView(index);
+                }
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.classList.add('active');
+    }
+
+    // Event listeners for search
+    if (searchInput) {
+        searchInput.addEventListener('input', performSearch);
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    // Close search results when clicking outside
+    document.addEventListener('click', (e) => {
+        if (searchResults && searchInput && searchButton &&
+            !searchResults.contains(e.target) && 
+            e.target !== searchInput && 
+            e.target !== searchButton) {
+            searchResults.classList.remove('active');
+        }
+    });
+}
+
+// Quick View Functions
+function openQuickView(index) {
+    currentProductIndex = index;
+    const product = productsData[index];
+    
+    document.getElementById('modalImg').src = product.image;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)}`;
+    document.getElementById('modalDesc').textContent = product.description;
+    document.getElementById('modalCode').textContent = product.id;
+    document.getElementById('modalCategory').textContent = product.category;
+    
+    // Reset quantity and selections
+    quantity = 1;
+    selectedColor = '';
+    selectedSize = '';
+    quantityValue.textContent = quantity;
+    
+    // Generate color swatches
+    const colorSwatches = document.getElementById('modalColorSwatches');
+    colorSwatches.innerHTML = '';
+    
+    product.colors.forEach(color => {
+        const colorName = color.toLowerCase();
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = getColorCode(colorName);
+        swatch.title = color;
+        swatch.setAttribute('data-color', color);
+        swatch.addEventListener('click', () => selectColor(color, swatch));
+        colorSwatches.appendChild(swatch);
+    });
+    
+    // Generate size options
+    const sizeOptions = document.getElementById('modalSizeSelector');
+    sizeOptions.innerHTML = '';
+    
+    product.sizes.forEach(size => {
+        const sizeBtn = document.createElement('button');
+        sizeBtn.className = 'size-btn';
+        sizeBtn.textContent = size;
+        sizeBtn.setAttribute('data-size', size);
+        sizeBtn.addEventListener('click', () => selectSize(size, sizeBtn));
+        sizeOptions.appendChild(sizeBtn);
+    });
+    
+    // Update modal info
+    document.getElementById('modalColors').textContent = product.colors.join(', ');
+    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
+    
+    // Show modal
+    quickViewModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    quickViewModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectColor(color, element) {
+    selectedColor = color;
+    
+    // Remove selected class from all swatches
+    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
+    swatches.forEach(swatch => swatch.classList.remove('selected'));
+    
+    // Add selected class to clicked swatch
+    element.classList.add('selected');
+}
+
+function selectSize(size, element) {
+    selectedSize = size;
+    
+    // Remove selected class from all size buttons
+    const sizeBtns = document.querySelectorAll('#modalSizeSelector .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
+    
+    // Add selected class to clicked button
+    element.classList.add('selected');
+}
+
+function updateQuantity(change) {
+    quantity += change;
+    if (quantity < 1) quantity = 1;
+    if (quantity > 10) quantity = 10;
+    quantityValue.textContent = quantity;
+}
+
+function addToCartFromModal() {
+    const product = productsData[currentProductIndex];
+    
+    // Validate selection
+    if (!selectedColor || !selectedSize) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    addToCart(product.name, product.price, product.image, selectedColor, selectedSize);
+    closeQuickView();
+}
+
+function getColorCode(colorName) {
+    const colors = {
+        'black': '#000000',
+        'emerald': '#50C878',
+        'grey': '#808080',
+        'maroon': '#800000',
+        'navy': '#000080',
+        'red': '#FF0000',
+        'royal': '#4169E1',
+        'sky': '#87CEEB',
+        'white': '#FFFFFF',
+        'yellow': '#FFFF00',
+        'charcoal': '#36454F',
+        'plain white': '#FFFFFF',
+        'plain navy': '#000080',
+        'white navy': 'linear-gradient(90deg, #FFFFFF 50%, #000080 50%)',
+        'navy white': 'linear-gradient(90deg, #000080 50%, #FFFFFF 50%)'
+    };
+    
+    return colors[colorName] || '#CCCCCC';
+}
+
+// Cart Functions
 function loadCart() {
     if (localStorage.getItem('cart')) {
         try {
@@ -2318,12 +2821,10 @@ function loadCart() {
     }
 }
 
-// Save cart to localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Add to cart function - now requires explicit color and size selection
 function addToCart(name, price, image, color, size) {
     // Prevent multiple simultaneous additions
     if (isAddingToCart) {
@@ -2376,7 +2877,6 @@ function addToCart(name, price, image, color, size) {
     }, 500);
 }
 
-// Show cart message with error support
 function showCartMessage(message, type = 'success') {
     const existingMessage = document.querySelector('.cart-message');
     if (existingMessage) {
@@ -2408,7 +2908,6 @@ function showCartMessage(message, type = 'success') {
     }, 3000);
 }
 
-// Update cart UI
 function updateCartUI() {
     if (!cartItems || !cartTotal || !cartCount) return;
     
@@ -2464,7 +2963,6 @@ function updateCartUI() {
     cartCount.textContent = itemCount;
 }
 
-// Update item quantity in cart
 function updateCartQuantity(id, change) {
     const item = cart.find(item => item.id === id);
     
@@ -2481,507 +2979,15 @@ function updateCartQuantity(id, change) {
     }
 }
 
-// Remove item from cart
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     saveCart();
     updateCartUI();
 }
 
-// Toggle cart visibility
-if (cartIcon) {
-    cartIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (cartPopup) cartPopup.classList.toggle('active');
-    });
-}
-
-// Close cart
-if (closeCart) {
-    closeCart.addEventListener('click', () => {
-        if (cartPopup) cartPopup.classList.remove('active');
-    });
-}
-
-// Close cart when clicking outside
-document.addEventListener('click', (e) => {
-    if (cartPopup && cartIcon && 
-        !cartPopup.contains(e.target) && 
-        !cartIcon.contains(e.target) && 
-        !e.target.closest('.cart-popup')) {
-        cartPopup.classList.remove('active');
-    }
-});
-
-// Product data for quick view
-const products = [
-    {
-        id: 0,
-        name: "385 Sheath Dress",
-        price: "R370.00",
-        description: "Introducing the 385 Sheath Dress, a testament to timeless design and modern utility. This piece embodies sophisticated simplicity with its clean lines and tailored fit, making it perfect for medical professionals who value both style and functionality.",
-        code: "385-SD",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/385-sheath-dress.png"
-    },
-    {
-        id: 1,
-        name: "324 Lined Dress Round Neck",
-        price: "R315.00",
-        description: "Presenting the 324 Lined Dress, a quintessential piece for those who demand both impeccable presentation and practical design. Featuring a classic round neckline and full lining, this dress offers superior comfort and professional appearance throughout long shifts.",
-        code: "324-LDRN",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/324-lined-dress.png"
-    },
-    {
-        id: 2,
-        name: "374 Dress",
-        price: "R255.00",
-        description: "Introducing the 374 Dress, a masterpiece of modern design crafted from luxurious T.R stretch fabric for ultimate comfort and freedom of movement. This dress features a flattering silhouette accentuated by a stylish PU belt, creating a refined and polished look.",
-        code: "374-DR",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/374-dress.png"
-    },
-    {
-        id: 3,
-        name: "333 Inset Collar Dress",
-        price: "R250.00",
-        description: "Discover the 333 Dress, a design that redefines professional wear with its contemporary asymmetrical detailing. This chic and functional dress offers a fresh take on classic nursewear, featuring a unique neckline and thoughtfully placed pockets that combine style with practicality.",
-        code: "333-ICD",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/333-dress.png"
-    },
-    {
-        id: 4,
-        name: "351 Square Neck Dress",
-        price: "R250.00",
-        description: "Introducing the 351 Dress, a timeless piece that beautifully marries classic design with modern accents. This sophisticated dress features a clean silhouette, elevated by subtle contrasting piping that adds a touch of contemporary flair.",
-        code: "351-SND",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Plain White, Plain Navy, White Navy, Navy White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/351-dress.png"
-    },
-    {
-        id: 5,
-        name: "353 Vent Pleat Side Button Dress",
-        price: "R250.00",
-        description: "Discover the 353 Dress, a sophisticated and contemporary take on professional attire. This design features a distinctive button-front closure and a chic high collar, offering a refined and polished look.",
-        code: "353-VPSBD",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/353-dress.png"
-    },
-    {
-        id: 6,
-        name: "158 Zip Front Detail Dress",
-        price: "R235.00",
-        description: "Discover the 158 Dress, a contemporary design that prioritizes both ease of wear and professional elegance. This dress features a convenient zip-front detail, offering quick and effortless changes without compromising on style.",
-        code: "158-ZFDD",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Navy, White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/158-dress.png"
-    },
-    {
-        id: 7,
-        name: "346 Dress",
-        price: "R250.00",
-        description: "Introducing the 346 Dress, a truly distinctive piece that combines modern asymmetry with classic elegance. This dress features a striking button-front closure with contrasting piping, creating a visually dynamic and sophisticated look.",
-        code: "346-DR",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "Plain White, Plain Navy, White Navy, Navy White",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/346-dress.png"
-    },
-    {
-        id: 8,
-        name: "375 Dress",
-        price: "R370.00",
-        description: "Presenting the 375 Dress, a design that effortlessly blends elegance with innovative comfort. Crafted from luxurious T.R stretch fabric, this dress offers exceptional freedom of movement, while the chic PU belt cinches for a flattering silhouette.",
-        code: "375-DR",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "White, Navy",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/375-dress.png"
-    },
-    {
-        id: 9,
-        name: "228 Dress",
-        price: "R265.00",
-        description: "Introducing the 228 Dress, a sophisticated and practical design for the modern professional. This dress features a convenient front zip closure for ease of wear, complemented by a tailored bodice that ensures a polished silhouette.",
-        code: "228-DR",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "White, Navy",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/228-dress.png"
-    },
-    {
-        id: 10,
-        name: "369 Skirt",
-        price: "R220.00",
-        description: "Discover the 369 Skirt, a testament to sophisticated tailoring and understated elegance. This gracefully designed skirt features a sleek silhouette that flatters and moves with you. The distinguishing covered belt, adorned with a subtle yet stylish chain detail, adds a touch of modern refinement.",
-        code: "369-SK",
-        sizes: "28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54",
-        colors: "White, Navy",
-        category: "Medical Dresses",
-        image: "category-pictures/Dresses pictures/369-skirt.png"
-    }
-];
-
-let currentProductId = 0;
-let currentQuantity = 1;
-let selectedColor = '';
-let selectedSize = '';
-
-// Open quick view modal
-function openQuickView(productId) {
-    const product = products[productId];
-    currentProductId = productId;
-    currentQuantity = 1;
-    selectedColor = '';
-    selectedSize = '';
-    
-    document.getElementById('modalImg').src = product.image;
-    document.getElementById('modalTitle').textContent = product.name;
-    document.getElementById('modalPrice').textContent = product.price;
-    document.getElementById('modalDesc').textContent = product.description;
-    document.getElementById('modalCode').textContent = product.code;
-    document.getElementById('modalSizes').textContent = product.sizes;
-    document.getElementById('modalColors').textContent = product.colors;
-    document.getElementById('modalCategory').textContent = product.category;
-    document.getElementById('quantityValue').textContent = currentQuantity;
-    
-    // Create color swatches
-    const colorSwatches = document.getElementById('modalColorSwatches');
-    colorSwatches.innerHTML = '';
-    const colors = product.colors.split(', ');
-    
-    colors.forEach(color => {
-        const swatch = document.createElement('span');
-        swatch.className = 'color-swatch';
-        
-        // Set color based on color name
-        if (color === 'Navy' || color === 'Plain Navy') {
-            swatch.style.backgroundColor = '#000080';
-        } else if (color === 'White' || color === 'Plain White') {
-            swatch.style.backgroundColor = '#FFFFFF';
-            swatch.style.border = '1px solid #ccc';
-        } else if (color === 'White Navy') {
-            swatch.style.background = 'linear-gradient(90deg, #FFFFFF 50%, #000080 50%)';
-        } else if (color === 'Navy White') {
-            swatch.style.background = 'linear-gradient(90deg, #000080 50%, #FFFFFF 50%)';
-        }
-        
-        swatch.title = color;
-        swatch.dataset.color = color;
-        
-        // Add click event for color selection
-        swatch.addEventListener('click', function() {
-            // Remove selected class from all swatches
-            colorSwatches.querySelectorAll('.color-swatch').forEach(s => {
-                s.classList.remove('selected');
-            });
-            // Add selected class to clicked swatch
-            this.classList.add('selected');
-            selectedColor = this.dataset.color;
-        });
-        
-        colorSwatches.appendChild(swatch);
-    });
-    
-    // Create size selector
-    const sizeSelector = document.getElementById('modalSizeSelector');
-    sizeSelector.innerHTML = '';
-    const sizes = product.sizes.split(', ');
-    
-    sizes.forEach(size => {
-        const sizeBtn = document.createElement('span');
-        sizeBtn.className = 'size-btn';
-        sizeBtn.textContent = size;
-        sizeBtn.dataset.size = size;
-        
-        // Add click event for size selection
-        sizeBtn.addEventListener('click', function() {
-            // Remove selected class from all size buttons
-            sizeSelector.querySelectorAll('.size-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            // Add selected class to clicked size button
-            this.classList.add('selected');
-            selectedSize = this.dataset.size;
-        });
-        
-        sizeSelector.appendChild(sizeBtn);
-    });
-    
-    // No auto-selection - user must choose both color and size
-    
-    document.getElementById('quickViewModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-// Close quick view modal
-function closeQuickView() {
-    document.getElementById('quickViewModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Update quantity in quick view
-function updateQuantity(change) {
-    currentQuantity += change;
-    if (currentQuantity < 1) currentQuantity = 1;
-    if (currentQuantity > 10) currentQuantity = 10;
-    document.getElementById('quantityValue').textContent = currentQuantity;
-}
-
-// Add to cart from quick view - FIXED to prevent multiple additions
-function addToCartFromModal() {
-    const product = products[currentProductId];
-    const price = parseInt(product.price.replace('R', '').replace('.00', ''));
-    
-    // Validate selection
-    if (!selectedColor || !selectedSize) {
-        showCartMessage('Please select both color and size before adding to cart!', 'error');
-        return;
-    }
-    
-    // Use the main addToCart function which has the lock mechanism
-    for (let i = 0; i < currentQuantity; i++) {
-        addToCart(product.name, price, product.image, selectedColor, selectedSize);
-    }
-    
-    closeQuickView();
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('quickViewModal');
-    if (event.target === modal) {
-        closeQuickView();
-    }
-}
-
-// Search Functionality
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const searchResults = document.getElementById('searchResults');
-
-// Search functionality
-function performSearch() {
-    if (!searchInput || !searchResults) return;
-    
-    const query = searchInput.value.toLowerCase().trim();
-    
-    if (query === '') {
-        searchResults.classList.remove('active');
-        return;
-    }
-    
-    const results = products.filter(product => 
-        product.name.toLowerCase().includes(query) || 
-        product.description.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query)
-    );
-    
-    displaySearchResults(results);
-}
-
-// Display search results
-function displaySearchResults(results) {
-    if (!searchResults) return;
-    
-    searchResults.innerHTML = '';
-    
-    if (results.length === 0) {
-        searchResults.innerHTML = '<div class="no-results">No dresses found</div>';
-        searchResults.classList.add('active');
-        return;
-    }
-    
-    results.forEach(product => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'search-result-item';
-        resultItem.innerHTML = `
-            <div class="search-result-img">
-                <img src="${product.image}" alt="${product.name}">
-            </div>
-            <div class="search-result-details">
-                <div class="search-result-title">${product.name}</div>
-                <div class="search-result-category">${product.category}</div>
-            </div>
-            <div class="search-result-price">${product.price}</div>
-        `;
-        
-        resultItem.addEventListener('click', () => {
-            openQuickView(product.id);
-            searchResults.classList.remove('active');
-            searchInput.value = '';
-        });
-        
-        searchResults.appendChild(resultItem);
-    });
-    
-    searchResults.classList.add('active');
-}
-
-// Event listeners for search
-if (searchInput) {
-    searchInput.addEventListener('input', performSearch);
-}
-
-if (searchButton) {
-    searchButton.addEventListener('click', performSearch);
-}
-
-// Close search results when clicking outside
-document.addEventListener('click', (e) => {
-    if (searchResults && searchInput && searchButton &&
-        !searchResults.contains(e.target) && 
-        e.target !== searchInput && 
-        e.target !== searchButton) {
-        searchResults.classList.remove('active');
-    }
-});
-
-// WhatsApp button functionality
-const whatsappButton = document.getElementById('whatsappButton');
-if (whatsappButton) {
-    whatsappButton.addEventListener('click', function() {
-        // Add animation effect on click
-        this.style.transform = 'scale(0.9)';
-        this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
-        
-        setTimeout(() => {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        }, 300);
-    });
-}
-
-// Initialize color swatches and size buttons
-function initializeProductOptions() {
-    // Initialize color swatches
-    const colorSwatches = document.querySelectorAll('.color-swatch');
-    colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', function() {
-            // Remove selected class from all swatches in the same product card
-            const parentCard = this.closest('.product-card');
-            parentCard.querySelectorAll('.color-swatch').forEach(s => {
-                s.classList.remove('selected');
-            });
-            // Add selected class to clicked swatch
-            this.classList.add('selected');
-        });
-    });
-    
-    // Initialize size buttons
-    const sizeButtons = document.querySelectorAll('.size-btn');
-    sizeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove selected class from all buttons in the same product card
-            const parentCard = this.closest('.product-card');
-            parentCard.querySelectorAll('.size-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            // Add selected class to clicked button
-            this.classList.add('selected');
-        });
-    });
-}
-
-// Product Card Initialization with proper event handling
-function initializeProductCards() {
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach((card, index) => {
-        // Skip if already initialized
-        if (card.hasAttribute('data-initialized')) {
-            return;
-        }
-        
-        const addToCartButton = card.querySelector('.btn-primary');
-        const quickViewButton = card.querySelector('.btn-quickview');
-        
-        // Add to cart with proper event handling
-        if (addToCartButton) {
-            const handleAddToCart = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Get selected color and size
-                const selectedColor = card.querySelector('.color-swatch.selected')?.title || '';
-                const selectedSize = card.querySelector('.size-btn.selected')?.textContent || '';
-                
-                // Validate selection
-                if (!selectedColor || !selectedSize) {
-                    showCartMessage('Please select both color and size before adding to cart!', 'error');
-                    return;
-                }
-                
-                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
-                const image = card.querySelector('.product-img img')?.src || '';
-                const priceText = card.querySelector('.product-price')?.textContent || 'R0.00';
-                const price = parseInt(priceText.replace('R', '').replace('.00', '')) || 0;
-                
-                addToCart(name, price, image, selectedColor, selectedSize);
-            };
-            
-            addToCartButton.addEventListener('click', handleAddToCart);
-        }
-        
-        // Quick view button
-        if (quickViewButton) {
-            quickViewButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openQuickView(index);
-            });
-        }
-        
-        // Mark as initialized
-        card.setAttribute('data-initialized', 'true');
-    });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadCart();
-    initializeProductCards();
-    initializeProductOptions();
-    
-    // Re-initialize if needed (for dynamic content)
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length) {
-                initializeProductCards();
-                initializeProductOptions();
-            }
-        });
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-});
-
 // Make functions available globally for onclick attributes
 window.updateCartQuantity = updateCartQuantity;
 window.removeFromCart = removeFromCart;
-window.openQuickView = openQuickView;
-window.closeQuickView = closeQuickView;
-window.updateQuantity = updateQuantity;
-window.addToCartFromModal = addToCartFromModal;
 </script>
 </body>
 </html>

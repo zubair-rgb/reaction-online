@@ -1677,28 +1677,28 @@
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #800000;" title="Maroon"></span>
+                            <div class="color-swatches" id="colorSwatches-0">
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #800000;" title="Maroon" data-color="Maroon"></span>
                             </div>
                         </div>
                         
                         <!-- Size Selection -->
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
+                            <div class="size-selector" id="sizeSelector-0">
+                                <span class="size-btn" data-size="S">S</span>
+                                <span class="size-btn selected" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
+                                <span class="size-btn" data-size="2XL">2XL</span>
+                                <span class="size-btn" data-size="3XL">3XL</span>
+                                <span class="size-btn" data-size="4XL">4XL</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('311 Polar Fleece Jacket', 415, 'category-pictures/Jacket pictures/311-polar-fleece-jacket.png', 'Navy', 'M')">Add to Cart</button>
+                            <button class="btn btn-primary" onclick="addToCartFromCard(0)">Add to Cart</button>
                             <button class="btn btn-quickview" onclick="openQuickView(0)">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -1719,28 +1719,28 @@
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #800000;" title="Maroon"></span>
+                            <div class="color-swatches" id="colorSwatches-1">
+                                <span class="color-swatch selected" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                                <span class="color-swatch" style="background-color: #800000;" title="Maroon" data-color="Maroon"></span>
                             </div>
                         </div>
                         
                         <!-- Size Selection -->
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                                <span class="size-btn">2XL</span>
-                                <span class="size-btn">3XL</span>
-                                <span class="size-btn">4XL</span>
+                            <div class="size-selector" id="sizeSelector-1">
+                                <span class="size-btn" data-size="S">S</span>
+                                <span class="size-btn selected" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
+                                <span class="size-btn" data-size="2XL">2XL</span>
+                                <span class="size-btn" data-size="3XL">3XL</span>
+                                <span class="size-btn" data-size="4XL">4XL</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" onclick="addToCart('318 Polar Fleece Jacket', 290, 'category-pictures/Jacket pictures/318_polar-fleece-jacket-removebg-preview.png', 'Navy', 'M')">Add to Cart</button>
+                            <button class="btn btn-primary" onclick="addToCartFromCard(1)">Add to Cart</button>
                             <button class="btn btn-quickview" onclick="openQuickView(1)">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -1831,7 +1831,7 @@
     </section>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20jackets." class="whatsapp-button" id="whatsappButton" target="_blank">
+    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20dresses." class="whatsapp-button" id="whatsappButton" target="_blank">
         <div class="text">
             <i class="fab fa-whatsapp"></i> Chat with Us
         </div>
@@ -1945,7 +1945,7 @@ function saveCart() {
 }
 
 // Add to cart function - now requires explicit color and size selection
-function addToCart(name, price, image, color, size) {
+function addToCart(name, price, image, color, size, quantity = 1) {
     // Prevent multiple simultaneous additions
     if (isAddingToCart) {
         console.log('Add to cart in progress, please wait...');
@@ -1966,14 +1966,14 @@ function addToCart(name, price, image, color, size) {
     );
     
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
             id: Date.now(),
             name: name,
             price: price,
             image: image,
-            quantity: 1,
+            quantity: quantity,
             color: color,
             size: size
         });
@@ -2193,6 +2193,7 @@ function openQuickView(index) {
         swatch.className = 'color-swatch';
         swatch.style.backgroundColor = getColorCode(colorName);
         swatch.title = color;
+        swatch.setAttribute('data-color', color);
         swatch.onclick = () => selectColor(color, swatch);
         colorSwatches.appendChild(swatch);
     });
@@ -2205,6 +2206,7 @@ function openQuickView(index) {
         const sizeBtn = document.createElement('button');
         sizeBtn.className = 'size-btn';
         sizeBtn.textContent = size;
+        sizeBtn.setAttribute('data-size', size);
         sizeBtn.onclick = () => selectSize(size, sizeBtn);
         sizeOptions.appendChild(sizeBtn);
     });
@@ -2262,7 +2264,7 @@ function addToCartFromModal() {
     }
     
     const price = ['3XL', '4XL'].includes(selectedSize) ? product.priceXL : product.price;
-    addToCart(product.name, price, product.image, selectedColor, selectedSize);
+    addToCart(product.name, price, product.image, selectedColor, selectedSize, quantity);
     closeQuickView();
 }
 
@@ -2384,9 +2386,63 @@ if (whatsappButton) {
     });
 }
 
+// Initialize color swatches and size selectors on product cards
+function initializeProductCards() {
+    // Add event listeners to color swatches on product cards
+    document.querySelectorAll('.color-swatches').forEach((swatchesContainer, index) => {
+        const swatches = swatchesContainer.querySelectorAll('.color-swatch');
+        swatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Remove selected class from all swatches in this container
+                swatches.forEach(s => s.classList.remove('selected'));
+                // Add selected class to clicked swatch
+                this.classList.add('selected');
+            });
+        });
+    });
+    
+    // Add event listeners to size selectors on product cards
+    document.querySelectorAll('.size-selector').forEach((selectorContainer, index) => {
+        const sizeBtns = selectorContainer.querySelectorAll('.size-btn');
+        sizeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove selected class from all buttons in this container
+                sizeBtns.forEach(b => b.classList.remove('selected'));
+                // Add selected class to clicked button
+                this.classList.add('selected');
+            });
+        });
+    });
+}
+
+// Add to cart from product card
+function addToCartFromCard(productIndex) {
+    const product = productsData[productIndex];
+    
+    // Get selected color from product card
+    const colorSwatches = document.getElementById(`colorSwatches-${productIndex}`);
+    const selectedColorSwatch = colorSwatches.querySelector('.color-swatch.selected');
+    const color = selectedColorSwatch ? selectedColorSwatch.getAttribute('data-color') : '';
+    
+    // Get selected size from product card
+    const sizeSelector = document.getElementById(`sizeSelector-${productIndex}`);
+    const selectedSizeBtn = sizeSelector.querySelector('.size-btn.selected');
+    const size = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : '';
+    
+    // Validate selection
+    if (!color || !size) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    const price = ['3XL', '4XL'].includes(size) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, color, size);
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
+    initializeProductCards();
 });
 
 // Make functions available globally for onclick attributes
@@ -2396,6 +2452,7 @@ window.openQuickView = openQuickView;
 window.closeQuickView = closeQuickView;
 window.updateQuantity = updateQuantity;
 window.addToCartFromModal = addToCartFromModal;
+window.addToCartFromCard = addToCartFromCard;
 </script>
 </body>
 </html>

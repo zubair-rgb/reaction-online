@@ -1,4 +1,4 @@
-do the same for thsi one <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1702,39 +1702,39 @@ do the same for thsi one <!DOCTYPE html>
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White"></span>
+                            <div class="color-swatches" id="colorSwatches-0">
+                                <span class="color-swatch selected" style="background-color: #FFFFFF; border: 1px solid #ccc;" title="White" data-color="White"></span>
                             </div>
                         </div>
                         
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
-                            <span class="size-btn">2XL</span>
-                            <span class="size-btn">3XL</span>
-                            <span class="size-btn">4XL</span>
+                            <div class="size-selector" id="sizeSelector-0">
+                                <span class="size-btn" data-size="XS">XS</span>
+                                <span class="size-btn" data-size="S">S</span>
+                                <span class="size-btn selected" data-size="M">M</span>
+                                <span class="size-btn" data-size="L">L</span>
+                                <span class="size-btn" data-size="XL">XL</span>
+                                <span class="size-btn" data-size="2XL">2XL</span>
+                                <span class="size-btn" data-size="3XL">3XL</span>
+                                <span class="size-btn" data-size="4XL">4XL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(0)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(0)">
+                                <i class="fas fa-eye"></i>
+                            </button>
                         </div>
                     </div>
-                    
-                    <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(0)">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
                 </div>
-            </div>
-            
     </section>
-        <!-- Why Choose Our Lab Coats Section -->
-    <section class="features-section">
+
+    <!-- Why Choose Our Lab Coats Section -->
+    <section class="features-section" style="background-color: var(--light-bg); padding: 5rem 0;">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" style="text-align: center;">
                 <h2>Why Choose Our Lab Coats</h2>
                 <p>Designed with professionals in mind, our lab coats combine durability, comfort, and professional appearance</p>
             </div>
@@ -1803,7 +1803,7 @@ do the same for thsi one <!DOCTYPE html>
                     <p style="opacity: 0.9;">Personal assistance throughout your order</p>
                 </div>
             </div>
-            <a href="tel:+27123456789" class="btn btn-primary" style="background: var(--accent); margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <a href="tel:+27784743996" class="btn btn-primary" style="background: var(--accent); margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                 <i class="fas fa-phone"></i>
                 <span>Call for Bulk Pricing</span>
             </a>
@@ -1811,7 +1811,7 @@ do the same for thsi one <!DOCTYPE html>
     </section>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27123456789?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20lab%20coats." class="whatsapp-button" id="whatsappButton" target="_blank">
+    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20lab%20coats." class="whatsapp-button" id="whatsappButton" target="_blank">
         <div class="text">
             <i class="fab fa-whatsapp"></i> Chat with Us
         </div>
@@ -1835,9 +1835,9 @@ do the same for thsi one <!DOCTYPE html>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#medical">Medical Collection</a></li>
-                        <li><a href="#lifestyle">Lifestyle Wear</a></li>
-                        <li><a href="#homeware">Homeware</a></li>
+                        <li><a href="index.html#medical">Medical Collection</a></li>
+                        <li><a href="index.html#lifestyle">Lifestyle Wear</a></li>
+                        <li><a href="index.html#homeware">Homeware</a></li>
                         <li><a href="#">New Arrivals</a></li>
                         <li><a href="#">Special Offers</a></li>
                     </ul>
@@ -1858,7 +1858,7 @@ do the same for thsi one <!DOCTYPE html>
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> 123 Medical Way, Johannesburg, South Africa</li>
-                        <li><i class="fas fa-phone"></i> +27 12 345 6789</li>
+                        <li><i class="fas fa-phone"></i> +27 78 474 3996</li>
                         <li><i class="fas fa-envelope"></i> info@tarabuca.co.za</li>
                         <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 - 17:00</li>
                     </ul>
@@ -1925,7 +1925,7 @@ function saveCart() {
 }
 
 // Add to cart function - now requires explicit color and size selection
-function addToCart(name, price, image, color, size) {
+function addToCart(name, price, image, color, size, quantity = 1) {
     // Prevent multiple simultaneous additions
     if (isAddingToCart) {
         console.log('Add to cart in progress, please wait...');
@@ -1940,18 +1940,20 @@ function addToCart(name, price, image, color, size) {
     
     isAddingToCart = true;
     
-    // Check if item already in cart
-    const existingItem = cart.find(item => item.name === name && item.color === color && item.size === size);
+    // Check if item already in cart with same color and size
+    const existingItem = cart.find(item => 
+        item.name === name && item.color === color && item.size === size
+    );
     
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
             id: Date.now(),
             name: name,
             price: price,
             image: image,
-            quantity: 1,
+            quantity: quantity,
             color: color,
             size: size
         });
@@ -2125,39 +2127,6 @@ const productsData = [
         category: "LABCOAT",
         image: "category-pictures/Labcoat pictures/309-lab-coat.png"
     },
-    {
-        id: 310,
-        name: "310 Lab Coat",
-        description: "Introducing the 310 Lab Coat, a sophisticated and functional garment designed for the modern professional. Featuring reinforced stitching and multiple pockets, this lab coat combines durability with practical design elements. The 310 offers enhanced functionality without compromising on style, making it an ideal choice for busy laboratory environments where both protection and professionalism are paramount.",
-        price: 280,
-        priceXL: 310,
-        sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"],
-        colors: ["White", "Navy"],
-        category: "LABCOAT",
-        image: "category-pictures/Labcoat pictures/310-lab-coat.png"
-    },
-    {
-        id: 311,
-        name: "311 Lab Coat",
-        description: "The 311 Lab Coat represents the pinnacle of professional laboratory attire. With its tailored fit and premium fabric, this coat offers both exceptional comfort and a distinguished appearance suitable for leadership positions. The 311 features meticulous attention to detail, from its reinforced stress points to its elegant finishing, ensuring it maintains its professional appearance through years of demanding use.",
-        price: 320,
-        priceXL: 350,
-        sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"],
-        colors: ["White"],
-        category: "LABCOAT",
-        image: "category-pictures/Labcoat pictures/311-lab-coat.png"
-    },
-    {
-        id: 312,
-        name: "312 Lab Coat",
-        description: "Experience the perfect blend of style and functionality with the 312 Lab Coat. Designed with contemporary professionals in mind, this coat features a modern cut and enhanced mobility for active work environments. The 312 incorporates thoughtful design elements that prioritize both comfort and practicality, making it an excellent choice for professionals who value both form and function in their work attire.",
-        price: 270,
-        priceXL: 300,
-        sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"],
-        colors: ["White", "Grey"],
-        category: "LABCOAT",
-        image: "category-pictures/Labcoat pictures/312-lab-coat.png"
-    }
 ];
 
 // Quick View Modal Functions
@@ -2193,6 +2162,7 @@ function openQuickView(index) {
         swatch.className = 'color-swatch';
         swatch.style.backgroundColor = getColorCode(colorName);
         swatch.title = color;
+        swatch.setAttribute('data-color', color);
         swatch.onclick = () => selectColor(color, swatch);
         colorSwatches.appendChild(swatch);
     });
@@ -2202,9 +2172,10 @@ function openQuickView(index) {
     sizeOptions.innerHTML = '';
     
     product.sizes.forEach(size => {
-        const sizeBtn = document.createElement('span');
+        const sizeBtn = document.createElement('button');
         sizeBtn.className = 'size-btn';
         sizeBtn.textContent = size;
+        sizeBtn.setAttribute('data-size', size);
         sizeBtn.onclick = () => selectSize(size, sizeBtn);
         sizeOptions.appendChild(sizeBtn);
     });
@@ -2238,8 +2209,8 @@ function selectSize(size, element) {
     selectedSize = size;
     
     // Remove selected class from all size buttons
-    const sizeButtons = document.querySelectorAll('#modalSizeOptions .size-btn');
-    sizeButtons.forEach(button => button.classList.remove('selected'));
+    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
     
     // Add selected class to clicked button
     element.classList.add('selected');
@@ -2262,7 +2233,7 @@ function addToCartFromModal() {
     }
     
     const price = ['3XL', '4XL'].includes(selectedSize) ? product.priceXL : product.price;
-    addToCart(product.name, price, product.image, selectedColor, selectedSize);
+    addToCart(product.name, price, product.image, selectedColor, selectedSize, quantity);
     closeQuickView();
 }
 
@@ -2270,7 +2241,6 @@ function getColorCode(colorName) {
     const colors = {
         'white': '#FFFFFF',
         'grey': '#808080',
-        'black': '#000000',
         'navy': '#1a3a5f'
     };
     
@@ -2290,14 +2260,6 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const searchResults = document.getElementById('searchResults');
 
-// Sample product data for search
-const searchProducts = [
-    { id: 309, name: '309 Lab Coat', category: 'Lab Coats', price: 260.00, image: 'category-pictures/Labcoat pictures/309-lab-coat.png' },
-    { id: 310, name: '310 Lab Coat', category: 'Lab Coats', price: 280.00, image: 'category-pictures/Labcoat pictures/310-lab-coat.png' },
-    { id: 311, name: '311 Lab Coat', category: 'Lab Coats', price: 320.00, image: 'category-pictures/Labcoat pictures/311-lab-coat.png' },
-    { id: 312, name: '312 Lab Coat', category: 'Lab Coats', price: 270.00, image: 'category-pictures/Labcoat pictures/312-lab-coat.png' }
-];
-
 // Search functionality
 function performSearch() {
     if (!searchInput || !searchResults) return;
@@ -2309,9 +2271,10 @@ function performSearch() {
         return;
     }
     
-    const results = searchProducts.filter(product => 
+    const results = productsData.filter(product => 
         product.name.toLowerCase().includes(query) || 
-        product.category.toLowerCase().includes(query)
+        product.category.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query)
     );
     
     displaySearchResults(results);
@@ -2344,7 +2307,7 @@ function displaySearchResults(results) {
         `;
         
         resultItem.addEventListener('click', () => {
-            // Find the index of the product in productsData
+            // Find the product index and open quick view
             const index = productsData.findIndex(p => p.id === product.id);
             if (index !== -1) {
                 openQuickView(index);
@@ -2393,102 +2356,48 @@ if (whatsappButton) {
     });
 }
 
-// Product Card Initialization with proper event handling
+// Initialize color swatches and size selectors on product cards
 function initializeProductCards() {
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach((card, index) => {
-        // Skip if already initialized
-        if (card.hasAttribute('data-initialized')) {
-            return;
-        }
-        
-        const colorSwatches = card.querySelectorAll('.color-swatch');
-        const sizeButtons = card.querySelectorAll('.size-btn');
-        const addToCartButton = card.querySelector('.btn-primary');
-        const quickViewButton = card.querySelector('.btn-secondary');
-        
-        let selectedColor = '';
-        let selectedSize = '';
-        
-        // No default selections - user must choose
-        
-        // Color selection
-        colorSwatches.forEach(swatch => {
+    // Add event listeners to color swatches on product cards
+    document.querySelectorAll('.color-swatches').forEach((swatchesContainer, index) => {
+        const swatches = swatchesContainer.querySelectorAll('.color-swatch');
+        swatches.forEach(swatch => {
             swatch.addEventListener('click', function() {
-                colorSwatches.forEach(s => s.classList.remove('selected'));
+                // Remove selected class from all swatches in this container
+                swatches.forEach(s => s.classList.remove('selected'));
+                // Add selected class to clicked swatch
                 this.classList.add('selected');
-                selectedColor = this.title || this.getAttribute('data-color') || '';
             });
         });
-        
-        // Size selection
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+    });
+    
+    // Add event listeners to size selectors on product cards
+    document.querySelectorAll('.size-selector').forEach((selectorContainer, index) => {
+        const sizeBtns = selectorContainer.querySelectorAll('.size-btn');
+        sizeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove selected class from all buttons in this container
+                sizeBtns.forEach(b => b.classList.remove('selected'));
+                // Add selected class to clicked button
                 this.classList.add('selected');
-                selectedSize = this.textContent || '';
             });
         });
-        
-        // Add to cart with proper event handling
-        if (addToCartButton) {
-            const handleAddToCart = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Validate selection
-                if (!selectedColor || !selectedSize) {
-                    showCartMessage('Please select both color and size before adding to cart!', 'error');
-                    return;
-                }
-                
-                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
-                const image = card.querySelector('.product-img img')?.src || '';
-                const priceText = card.querySelector('.product-price')?.textContent || 'R0.00';
-                const price = parseFloat(priceText.replace('R', '').replace(',', '')) || 0;
-                
-                addToCart(name, price, image, selectedColor, selectedSize);
-            };
-            
-            addToCartButton.addEventListener('click', handleAddToCart);
-        }
-        
-        // Quick view button
-        if (quickViewButton) {
-            quickViewButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openQuickView(index);
-            });
-        }
-        
-        // Mark as initialized
-        card.setAttribute('data-initialized', 'true');
     });
 }
 
-// Enhanced add to cart function for product cards with proper event handling
-function addToCartFromCard(button) {
-    const card = button.closest('.product-card');
-    const name = card.querySelector('.product-title').textContent;
-    const priceText = card.querySelector('.product-price').textContent;
-    const price = parseFloat(priceText.replace('R', '').replace(',', ''));
-    const image = card.querySelector('.product-img img').src;
+// Add to cart from product card
+function addToCartFromCard(productIndex) {
+    const product = productsData[productIndex];
     
-    // Get selected color
-    let color = '';
-    const selectedColorSwatch = card.querySelector('.color-swatch.selected');
-    if (selectedColorSwatch) {
-        color = selectedColorSwatch.getAttribute('title') || '';
-    }
+    // Get selected color from product card
+    const colorSwatches = document.getElementById(`colorSwatches-${productIndex}`);
+    const selectedColorSwatch = colorSwatches.querySelector('.color-swatch.selected');
+    const color = selectedColorSwatch ? selectedColorSwatch.getAttribute('data-color') : '';
     
-    // Get selected size
-    let size = '';
-    const selectedSizeBtn = card.querySelector('.size-btn.selected');
-    if (selectedSizeBtn) {
-        size = selectedSizeBtn.textContent || '';
-    }
+    // Get selected size from product card
+    const sizeSelector = document.getElementById(`sizeSelector-${productIndex}`);
+    const selectedSizeBtn = sizeSelector.querySelector('.size-btn.selected');
+    const size = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : '';
     
     // Validate selection
     if (!color || !size) {
@@ -2496,27 +2405,14 @@ function addToCartFromCard(button) {
         return;
     }
     
-    addToCart(name, price, image, color, size);
+    const price = ['3XL', '4XL'].includes(size) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, color, size);
 }
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
     initializeProductCards();
-    
-    // Re-initialize if needed (for dynamic content)
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length) {
-                initializeProductCards();
-            }
-        });
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
 });
 
 // Make functions available globally for onclick attributes

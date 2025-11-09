@@ -1647,7 +1647,7 @@
                     
                     <div class="size-options">
                         <span class="size-label">Select Size:</span>
-                        <div class="size-selector" id="modalSizeSwatches"></div>
+                        <div class="size-selector" id="modalSizeOptions"></div>
                     </div>
                     
                     <div class="quantity-selector">
@@ -1698,7 +1698,7 @@
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Typhoon Gold Soccer Medal', 19, 'category-pictures/Awards & Medals/typhoon-gold-soccer-medal-removebg-preview.png', 'Gold', 'Standard')">Add to Cart</button>
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Typhoon Gold Soccer Medal', 'category-pictures/Awards & Medals/typhoon-gold-soccer-medal-removebg-preview.png')">Add to Cart</button>
                         <button class="btn btn-quickview" onclick="openQuickView(0)">
                             <i class="fas fa-eye"></i>
                         </button>
@@ -1718,8 +1718,8 @@
                     <div class="product-price">R35.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Athletics Male Figurine', 35, 'category-pictures/Awards & Medals/Athletics-Male-Figurine-13cm.png', 'Not applicable', '13cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(4)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Athletics Male Figurine', 'category-pictures/Awards & Medals/Athletics-Male-Figurine-13cm.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(1)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1737,8 +1737,8 @@
                     <div class="product-price">R35.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Baseball Figurine', 35, 'category-pictures/Awards & Medals/Baseball-Figurine-14cm.png', 'Not applicable', '14cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(5)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Baseball Figurine', 'category-pictures/Awards & Medals/Baseball-Figurine-14cm.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(2)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1758,16 +1758,16 @@
                     
                     <div class="size-options">
                         <span class="size-label">Sizes:</span>
-                        <div class="size-selector">
-                            <span class="size-btn">44cm</span>
-                            <span class="size-btn">49cm</span>
-                            <span class="size-btn">56cm</span>
+                        <div class="size-selector" data-base-price="520" data-price-49="540" data-price-56="560">
+                            <span class="size-btn" data-size="44cm">44cm</span>
+                            <span class="size-btn" data-size="49cm">49cm</span>
+                            <span class="size-btn" data-size="56cm">56cm</span>
                         </div>
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Austin Gold & Silver Cup', 520, 'category-pictures/Awards & Medals/Austin-Gold-&-Silver-Cup-Trophy.png', 'Not applicable', '44cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(6)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Austin Gold & Silver Cup', 'category-pictures/Awards & Medals/Austin-Gold-&-Silver-Cup-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(3)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1786,16 +1786,16 @@
                     
                     <div class="size-options">
                         <span class="size-label">Sizes:</span>
-                        <div class="size-selector">
-                            <span class="size-btn">40cm</span>
-                            <span class="size-btn">43cm</span>
-                            <span class="size-btn">47cm</span>
+                        <div class="size-selector" data-base-price="440" data-price-43="460" data-price-47="480">
+                            <span class="size-btn" data-size="40cm">40cm</span>
+                            <span class="size-btn" data-size="43cm">43cm</span>
+                            <span class="size-btn" data-size="47cm">47cm</span>
                         </div>
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Inferno Gold Trophy Cup', 440, 'category-pictures/Awards & Medals/Inferno-Gold-Trophy-Cup.png', 'Not applicable', '40cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(7)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Inferno Gold Trophy Cup', 'category-pictures/Awards & Medals/Inferno-Gold-Trophy-Cup.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(4)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1815,16 +1815,16 @@
                     
                     <div class="size-options">
                         <span class="size-label">Sizes:</span>
-                        <div class="size-selector">
-                            <span class="size-btn">40cm</span>
-                            <span class="size-btn">43cm</span>
-                            <span class="size-btn">47cm</span>
+                        <div class="size-selector" data-base-price="542" data-price-43="562" data-price-47="582">
+                            <span class="size-btn" data-size="40cm">40cm</span>
+                            <span class="size-btn" data-size="43cm">43cm</span>
+                            <span class="size-btn" data-size="47cm">47cm</span>
                         </div>
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('GlamStar Spiral Gold Cup', 542, 'category-pictures/Awards & Medals/GlamStar-Spiral-Gold-Cup-Trophy.png', 'Not applicable', '40cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(8)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'GlamStar Spiral Gold Cup', 'category-pictures/Awards & Medals/GlamStar-Spiral-Gold-Cup-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(5)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1842,8 +1842,8 @@
                     <div class="product-price">R100.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Football Man Of The Match Trophy', 100, 'category-pictures/Awards & Medals/Football-Man-Of-The-Match-Trophy.png', 'Not applicable', '13cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(9)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Football Man Of The Match Trophy', 'category-pictures/Awards & Medals/Football-Man-Of-The-Match-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(6)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1853,7 +1853,7 @@
             <!-- Product 8 - Football Player Xplode Trophy -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="category-pictures/Awards & Medals/Football-Player-Xplode-Trophy.png" alt="Football Player Xplode Trophy">
+                    <img src="category-pictures\Awards & Medals\Football-Player-Xplode-Trophy (2).png" alt="Football Player Xplode Trophy">
                 </div>
                 <div class="product-content">
                     <h3 class="product-title">Football Player Xplode Trophy</h3>
@@ -1861,8 +1861,8 @@
                     <div class="product-price">R240.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Football Player Xplode Trophy', 240, 'category-pictures/Awards & Medals/Football-Player-Xplode-Trophy.png', 'Not applicable', '20cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(10)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Football Player Xplode Trophy', 'category-pictures/Awards & Medals/Football-Player-Xplode-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(7)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1881,8 +1881,8 @@
                     <div class="product-price">R130.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Running First Place Award Trophy', 130, 'category-pictures/Awards & Medals/Running-First-Place-Award-Resin-Trophy.png', 'Not applicable', 'Standard')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(11)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Running First Place Award Trophy', 'category-pictures/Awards & Medals/Running-First-Place-Award-Resin-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(8)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1892,7 +1892,7 @@
             <!-- Product 10 - X-Plode Bronze 2D Football Trophy -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="category-pictures/Awards & Medals/X-Plode-Bronze-2D-Football-Trophy.png" alt="X-Plode Bronze 2D Football Trophy">
+                    <img src="category-pictures\Awards & Medals\X-Plode-Bronze-2D-Football-Trophy.png" alt="X-Plode Bronze 2D Football Trophy">
                 </div>
                 <div class="product-content">
                     <h3 class="product-title">X-Plode Bronze 2D Football Trophy</h3>
@@ -1901,15 +1901,15 @@
                     
                     <div class="size-options">
                         <span class="size-label">Sizes:</span>
-                        <div class="size-selector">
-                            <span class="size-btn">9cm</span>
-                            <span class="size-btn">17cm</span>
+                        <div class="size-selector" data-base-price="155" data-price-17="175">
+                            <span class="size-btn" data-size="9cm">9cm</span>
+                            <span class="size-btn" data-size="17cm">17cm</span>
                         </div>
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('X-Plode Bronze 2D Football Trophy', 155, 'category-pictures/Awards & Medals/X-Plode-Bronze-2D-Football-Trophy.png', 'Not applicable', '9cm')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(12)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'X-Plode Bronze 2D Football Trophy', 'category-pictures/Awards & Medals/X-Plode-Bronze-2D-Football-Trophy.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(9)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1928,8 +1928,8 @@
                     <div class="product-price">R495.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Impact Square Crystal Glass Award', 495, 'category-pictures/Awards & Medals/Impact-Square-Crystal-Glass-Award.png', 'Not applicable', 'Standard')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(13)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Impact Square Crystal Glass Award', 'category-pictures/Awards & Medals/Impact-Square-Crystal-Glass-Award.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(10)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -1948,8 +1948,8 @@
                     <div class="product-price">R270.00</div>
                     
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCart('Legacy Cup Crystal Glass Award', 270, 'category-pictures/Awards & Medals/Legacy-Cup-Crystal-Glass-Award.png', 'Not applicable', 'Standard')">Add to Cart</button>
-                        <button class="btn btn-quickview" onclick="openQuickView(14)">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(this, 'Legacy Cup Crystal Glass Award', 'category-pictures/Awards & Medals/Legacy-Cup-Crystal-Glass-Award.png')">Add to Cart</button>
+                        <button class="btn btn-quickview" onclick="openQuickView(11)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -2422,7 +2422,7 @@ const productsData = [
         sizes: ["20cm"],
         colors: [],
         category: "Figurine Trophies",
-        image: "category-pictures/Awards & Medals/Football-Player-Xplode-Trophy.png"
+        image: "category-pictures/Awards & Medals/Football-Player-Xplode-Trophy (2).png"
     },
     {
         id: "TR0013",
@@ -2505,17 +2505,17 @@ function openQuickView(index) {
         });
     }
     
-    // Generate size selector
-    const sizeSwatches = document.getElementById('modalSizeSwatches');
-    sizeSwatches.innerHTML = '';
+    // Generate size options
+    const sizeOptions = document.getElementById('modalSizeOptions');
+    sizeOptions.innerHTML = '';
     
     if (product.sizes && product.sizes.length > 0) {
         product.sizes.forEach(size => {
-            const sizeBtn = document.createElement('span');
+            const sizeBtn = document.createElement('button');
             sizeBtn.className = 'size-btn';
             sizeBtn.textContent = size;
             sizeBtn.onclick = () => selectSize(size, sizeBtn);
-            sizeSwatches.appendChild(sizeBtn);
+            sizeOptions.appendChild(sizeBtn);
         });
     }
     
@@ -2548,10 +2548,10 @@ function selectSize(size, element) {
     selectedSize = size;
     
     // Remove selected class from all size buttons
-    const sizeButtons = document.querySelectorAll('#modalSizeSwatches .size-btn');
-    sizeButtons.forEach(btn => btn.classList.remove('selected'));
+    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
     
-    // Add selected class to clicked size button
+    // Add selected class to clicked button
     element.classList.add('selected');
 }
 
@@ -2610,22 +2610,6 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const searchResults = document.getElementById('searchResults');
 
-// Sample product data for search
-const searchProducts = [
-    { id: 1, name: 'Typhoon Gold Soccer Medal', category: 'Sports Medals', price: 19.00, image: 'category-pictures/Awards & Medals/typhoon-gold-soccer-medal-removebg-preview.png' },
-    { id: 2, name: 'Athletics Male Figurine', category: 'Figurine Trophies', price: 35.00, image: 'category-pictures/Awards & Medals/Athletics-Male-Figurine-13cm.png' },
-    { id: 3, name: 'Baseball Figurine', category: 'Figurine Trophies', price: 35.00, image: 'category-pictures/Awards & Medals/Baseball-Figurine-14cm.png' },
-    { id: 4, name: 'Austin Gold & Silver Cup Trophy', category: 'Cup Trophies', price: 520.00, image: 'category-pictures/Awards & Medals/Austin-Gold-&-Silver-Cup-Trophy.png' },
-    { id: 5, name: 'Inferno Gold Trophy Cup', category: 'Cup Trophies', price: 440.00, image: 'category-pictures/Awards & Medals/Inferno-Gold-Trophy-Cup.png' },
-    { id: 6, name: 'GlamStar Spiral Gold Cup Trophy', category: 'Cup Trophies', price: 542.00, image: 'category-pictures/Awards & Medals/GlamStar-Spiral-Gold-Cup-Trophy.png' },
-    { id: 7, name: 'Football Man Of The Match Trophy', category: 'Figurine Trophies', price: 100.00, image: 'category-pictures/Awards & Medals/Football-Man-Of-The-Match-Trophy.png' },
-    { id: 8, name: 'Football Player Xplode Trophy', category: 'Figurine Trophies', price: 240.00, image: 'category-pictures/Awards & Medals/Football-Player-Xplode-Trophy.png' },
-    { id: 9, name: 'Running First Place Award Resin Trophy', category: 'Figurine Trophies', price: 130.00, image: 'category-pictures/Awards & Medals/Running-First-Place-Award-Resin-Trophy.png' },
-    { id: 10, name: 'X-Plode Bronze 2D Football Trophy', category: 'Figurine Trophies', price: 155.00, image: 'category-pictures/Awards & Medals/X-Plode-Bronze-2D-Football-Trophy.png' },
-    { id: 11, name: 'Impact Square Crystal Glass Award', category: 'Glass Awards', price: 495.00, image: 'category-pictures/Awards & Medals/Impact-Square-Crystal-Glass-Award.png' },
-    { id: 12, name: 'Legacy Cup Crystal Glass Award', category: 'Glass Awards', price: 270.00, image: 'category-pictures/Awards & Medals/Legacy-Cup-Crystal-Glass-Award.png' },
-];
-
 // Search functionality
 function performSearch() {
     if (!searchInput || !searchResults) return;
@@ -2637,9 +2621,10 @@ function performSearch() {
         return;
     }
     
-    const results = searchProducts.filter(product => 
+    const results = productsData.filter(product => 
         product.name.toLowerCase().includes(query) || 
-        product.category.toLowerCase().includes(query)
+        product.category.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query)
     );
     
     displaySearchResults(results);
@@ -2672,8 +2657,11 @@ function displaySearchResults(results) {
         `;
         
         resultItem.addEventListener('click', () => {
-            // For demo, just show an alert
-            alert(`Selected: ${product.name}\nPrice: R${product.price.toFixed(2)}`);
+            // Find the product index and open quick view
+            const index = productsData.findIndex(p => p.id === product.id);
+            if (index !== -1) {
+                openQuickView(index);
+            }
             searchResults.classList.remove('active');
             searchInput.value = '';
         });
@@ -2718,15 +2706,96 @@ if (whatsappButton) {
     });
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadCart();
+// Dynamic pricing for products with multiple sizes
+function initializeDynamicPricing() {
+    const sizeSelectors = document.querySelectorAll('.size-selector[data-base-price]');
     
-    // Initialize product cards with proper event handling
+    sizeSelectors.forEach(selector => {
+        const basePrice = parseFloat(selector.getAttribute('data-base-price'));
+        const sizeButtons = selector.querySelectorAll('.size-btn');
+        
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update selected state
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Update price display
+                const size = this.getAttribute('data-size');
+                const priceElement = this.closest('.product-card').querySelector('.product-price');
+                
+                // Get the price for this specific size
+                let newPrice = basePrice;
+                if (size === '49cm' && selector.hasAttribute('data-price-49')) {
+                    newPrice = parseFloat(selector.getAttribute('data-price-49'));
+                } else if (size === '56cm' && selector.hasAttribute('data-price-56')) {
+                    newPrice = parseFloat(selector.getAttribute('data-price-56'));
+                } else if (size === '43cm' && selector.hasAttribute('data-price-43')) {
+                    newPrice = parseFloat(selector.getAttribute('data-price-43'));
+                } else if (size === '47cm' && selector.hasAttribute('data-price-47')) {
+                    newPrice = parseFloat(selector.getAttribute('data-price-47'));
+                } else if (size === '17cm' && selector.hasAttribute('data-price-17')) {
+                    newPrice = parseFloat(selector.getAttribute('data-price-17'));
+                }
+                
+                priceElement.textContent = `R${newPrice.toFixed(2)}`;
+            });
+        });
+    });
+}
+
+// Dynamic add to cart function for products with options
+function addToCartDynamic(button, name, image) {
+    const productCard = button.closest('.product-card');
+    const selectedColor = productCard.querySelector('.color-swatch.selected');
+    const selectedSize = productCard.querySelector('.size-btn.selected');
+    
+    // Check if product has color options
+    const hasColors = productCard.querySelector('.color-swatches') && 
+                    productCard.querySelector('.color-swatches').children.length > 0;
+    
+    // Check if product has size options
+    const hasSizes = productCard.querySelector('.size-selector') && 
+                    productCard.querySelector('.size-selector').children.length > 0;
+    
+    if (hasColors && !selectedColor) {
+        showCartMessage('Please select a color before adding to cart!', 'error');
+        return;
+    }
+    
+    if (hasSizes && !selectedSize) {
+        showCartMessage('Please select a size before adding to cart!', 'error');
+        return;
+    }
+    
+    const color = hasColors ? (selectedColor.title || selectedColor.getAttribute('data-color') || '') : 'Not applicable';
+    const size = hasSizes ? (selectedSize.textContent || selectedSize.getAttribute('data-size') || '') : 'Not applicable';
+    
+    // Get the correct price based on size
+    let price = 0;
+    const priceElement = productCard.querySelector('.product-price');
+    if (priceElement) {
+        const priceText = priceElement.textContent.replace('R', '').replace('From ', '');
+        price = parseFloat(priceText);
+    }
+    
+    addToCart(name, price, image, color, size);
+}
+
+// Product Card Initialization with proper event handling
+function initializeProductCards() {
     const productCards = document.querySelectorAll('.product-card');
+    
     productCards.forEach((card, index) => {
+        // Skip if already initialized
+        if (card.hasAttribute('data-initialized')) {
+            return;
+        }
+        
         const colorSwatches = card.querySelectorAll('.color-swatch');
         const sizeButtons = card.querySelectorAll('.size-btn');
+        const addToCartButton = card.querySelector('.btn-primary');
+        const quickViewButton = card.querySelector('.btn-quickview');
         
         let selectedColor = '';
         let selectedSize = '';
@@ -2745,9 +2814,116 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', function() {
                 sizeButtons.forEach(btn => btn.classList.remove('selected'));
                 this.classList.add('selected');
-                selectedSize = this.getAttribute('data-size') || this.textContent || '';
+                selectedSize = this.textContent || this.getAttribute('data-size') || '';
+                
+                // Update price based on size
+                updatePriceDisplay();
             });
         });
+        
+        // Function to update price display based on size
+        function updatePriceDisplay() {
+            const priceElement = card.querySelector('.product-price');
+            const sizeSelector = card.querySelector('.size-selector');
+            
+            if (sizeSelector && selectedSize) {
+                const basePrice = parseFloat(sizeSelector.getAttribute('data-base-price'));
+                let newPrice = basePrice;
+                
+                // Check for specific size prices
+                if (selectedSize === '49cm' && sizeSelector.hasAttribute('data-price-49')) {
+                    newPrice = parseFloat(sizeSelector.getAttribute('data-price-49'));
+                } else if (selectedSize === '56cm' && sizeSelector.hasAttribute('data-price-56')) {
+                    newPrice = parseFloat(sizeSelector.getAttribute('data-price-56'));
+                } else if (selectedSize === '43cm' && sizeSelector.hasAttribute('data-price-43')) {
+                    newPrice = parseFloat(sizeSelector.getAttribute('data-price-43'));
+                } else if (selectedSize === '47cm' && sizeSelector.hasAttribute('data-price-47')) {
+                    newPrice = parseFloat(sizeSelector.getAttribute('data-price-47'));
+                } else if (selectedSize === '17cm' && sizeSelector.hasAttribute('data-price-17')) {
+                    newPrice = parseFloat(sizeSelector.getAttribute('data-price-17'));
+                }
+                
+                priceElement.textContent = `R${newPrice.toFixed(2)}`;
+            }
+        }
+        
+        // Add to cart with proper event handling
+        if (addToCartButton) {
+            const handleAddToCart = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
+                const image = card.querySelector('.product-img img')?.src || '';
+                
+                // Check if product has color options
+                const hasColors = card.querySelector('.color-swatches') && 
+                                card.querySelector('.color-swatches').children.length > 0;
+                
+                // Check if product has size options
+                const hasSizes = card.querySelector('.size-selector') && 
+                                card.querySelector('.size-selector').children.length > 0;
+                
+                if (hasColors && !selectedColor) {
+                    showCartMessage('Please select a color before adding to cart!', 'error');
+                    return;
+                }
+                
+                if (hasSizes && !selectedSize) {
+                    showCartMessage('Please select a size before adding to cart!', 'error');
+                    return;
+                }
+                
+                const color = hasColors ? selectedColor : 'Not applicable';
+                const size = hasSizes ? selectedSize : 'Not applicable';
+                
+                // Get the correct price
+                let price = 0;
+                const priceElement = card.querySelector('.product-price');
+                if (priceElement) {
+                    const priceText = priceElement.textContent.replace('R', '').replace('From ', '');
+                    price = parseFloat(priceText);
+                }
+                
+                addToCart(name, price, image, color, size);
+            };
+            
+            addToCartButton.addEventListener('click', handleAddToCart);
+        }
+        
+        // Quick view button
+        if (quickViewButton) {
+            quickViewButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                openQuickView(index);
+            });
+        }
+        
+        // Mark as initialized
+        card.setAttribute('data-initialized', 'true');
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    initializeProductCards();
+    initializeDynamicPricing();
+    
+    // Re-initialize if needed (for dynamic content)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                initializeProductCards();
+                initializeDynamicPricing();
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 });
 
@@ -2758,7 +2934,7 @@ window.openQuickView = openQuickView;
 window.closeQuickView = closeQuickView;
 window.updateQuantity = updateQuantity;
 window.addToCartFromModal = addToCartFromModal;
-window.addToCart = addToCart;
+window.addToCartDynamic = addToCartDynamic;
 </script>
 </body>
 </html>
