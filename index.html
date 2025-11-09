@@ -1151,34 +1151,66 @@ nav ul li a:hover {
     opacity: 0.9;
 }
 
-.cta-form {
-    display: flex;
+/* Newsletter Form Styles */
+.newsletter-form {
     max-width: 600px;
     margin: 2rem auto;
-    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
 
-.cta-form input {
-    flex: 1;
-    padding: 1rem;
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
     border: none;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.cta-form button {
-    background: var(--secondary);
-    color: var(--dark);
-    border: none;
-    padding: 0 2rem;
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-message {
+    margin-top: 1rem;
+    padding: 0.8rem;
     border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
+    text-align: center;
+    display: none;
 }
 
-.cta-form button:hover {
-    background: #3e8e41;
+.form-message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.form-message.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
+.btn-loading {
+    display: none;
 }
 
 /* Testimonials */
@@ -1524,8 +1556,8 @@ footer {
         font-size: 1.1rem;
     }
     
-    .cta-form {
-        flex-direction: column;
+    .newsletter-form {
+        padding: 1.5rem;
     }
     
     .category-grid {
@@ -2123,23 +2155,43 @@ footer {
         </div>
     </section>
 
-<!-- CTA Section with Simple Formspree Integration -->
-<section class="cta-section">
+<!-- CTA Section with Formspree Integration -->
+<section class="cta-section" id="newsletter">
     <div class="container">
         <div class="cta-content">
-            <h2>Get Exclusive Offers</h2>
-            <p>Subscribe to our newsletter and receive 10% off your first custom order</p>
+            <h2>Stay Updated with Tarabuca</h2>
+            <p>Subscribe to our newsletter for exclusive offers, new product launches, and style tips</p>
             
-            <!-- Simple Form - Will work reliably -->
-            <form class="cta-form" id="newsletterForm" action="https://formspree.io/f/xgvnpzjo" method="POST">
-                <input type="email" name="email" id="ctaEmail" placeholder="Enter your email address" required>
+            <!-- Formspree Newsletter Form -->
+            <form class="newsletter-form" action="https://formspree.io/f/mjkjbeqp" method="POST" id="newsletterForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell us what you're interested in..."></textarea>
+                </div>
+                
                 <input type="hidden" name="_subject" value="New Newsletter Subscription - Tarabuca">
                 <input type="hidden" name="_replyto" value="">
                 <input type="hidden" name="_next" value="#success">
                 
-                <button type="submit" class="btn btn-primary" id="subscribeBtn">Subscribe</button>
+                <button type="submit" class="btn btn-primary" id="subscribeBtn">
+                    <span class="btn-text">Subscribe Now</span>
+                    <span class="btn-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Submitting...
+                    </span>
+                </button>
             </form>
-            <div id="ctaSubscriptionMessage"></div>
+            
+            <div class="form-message" id="formMessage"></div>
         </div>
     </div>
 </section>
@@ -2525,90 +2577,71 @@ footer {
             });
         }
 
-        // CTA Subscription with Formspree - Simple & Reliable
-        function subscribeCTA(event) {
-            if (event) event.preventDefault();
-            
-            const emailInput = document.getElementById('ctaEmail');
-            const messageDiv = document.getElementById('ctaSubscriptionMessage');
-            const form = document.getElementById('newsletterForm');
-            const submitBtn = document.getElementById('subscribeBtn');
-            
-            if (!emailInput || !messageDiv || !form) return;
-            
-            const email = emailInput.value.trim();
-            
-            if (!email) {
-                showMessage('Please enter your email address', 'error');
-                return;
-            }
-            
-            if (!validateEmail(email)) {
-                showMessage('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Subscribing...';
-            submitBtn.disabled = true;
-            
-            // Use XMLHttpRequest which has better compatibility
-            const xhr = new XMLHttpRequest();
-            const formData = new FormData(form);
-            
-            xhr.open('POST', form.action, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        showMessage('Thank you for subscribing! Check your email for your 10% discount code.', 'success');
-                        form.reset();
-                    } else {
-                        showMessage('Thank you for subscribing! You should receive your discount code shortly.', 'success');
-                        form.reset();
-                    }
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }
-            };
-            
-            xhr.onerror = function() {
-                showMessage('Thank you for subscribing! You should receive your discount code shortly.', 'success');
-                form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            };
-            
-            xhr.send(formData);
-        }
-
-        // Helper function to show messages
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('ctaSubscriptionMessage');
-            if (!messageDiv) return;
-            
-            const color = type === 'success' ? '#4CAF50' : '#ff6b6b';
-            messageDiv.innerHTML = `<p style="color: ${color}; margin-top: 10px; padding: 10px; border-radius: 5px; background-color: ${type === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(255, 107, 107, 0.1)'}; border: 1px solid ${type === 'success' ? 'rgba(76, 175, 80, 0.3)' : 'rgba(255, 107, 107, 0.3)'};">${text}</p>`;
-            
-            // Clear message after 5 seconds
-            setTimeout(() => {
-                messageDiv.innerHTML = '';
-            }, 5000);
-        }
-
-        // Email validation function
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // Add event listener to the form
+        // Newsletter Form Handling
         document.addEventListener('DOMContentLoaded', function() {
             const newsletterForm = document.getElementById('newsletterForm');
+            const formMessage = document.getElementById('formMessage');
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const btnText = subscribeBtn.querySelector('.btn-text');
+            const btnLoading = subscribeBtn.querySelector('.btn-loading');
+            
             if (newsletterForm) {
-                newsletterForm.addEventListener('submit', subscribeCTA);
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'inline';
+                    subscribeBtn.disabled = true;
+                    
+                    // Get form data
+                    const formData = new FormData(newsletterForm);
+                    
+                    // Send form data using fetch
+                    fetch(newsletterForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success
+                            showFormMessage('Thank you for subscribing to our newsletter! We\'ll be in touch soon.', 'success');
+                            newsletterForm.reset();
+                        } else {
+                            // Error
+                            showFormMessage('There was a problem with your submission. Please try again.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        // Network error
+                        showFormMessage('There was a problem with your submission. Please try again.', 'error');
+                    })
+                    .finally(() => {
+                        // Reset button state
+                        btnText.style.display = 'inline';
+                        btnLoading.style.display = 'none';
+                        subscribeBtn.disabled = false;
+                    });
+                });
+            }
+            
+            function showFormMessage(message, type) {
+                if (!formMessage) return;
+                
+                formMessage.textContent = message;
+                formMessage.className = 'form-message ' + type;
+                formMessage.style.display = 'block';
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
             }
             
             // Load cart on page load

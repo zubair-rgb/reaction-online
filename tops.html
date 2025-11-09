@@ -3815,69 +3815,130 @@ if (whatsappButton) {
     });
 }
 
-// Size and Color Selection Functionality
-document.querySelectorAll('.product-card').forEach(card => {
-    const colorSwatches = card.querySelectorAll('.color-swatch');
-    const sizeButtons = card.querySelectorAll('.size-btn');
-    const addToCartButton = card.querySelector('.btn-primary');
-    let selectedColor = card.querySelector('.color-swatch')?.title || 'Plain White'; // Default to first color
-    let selectedSize = card.querySelector('.size-btn.selected')?.textContent || '32'; // Default to selected size
+// Size and Color Selection Functionality - FIXED VERSION
+// This function handles color and size selection without duplicating event listeners
+function initializeProductSelection() {
+    document.querySelectorAll('.product-card').forEach(card => {
+        const colorSwatches = card.querySelectorAll('.color-swatch');
+        const sizeButtons = card.querySelectorAll('.size-btn');
+        let selectedColor = card.querySelector('.color-swatch.selected')?.title || 'Plain White';
+        let selectedSize = card.querySelector('.size-btn.selected')?.textContent || '32';
 
-    // Color selection
-    colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', function() {
-            // Remove selected class from all swatches in this card
-            colorSwatches.forEach(s => s.classList.remove('selected'));
-            
-            // Add selected class to clicked swatch
-            this.classList.add('selected');
-            selectedColor = this.title;
+        // Color selection
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Remove selected class from all swatches in this card
+                colorSwatches.forEach(s => s.classList.remove('selected'));
+                
+                // Add selected class to clicked swatch
+                this.classList.add('selected');
+                selectedColor = this.title;
 
-            // Update price based on size
-            updatePriceDisplay();
+                // Update price based on size
+                updatePriceDisplay();
+            });
         });
-    });
 
-    // Size selection
-    sizeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove selected class from all buttons in this card
-            sizeButtons.forEach(btn => btn.classList.remove('selected'));
-            
-            // Add selected class to clicked button
-            this.classList.add('selected');
-            selectedSize = this.textContent;
+        // Size selection
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove selected class from all buttons in this card
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                
+                // Add selected class to clicked button
+                this.classList.add('selected');
+                selectedSize = this.textContent;
 
-            // Update price based on size
-            updatePriceDisplay();
+                // Update price based on size
+                updatePriceDisplay();
+            });
         });
-    });
 
-    // Function to update price display based on size
-    function updatePriceDisplay() {
-        const priceElement = card.querySelector('.product-price');
-        const productName = card.querySelector('.product-title').textContent;
-        const basePrice = productName === '387 Tunic' ? 190 : 179; // Adjust base price based on product
-        const xlPrice = productName === '387 Tunic' ? 205 : 195; // Adjust XL price based on product
-        let newPrice = ['3XL', '4XL'].includes(selectedSize) ? xlPrice : basePrice;
-        priceElement.textContent = `R${newPrice.toFixed(2)}`;
-    }
+        // Function to update price display based on size
+        function updatePriceDisplay() {
+            const priceElement = card.querySelector('.product-price');
+            const productName = card.querySelector('.product-title').textContent;
+            const basePrice = getBasePrice(productName);
+            const xlPrice = getXLPrice(productName);
+            let newPrice = ['3XL', '4XL'].includes(selectedSize) ? xlPrice : basePrice;
+            priceElement.textContent = `R${newPrice.toFixed(2)}`;
+        }
 
-    // Update add to cart button functionality
-    addToCartButton.addEventListener('click', function() {
-        const name = card.querySelector('.product-title').textContent;
-        const image = card.querySelector('.product-img img').src;
-        const price = ['3XL', '4XL'].includes(selectedSize) ? 
-            (name === '387 Tunic' ? 205 : 195) : 
-            (name === '387 Tunic' ? 190 : 179);
-        
-        addToCart(name, price, image, selectedColor, selectedSize);
+        // Helper functions to get prices based on product name
+        function getBasePrice(productName) {
+            const priceMap = {
+                '052 Tunic': 179,
+                '387 Tunic': 190,
+                '254 Tunic': 190,
+                '389 Tunic': 190,
+                '373 Tunic': 220,
+                '102 Tunic': 179,
+                '386 Tunic': 190,
+                '272 Tunic': 190,
+                '339 Tunic': 190,
+                '247 Tunic': 190,
+                '340 Tunic': 190,
+                '349 Tunic': 190,
+                '342 Tunic': 190,
+                '047 Tunic': 190,
+                '335 Tunic': 190,
+                '341 Tunic': 190,
+                '337 Tunic': 190,
+                '376 Tunic': 179,
+                '223 Tunic': 190,
+                '355 Tunic': 190,
+                '053 Tunic': 190,
+                '388 Tunic': 190,
+                '108 Tunic': 179,
+                '233 Tunic': 179,
+                '089 Tunic': 179,
+                '354 Men\'s V-neck Top': 179,
+                '179 Top': 190,
+                '117 Top': 179
+            };
+            return priceMap[productName] || 179;
+        }
+
+        function getXLPrice(productName) {
+            const xlPriceMap = {
+                '052 Tunic': 195,
+                '387 Tunic': 205,
+                '254 Tunic': 205,
+                '389 Tunic': 205,
+                '373 Tunic': 245,
+                '102 Tunic': 195,
+                '386 Tunic': 205,
+                '272 Tunic': 205,
+                '339 Tunic': 205,
+                '247 Tunic': 205,
+                '340 Tunic': 205,
+                '349 Tunic': 205,
+                '342 Tunic': 205,
+                '047 Tunic': 205,
+                '335 Tunic': 205,
+                '341 Tunic': 205,
+                '337 Tunic': 205,
+                '376 Tunic': 195,
+                '223 Tunic': 205,
+                '355 Tunic': 205,
+                '053 Tunic': 205,
+                '388 Tunic': 205,
+                '108 Tunic': 195,
+                '233 Tunic': 195,
+                '089 Tunic': 195,
+                '354 Men\'s V-neck Top': 195,
+                '179 Top': 205,
+                '117 Top': 195
+            };
+            return xlPriceMap[productName] || 195;
+        }
     });
-});
+}
 
 // Load cart on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
+    initializeProductSelection();
 });
 </script>
 </body>
