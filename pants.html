@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarabuca - Premium Compression Wear</title>
+    <title>Tarabuca - Premium Medical Pants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,67 +43,6 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: -0.5px;
-        }
-        
-        /* Top Bar Styles */
-        .top-bar {
-            background-color: var(--dark);
-            color: white;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 10;
-            height: auto;
-            overflow: visible;
-        }
-        
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-        
-        .contact-info a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-links a {
-            color: white;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary);
-            transform: translateY(-2px);
         }
         
         /* Sticky Header */
@@ -442,7 +381,7 @@
         
         /* Page Header */
         .page-header {
-            background: linear-gradient(to right, rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: linear-gradient(to right, rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             padding: 4rem 0;
             text-align: center;
             color: white;
@@ -459,6 +398,49 @@
             max-width: 800px;
             margin: 0 auto;
             opacity: 0.9;
+        }
+        
+        /* Product Filters */
+        .filters {
+            padding: 2rem 0;
+            background-color: var(--light-bg);
+        }
+        
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .filter-group {
+            background: white;
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+        
+        .filter-group h3 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-option input {
+            margin-right: 0.5rem;
         }
         
         /* Products Section */
@@ -863,7 +845,7 @@
             font-size: 1.2rem;
         }
         
-        /* WhatsApp Button */
+        /* Fixed WhatsApp Button - Text Only */
         .whatsapp-button {
             position: fixed;
             bottom: 30px;
@@ -1196,17 +1178,15 @@
         }
         
         .footer-social a {
-            display: inline-flex;
+            display: inline-block;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             text-align: center;
-            align-items: center;
-            justify-content: center;
+            line-height: 40px;
             color: white;
             transition: var(--transition);
-            text-decoration: none;
         }
         
         .footer-social a:hover {
@@ -1256,32 +1236,14 @@
             .page-header h1 {
                 font-size: 2.5rem;
             }
-            
-            .header-center {
-                padding-bottom: 0.5rem;
-            }
-            
-            .logo-placeholder img {
-                max-height: 100px;
-            }
         }
         
         @media (max-width: 768px) {
             .top-bar-content {
                 flex-direction: column;
                 align-items: center;
-                gap: 0.8rem;
+                gap: 0.5rem;
                 text-align: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .contact-info {
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .social-links {
-                justify-content: center;
             }
             
             nav ul {
@@ -1334,6 +1296,23 @@
                 font-size: 14px;
             }
             
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .features-section .container > div {
+                gap: 1.5rem;
+            }
+            
             /* Product Grid: 2 cards per row on mobile */
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1369,16 +1348,6 @@
         }
         
         @media (max-width: 480px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-            
-            .contact-info a {
-                font-size: 0.85rem;
-            }
-            
             .header-top-row {
                 flex-wrap: wrap;
             }
@@ -1414,7 +1383,7 @@
             }
             
             .logo-placeholder img {
-                max-height: 100px;
+                max-height: 70px; /* Reduced for better mobile fit */
             }
             
             body {
@@ -1430,6 +1399,10 @@
             
             .whatsapp-button .text {
                 font-size: 13px;
+            }
+            
+            .filter-group {
+                width: 100%;
             }
             
             .product-actions {
@@ -1448,6 +1421,19 @@
             
             .search-box button {
                 padding: 0 1rem;
+            }
+            
+            .features-section {
+                padding: 2rem 0;
+            }
+
+            .features-section .container > div {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -1499,7 +1485,7 @@
                 <!-- Search Container -->
                 <div class="search-container">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search compression wear...">
+                        <input type="text" id="searchInput" placeholder="Search pants...">
                         <button id="searchButton"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="search-results" id="searchResults">
@@ -1517,7 +1503,7 @@
                             <a href="scrubs.html">Scrubs</a>
                             <a href="tops.html">Tops</a>
                             <a href="dresses.html">Dresses</a>
-                            <a href="pants.html">Pants</a>
+                            <a href="pants.html" class="active">Pants</a>
                             <a href="skirts.html">Skirts</a>
                             <a href="lab-coats.html">Lab Coats</a>
                             <a href="jackets.html">Jackets</a>
@@ -1528,7 +1514,7 @@
                     <li class="dropdown">
                         <a href="#lifestyle">Lifestyle <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="compression.html" class="active">Compression</a>
+                            <a href="compression.html">Compression</a>
                             <a href="wind-breakers.html">Wind Breaker</a>
                             <a href="awards-medals.html">Awards/Medals</a>
                         </div>
@@ -1559,7 +1545,7 @@
                     <a href="scrubs.html">Scrubs</a>
                     <a href="tops.html">Tops</a>
                     <a href="dresses.html">Dresses</a>
-                    <a href="pants.html">Pants</a>
+                    <a href="pants.html" class="active">Pants</a>
                     <a href="skirts.html">Skirts</a>
                     <a href="lab-coats.html">Lab Coats</a>
                     <a href="jackets.html">Jackets</a>
@@ -1570,7 +1556,7 @@
             <li>
                 <a href="#lifestyle">Lifestyle</a>
                 <div class="mobile-dropdown">
-                    <a href="compression.html" class="active">Compression</a>
+                    <a href="compression.html">Compression</a>
                     <a href="wind-breakers.html">Wind Breaker</a>
                     <a href="awards-medals.html">Awards/Medals</a>
                 </div>
@@ -1611,7 +1597,7 @@
     <!-- Quick View Modal -->
     <div class="modal" id="quickViewModal">
         <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
+            <button class="close-modal" onclick="closeQuickView()">&times;</button>
             <div class="modal-body">
                 <div class="modal-image">
                     <img id="modalImg" src="" alt="Product Image">
@@ -1651,14 +1637,14 @@
                     </div>
                     
                     <div class="quantity-selector">
-                        <button class="quantity-btn" id="decreaseQuantity">-</button>
+                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
                         <span class="quantity-value" id="quantityValue">1</span>
-                        <button class="quantity-btn" id="increaseQuantity">+</button>
+                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
                     </div>
                     
                     <div class="modal-actions">
-                        <button class="btn btn-primary" id="addToCartFromModal">Add to Cart</button>
-                        <button class="btn btn-outline" id="continueShopping">Continue Shopping</button>
+                        <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="closeQuickView()">Continue Shopping</button>
                     </div>
                 </div>
             </div>
@@ -1668,8 +1654,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Premium Compression Wear</h1>
-            <p>Enhance your performance and recovery with our high-quality compression wear designed for athletes and active lifestyles.</p>
+            <h1>Premium Medical Pants</h1>
+            <p>Discover our collection of comfortable, durable, and professional pants designed for healthcare professionals. Perfect for long shifts with superior comfort and style.</p>
         </div>
     </section>
         
@@ -1677,134 +1663,397 @@
     <section class="products">
         <div class="container">
             <div class="products-grid">
-                <!-- Product 1 - Compression Long Sleeve Top -->
+                <!-- Product 1 - 336 Pants -->
                 <div class="product-card">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-img">
-                        <img src="category-pictures/Compression Pictures/long-sleeve-compression-top.png" alt="Long Sleeve Compression Top">
+                        <img src="category-pictures/Pants pictures/336-pants.png" alt="336 Pants">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Long Sleeve Compression Top</h3>
-                        <p class="product-desc">Experience all-day comfort and performance with our Long Sleeve Compression Top. Crafted from high-quality, lightweight, and elastic materials.</p>
-                        <div class="product-price">R255.00</div>
+                        <h3 class="product-title">The 336 Pants</h3>
+                        <p class="product-desc">Effortless Style, All-Day Comfort. Featuring a clean silhouette that moves with you throughout your day.</p>
+                        <div class="product-price">R150.00</div>
+                        <div class="price-range">(R170 for 3XL-4XL)</div>
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #50C878;" title="Emerald"></span>
-                                <span class="color-swatch" style="background-color: #808080;" title="Grey"></span>
-                                <span class="color-swatch" style="background-color: #800000;" title="Maroon"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FF0000;" title="Red"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
-                                <span class="color-swatch" style="background-color: #87CEEB;" title="Sky"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White"></span>
-                                <span class="color-swatch" style="background-color: #FFFF00;" title="Yellow"></span>
-                                <span class="color-swatch" style="background-color: #36454F;" title="Charcoal"></span>
+                            <div class="color-swatches" id="colorSwatches-0">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <!-- Size Selection -->
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XXS</span>
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn selected">S</span>
-                                <span class="size-btn">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                            <div class="size-selector" id="sizeSelector-0">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" data-product-id="1">Add to Cart</button>
-                            <button class="btn btn-quickview" data-product-index="0">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(0)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(0)">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 2 - Compression Long Pants -->
+                <!-- Product 2 - 320 Pants -->
                 <div class="product-card">
+                    <div class="product-badge">4-Way Stretch</div>
                     <div class="product-img">
-                        <img src="category-pictures/Compression Pictures/Compression-Long-pants.png" alt="Long Compression Pants">
+                        <img src="category-pictures/Pants pictures/320-pants.png" alt="320 Pants">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Long Compression Pants</h3>
-                        <p class="product-desc">This Full-length Compression Bottoms offer a comfortable fit thanks to their stay-cool construction. Combined with its built-in cooling technology.</p>
-                        <div class="product-price">R250.00</div>
+                        <h3 class="product-title">The 320 Pants</h3>
+                        <p class="product-desc">Superior Comfort with 4-Way Stretch. Crafted from 95% Polyester and 5% Spandex for maximum mobility.</p>
+                        <div class="product-price">R260.00</div>
+                        <div class="price-range">(R290 for 3XL-4XL)</div>
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
-                                <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White"></span>
+                            <div class="color-swatches" id="colorSwatches-1">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <!-- Size Selection -->
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">XXS</span>
-                                <span class="size-btn">XS</span>
-                                <span class="size-btn selected">S</span>
-                                <span class="size-btn">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                            <div class="size-selector" id="sizeSelector-1">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" data-product-id="2">Add to Cart</button>
-                            <button class="btn btn-quickview" data-product-index="1">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(1)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(1)">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 3 - Compression Set -->
+                <!-- Product 3 - 344 Pants -->
                 <div class="product-card">
-                    <div class="product-badge">Value Set</div>
                     <div class="product-img">
-                        <img src="category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png" alt="Compression Set">
+                        <img src="category-pictures/Pants pictures/344-pants.png" alt="344 Pants">
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Compression Set (Top & Pants)</h3>
-                        <p class="product-desc">This high-performance base layer will wick moisture away from the skin and keep you comfortable all day long.</p>
-                        <div class="product-price">R480.00</div>
-                        <div class="price-range">(Save R25 when buying as a set)</div>
+                        <h3 class="product-title">The 344 Pants</h3>
+                        <p class="product-desc">Refined Professionalism, Effortless Comfort. A clean, tailored silhouette that provides a polished professional look.</p>
+                        <div class="product-price">R150.00</div>
+                        <div class="price-range">(R170 for 3XL-4XL)</div>
                         
                         <div class="color-options">
                             <span class="color-label">Colors:</span>
-                            <div class="color-swatches">
-                                <span class="color-swatch selected" style="background-color: #000000;" title="Black"></span>
-                                <span class="color-swatch" style="background-color: #000080;" title="Navy"></span>
-                                <span class="color-swatch" style="background-color: #FF0000;" title="Red"></span>
-                                <span class="color-swatch" style="background-color: #4169E1;" title="Royal"></span>
+                            <div class="color-swatches" id="colorSwatches-2">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
                             </div>
                         </div>
                         
                         <!-- Size Selection -->
                         <div class="size-options">
                             <span class="size-label">Size:</span>
-                            <div class="size-selector">
-                                <span class="size-btn">S</span>
-                                <span class="size-btn selected">M</span>
-                                <span class="size-btn">L</span>
-                                <span class="size-btn">XL</span>
+                            <div class="size-selector" id="sizeSelector-2">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
                             </div>
                         </div>
                         
                         <div class="product-actions">
-                            <button class="btn btn-primary" data-product-id="3">Add to Cart</button>
-                            <button class="btn btn-quickview" data-product-index="2">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(2)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 - 345 Pants -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Pants pictures/345-pants.png" alt="345 Pants">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">The 345 Pants</h3>
+                        <p class="product-desc">Adaptive Comfort, Thoughtful Details. Features a practical half elasticated waist and slide-in pocket detail.</p>
+                        <div class="product-price">R150.00</div>
+                        <div class="price-range">(R170 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches" id="colorSwatches-3">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector" id="sizeSelector-3">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(3)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 - 368 Pants -->
+                <div class="product-card">
+                    <div class="product-badge">4-Way Stretch</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Pants pictures/368-pants.png" alt="368 Pants">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">The 368 Pants</h3>
+                        <p class="product-desc">Flexible Style, All-Day Comfort. Crafted from innovative 4-Way Stretch Fabric for exceptional freedom of movement.</p>
+                        <div class="product-price">R200.00</div>
+                        <div class="price-range">(R220 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches" id="colorSwatches-4">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector" id="sizeSelector-4">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(4)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 - 383 Pants -->
+                <div class="product-card">
+                    <div class="product-badge">T.R Stretch</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Pants pictures/383-pants.png" alt="383 Pants">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">The 383 Pants</h3>
+                        <p class="product-desc">Tailored Comfort, Unrestricted Movement. Crafted from high-quality T.R Stretch Fabric for exceptional comfort and flexibility.</p>
+                        <div class="product-price">R300.00</div>
+                        <div class="price-range">(R330 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches" id="colorSwatches-5">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector" id="sizeSelector-5">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(5)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 - 169 Pants -->
+                <div class="product-card">
+                    <div class="product-badge">4-Way Stretch</div>
+                    <div class="product-img">
+                        <img src="category-pictures/Pants pictures/169-pants.png" alt="169 Pants">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">The 169 Pants</h3>
+                        <p class="product-desc">Dynamic Comfort, Polished Presentation. Crafted from innovative 4-Way Stretch fabric for unparalleled flexibility.</p>
+                        <div class="product-price">R245.00</div>
+                        <div class="price-range">(R265 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches" id="colorSwatches-6">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector" id="sizeSelector-6">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(6)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(6)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 - 151 Pants -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="category-pictures/Pants pictures/151-pants.png" alt="151 Pants">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">The 151 Pants</h3>
+                        <p class="product-desc">Classic Comfort, Enduring Professionalism. These classic-cut pants offer a relaxed yet refined fit for ultimate comfort.</p>
+                        <div class="product-price">R230.00</div>
+                        <div class="price-range">(R255 for 3XL-4XL)</div>
+                        
+                        <div class="color-options">
+                            <span class="color-label">Colors:</span>
+                            <div class="color-swatches" id="colorSwatches-7">
+                                <span class="color-swatch selected" style="background-color: #ffffff; border: 1px solid #ddd;" title="White" data-color="White"></span>
+                                <span class="color-swatch" style="background-color: #000080;" title="Navy" data-color="Navy"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Selection -->
+                        <div class="size-options">
+                            <span class="size-label">Size:</span>
+                            <div class="size-selector" id="sizeSelector-7">
+                                <span class="size-btn" data-size="28">28</span>
+                                <span class="size-btn" data-size="30">30</span>
+                                <span class="size-btn selected" data-size="32">32</span>
+                                <span class="size-btn" data-size="34">34</span>
+                                <span class="size-btn" data-size="36">36</span>
+                                <span class="size-btn" data-size="38">38</span>
+                                <span class="size-btn" data-size="40">40</span>
+                                <span class="size-btn" data-size="42">42</span>
+                                <span class="size-btn" data-size="44">44</span>
+                                <span class="size-btn" data-size="46">46</span>
+                                <span class="size-btn" data-size="48">48</span>
+                                <span class="size-btn" data-size="50">50</span>
+                                <span class="size-btn" data-size="52">52</span>
+                                <span class="size-btn" data-size="54">54</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromCard(7)">Add to Cart</button>
+                            <button class="btn btn-quickview" onclick="openQuickView(7)">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
@@ -1813,103 +2062,88 @@
             </div>
         </div>
     </section>
-    
-    <!-- Benefits of Compression Wear Section -->
+
+    <!-- Why Choose Our Pants Section -->
     <section class="features-section" style="background-color: var(--light-bg); padding: 5rem 0;">
         <div class="container">
             <div class="section-title" style="text-align: center;">
-                <h2>Benefits of Compression Wear</h2>
-                <p>Designed to support your muscles and enhance performance during workouts and recovery</p>
+                <h2>Why Choose Our Pants</h2>
+                <p>Designed with healthcare professionals in mind, our pants combine comfort, durability, and professional style</p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <!-- Benefit 1 -->
+                <!-- Feature 1 -->
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
                     <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-heartbeat"></i>
+                        <i class="fas fa-tshirt"></i>
                     </div>
-                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Improved Circulation</h3>
-                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Enhances blood flow to muscles for better oxygen delivery and quicker recovery</p>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Premium Materials</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">High-quality fabrics including 4-way stretch, T.R stretch, and durable poly-cotton blends</p>
                 </div>
 
-                <!-- Benefit 2 -->
+                <!-- Feature 2 -->
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
                     <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-running"></i>
+                        <i class="fas fa-ruler"></i>
                     </div>
-                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Muscle Support</h3>
-                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Reduces muscle vibration and fatigue during intense workouts</p>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Perfect Fit</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Available in sizes 28-54 to ensure comfort for every body type and preference</p>
                 </div>
 
-                <!-- Benefit 3 -->
+                <!-- Feature 3 -->
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
                     <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-arrows-alt-v"></i>
                     </div>
-                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Moisture Wicking</h3>
-                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Keeps you dry and comfortable by quickly moving sweat away from your skin</p>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Maximum Mobility</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Advanced stretch fabrics allow for unrestricted movement during long shifts</p>
                 </div>
 
-                <!-- Benefit 4 -->
+                <!-- Feature 4 -->
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; display: flex; flex-direction: column; align-items: center;">
                     <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-bacteria"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Anti-Odor</h3>
-                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Special fabric treatment prevents growth of odor-causing bacteria</p>
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Professional Style</h3>
+                    <p style="color: var(--gray); text-align: center; max-width: 250px;">Maintain a polished appearance while enjoying all-day comfort and durability</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Compression Wear Features Section -->
-    <section style="background: var(--primary); padding: 4rem 0; color: white;">
+    <!-- New Bulk Order CTA Section -->
+    <section style="background: linear-gradient(to right, var(--primary), #2a4a7d); padding: 4rem 0; color: white; text-align: center;">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Why Choose Our Compression Wear</h2>
-                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9;">
-                    Premium quality materials and advanced technology for maximum performance and comfort
-                </p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent);">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">Premium Fabric</h3>
-                    <p style="opacity: 0.9;">84% polyester and 16% elastane main body with 92% polyester and 8% elastane mesh inserts for durability, flexibility, and comfort</p>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Need Pants for Your Team?</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                Get special pricing and dedicated support for bulk orders. Perfect for hospitals, clinics, and medical practices.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-users" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Team Pricing</h3>
+                    <p style="opacity: 0.9;">Special discounts for orders over 10 pants</p>
                 </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent);">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">Moisture Wicking</h3>
-                    <p style="opacity: 0.9;">Quickly draws sweat away from the body and dries rapidly to keep you comfortable</p>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-truck-fast" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Fast Delivery</h3>
+                    <p style="opacity: 0.9;">Priority processing for bulk orders</p>
                 </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent);">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">Anti-Odor Technology</h3>
-                    <p style="opacity: 0.9;">Prevents the growth of bacteria, reducing unwanted odors and keeping you fresh</p>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent);">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">4-Way Stretch</h3>
-                    <p style="opacity: 0.9;">Moves better in every direction for unrestricted movement during any activity</p>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; flex: 1; max-width: 300px;">
+                    <i class="fas fa-headset" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Dedicated Support</h3>
+                    <p style="opacity: 0.9;">Personal assistance throughout your order</p>
                 </div>
             </div>
+            <a href="tel:+27784743996" class="btn btn-primary" style="background: var(--accent); margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-phone"></i>
+                <span>Call for Bulk Pricing</span>
+            </a>
         </div>
     </section>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20compression%20wear." class="whatsapp-button" id="whatsappButton" target="_blank">
+    <a href="https://wa.me/27784743996?text=Hello%20Tarabuca%21%20I%20have%20a%20question%20about%20your%20pants." class="whatsapp-button" id="whatsappButton" target="_blank">
         <div class="text">
             <i class="fab fa-whatsapp"></i> Chat with Us
         </div>
@@ -1934,7 +2168,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html#medical">Medical Collection</a></li>
-                        <li><a href="compression.html">Compression Wear</a></li>
+                        <li><a href="index.html#lifestyle">Lifestyle Wear</a></li>
                         <li><a href="index.html#homeware">Homeware</a></li>
                         <li><a href="#">New Arrivals</a></li>
                         <li><a href="#">Special Offers</a></li>
@@ -1964,60 +2198,34 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Active Lifestyles</p>
+                <p>&copy; 2023 Tarabuca. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Medical Professionals</p>
             </div>
         </div>
     </footer>
 
 <script>
-// Product data for quick view
-const productsData = [
-    {
-        id: "LCB123",
-        name: "Long Sleeve Compression Top",
-        description: "Experience all-day comfort and performance with our Long Sleeve Compression Top. Crafted from high-quality, lightweight, and elastic materials, this top fits like a second skin, providing excellent support without sacrificing comfort. Engineered to keep you dry, the moisture-wicking fabric quickly draws sweat away from the body and dries rapidly. Anti-odour technology helps prevent the growth of bacteria, reducing unwanted odors and keeping you feeling fresh throughout your workout or busy day. The main body is made from 84% polyester and 16% elastane, while the mesh inserts are 92% polyester and 8% elastane, ensuring durability, flexibility, and comfort in every wear. Unlock your next level powerful moves with a compression fit that hugs your muscles.",
-        price: 255,
-        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
-        colors: ["Black", "Emerald", "Grey", "Maroon", "Navy", "Red", "Royal", "Sky", "White", "Yellow", "Charcoal"],
-        category: "COMPRESSION WEAR",
-        image: "category-pictures/Compression Pictures/long-sleeve-compression-top.png"
-    },
-    {
-        id: "LCC096",
-        name: "Long Compression Pants",
-        description: "This Full-length Compression Bottoms offer a comfortable fit thanks to their stay-cool construction. Combined with its built-in cooling technology keeping you dry and comfortable during exercise, these tights are ideal for sports or gym sessions. The leggings feature an elasticated waistband for optimized comfort and a flattering fit. Features include: Tough, lightweight fabric with all the performance benefits of compression wear; Stretch-mesh gusset & inseam panels deliver strategic ventilation; Updated ergonomic design keeps seams off high abrasion areas & increases durability; 4-way stretch construction moves better in every direction; Material wicks sweat & dries really fast.",
-        price: 250,
-        sizes: ["XXS", "XS", "S", "M", "L", "XL"],
-        colors: ["Black", "Navy", "Royal", "White"],
-        category: "COMPRESSION WEAR",
-        image: "category-pictures/Compression Pictures/Compression-Long-pants.png"
-    },
-    {
-        id: "LCA094",
-        name: "Compression Set (Top & Pants)",
-        description: "This high-performance base layer will wick moisture away from the skin and keep you comfortable all day long. With the combination of the stylish space-dye and comfortable fabric, you will never want to take them off. The anti-microbial properties will keep you feeling fresh and dry. Features: The 2 piece compression sets are made of soft, breathable, and moisture-wicking fabrics, ergonomic compression fit for enhanced range of motion; Increase Muscular Power & Endurance with improved blood circulation; Breathable, Compression shirt and pants can wick away moisture from the body rapidly and accelerate the evaporation of the sweat, keeping you dry and comfortable while you work out and practice in both hot and cold weather; The High-Elastic fabric effectively protects muscles, prevents muscle vibration, maintaining physical function. Slim & tight fit perfect showing off muscle and physique; Great to wear for indoor/outdoor activities (running, cycling, jogging, fishing baseball, basketball, yoga, soccer, hockey, training, camping, hiking, workout, climbing, and any sports).",
-        price: 480,
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Black", "Navy", "Red", "Royal"],
-        category: "COMPRESSION WEAR SET",
-        image: "category-pictures/Compression Pictures/Compression-Long-pants-and- long-sleeve-top set.png"
-    },
-];
+// Mobile navigation
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
 
-// Quick View Modal Functions
-let currentProductIndex = 0;
-let quantity = 1;
-let selectedColor = '';
-let selectedSize = '';
-
-// DOM Elements
-const quickViewModal = document.getElementById('quickViewModal');
-const closeModalBtn = document.getElementById('closeModal');
-const decreaseQuantityBtn = document.getElementById('decreaseQuantity');
-const increaseQuantityBtn = document.getElementById('increaseQuantity');
-const quantityValue = document.getElementById('quantityValue');
-const addToCartFromModalBtn = document.getElementById('addToCartFromModal');
-const continueShoppingBtn = document.getElementById('continueShopping');
+if (mobileMenuBtn && mobileNav) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+        if (mobileNav.classList.contains('active')) {
+            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+    
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+}
 
 // Cart Functionality
 const cartPopup = document.getElementById('cartPopup');
@@ -2030,405 +2238,7 @@ const closeCart = document.getElementById('closeCart');
 let cart = [];
 let isAddingToCart = false; // Lock to prevent multiple additions
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadCart();
-    initializeProductCards();
-    initializeQuickView();
-    initializeCart();
-    initializeMobileNav();
-    
-    // Initialize search functionality
-    initializeSearch();
-});
-
-// Initialize product cards with color and size selection
-function initializeProductCards() {
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach((card, index) => {
-        // Skip if already initialized
-        if (card.hasAttribute('data-initialized')) {
-            return;
-        }
-        
-        const colorSwatches = card.querySelectorAll('.color-swatch');
-        const sizeButtons = card.querySelectorAll('.size-btn');
-        const addToCartButton = card.querySelector('.btn-primary');
-        const quickViewButton = card.querySelector('.btn-quickview');
-        
-        let selectedColor = '';
-        let selectedSize = '';
-        
-        // Set default selections
-        if (colorSwatches.length > 0) {
-            const defaultColor = colorSwatches[0];
-            defaultColor.classList.add('selected');
-            selectedColor = defaultColor.title || defaultColor.getAttribute('data-color') || '';
-        }
-        
-        if (sizeButtons.length > 0) {
-            const defaultSize = sizeButtons[0];
-            defaultSize.classList.add('selected');
-            selectedSize = defaultSize.textContent || '';
-        }
-        
-        // Color selection
-        colorSwatches.forEach(swatch => {
-            swatch.addEventListener('click', function() {
-                colorSwatches.forEach(s => s.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedColor = this.title || this.getAttribute('data-color') || '';
-            });
-        });
-        
-        // Size selection
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                sizeButtons.forEach(btn => btn.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedSize = this.textContent || '';
-            });
-        });
-        
-        // Add to cart with proper event handling
-        if (addToCartButton) {
-            const handleAddToCart = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Validate selection
-                if (!selectedColor || !selectedSize) {
-                    showCartMessage('Please select both color and size before adding to cart!', 'error');
-                    return;
-                }
-                
-                const name = card.querySelector('.product-title')?.textContent || `Product ${index + 1}`;
-                const image = card.querySelector('.product-img img')?.src || '';
-                const priceText = card.querySelector('.product-price')?.textContent || 'R0.00';
-                const price = parseFloat(priceText.replace('R', '').replace(',', '')) || 0;
-                
-                addToCart(name, price, image, selectedColor, selectedSize);
-            };
-            
-            addToCartButton.addEventListener('click', handleAddToCart);
-        }
-        
-        // Quick view button
-        if (quickViewButton) {
-            quickViewButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openQuickView(index);
-            });
-        }
-        
-        // Mark as initialized
-        card.setAttribute('data-initialized', 'true');
-    });
-}
-
-// Initialize quick view functionality
-function initializeQuickView() {
-    // Quick view buttons
-    const quickViewButtons = document.querySelectorAll('.btn-quickview');
-    quickViewButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const productIndex = parseInt(this.getAttribute('data-product-index'));
-            openQuickView(productIndex);
-        });
-    });
-    
-    // Modal close button
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeQuickView);
-    }
-    
-    // Quantity buttons
-    if (decreaseQuantityBtn) {
-        decreaseQuantityBtn.addEventListener('click', () => updateQuantity(-1));
-    }
-    
-    if (increaseQuantityBtn) {
-        increaseQuantityBtn.addEventListener('click', () => updateQuantity(1));
-    }
-    
-    // Modal action buttons
-    if (addToCartFromModalBtn) {
-        addToCartFromModalBtn.addEventListener('click', addToCartFromModal);
-    }
-    
-    if (continueShoppingBtn) {
-        continueShoppingBtn.addEventListener('click', closeQuickView);
-    }
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-        if (event.target === quickViewModal) {
-            closeQuickView();
-        }
-    });
-}
-
-// Initialize cart functionality
-function initializeCart() {
-    // Toggle cart visibility
-    if (cartIcon) {
-        cartIcon.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (cartPopup) cartPopup.classList.toggle('active');
-        });
-    }
-
-    // Close cart
-    if (closeCart) {
-        closeCart.addEventListener('click', () => {
-            if (cartPopup) cartPopup.classList.remove('active');
-        });
-    }
-
-    // Close cart when clicking outside
-    document.addEventListener('click', (e) => {
-        if (cartPopup && cartIcon && 
-            !cartPopup.contains(e.target) && 
-            !cartIcon.contains(e.target) && 
-            !e.target.closest('.cart-popup')) {
-            cartPopup.classList.remove('active');
-        }
-    });
-}
-
-// Initialize mobile navigation
-function initializeMobileNav() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            if (mobileNav.classList.contains('active')) {
-                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
-            } else {
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-        
-        // Close mobile nav when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-    }
-}
-
-// Initialize search functionality
-function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const searchResults = document.getElementById('searchResults');
-
-    // Search functionality
-    function performSearch() {
-        if (!searchInput || !searchResults) return;
-        
-        const query = searchInput.value.toLowerCase().trim();
-        
-        if (query === '') {
-            searchResults.classList.remove('active');
-            return;
-        }
-        
-        const results = productsData.filter(product => 
-            product.name.toLowerCase().includes(query) || 
-            product.category.toLowerCase().includes(query)
-        );
-        
-        displaySearchResults(results);
-    }
-
-    // Display search results
-    function displaySearchResults(results) {
-        if (!searchResults) return;
-        
-        searchResults.innerHTML = '';
-        
-        if (results.length === 0) {
-            searchResults.innerHTML = '<div class="no-results">No products found</div>';
-            searchResults.classList.add('active');
-            return;
-        }
-        
-        results.forEach(product => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.innerHTML = `
-                <div class="search-result-img">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="search-result-details">
-                    <div class="search-result-title">${product.name}</div>
-                    <div class="search-result-category">${product.category}</div>
-                </div>
-                <div class="search-result-price">R${product.price.toFixed(2)}</div>
-            `;
-            
-            resultItem.addEventListener('click', () => {
-                // Find the product index and open quick view
-                const index = productsData.findIndex(p => p.name === product.name);
-                if (index !== -1) {
-                    openQuickView(index);
-                }
-                searchResults.classList.remove('active');
-                searchInput.value = '';
-            });
-            
-            searchResults.appendChild(resultItem);
-        });
-        
-        searchResults.classList.add('active');
-    }
-
-    // Event listeners for search
-    if (searchInput) {
-        searchInput.addEventListener('input', performSearch);
-    }
-
-    if (searchButton) {
-        searchButton.addEventListener('click', performSearch);
-    }
-
-    // Close search results when clicking outside
-    document.addEventListener('click', (e) => {
-        if (searchResults && searchInput && searchButton &&
-            !searchResults.contains(e.target) && 
-            e.target !== searchInput && 
-            e.target !== searchButton) {
-            searchResults.classList.remove('active');
-        }
-    });
-}
-
-// Quick View Functions
-function openQuickView(index) {
-    currentProductIndex = index;
-    const product = productsData[index];
-    
-    document.getElementById('modalImg').src = product.image;
-    document.getElementById('modalTitle').textContent = product.name;
-    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)}`;
-    document.getElementById('modalDesc').textContent = product.description;
-    document.getElementById('modalCode').textContent = product.id;
-    document.getElementById('modalCategory').textContent = product.category;
-    
-    // Reset quantity and selections
-    quantity = 1;
-    selectedColor = '';
-    selectedSize = '';
-    quantityValue.textContent = quantity;
-    
-    // Generate color swatches
-    const colorSwatches = document.getElementById('modalColorSwatches');
-    colorSwatches.innerHTML = '';
-    
-    product.colors.forEach(color => {
-        const colorName = color.toLowerCase();
-        const swatch = document.createElement('span');
-        swatch.className = 'color-swatch';
-        swatch.style.backgroundColor = getColorCode(colorName);
-        swatch.title = color;
-        swatch.addEventListener('click', () => selectColor(color, swatch));
-        colorSwatches.appendChild(swatch);
-    });
-    
-    // Generate size options
-    const sizeOptions = document.getElementById('modalSizeOptions');
-    sizeOptions.innerHTML = '';
-    
-    product.sizes.forEach(size => {
-        const sizeBtn = document.createElement('button');
-        sizeBtn.className = 'size-btn';
-        sizeBtn.textContent = size;
-        sizeBtn.addEventListener('click', () => selectSize(size, sizeBtn));
-        sizeOptions.appendChild(sizeBtn);
-    });
-    
-    // Update modal info
-    document.getElementById('modalColors').textContent = product.colors.join(', ');
-    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
-    
-    // Show modal
-    quickViewModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeQuickView() {
-    quickViewModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function selectColor(color, element) {
-    selectedColor = color;
-    
-    // Remove selected class from all swatches
-    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
-    swatches.forEach(swatch => swatch.classList.remove('selected'));
-    
-    // Add selected class to clicked swatch
-    element.classList.add('selected');
-}
-
-function selectSize(size, element) {
-    selectedSize = size;
-    
-    // Remove selected class from all size buttons
-    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
-    sizeBtns.forEach(btn => btn.classList.remove('selected'));
-    
-    // Add selected class to clicked button
-    element.classList.add('selected');
-}
-
-function updateQuantity(change) {
-    quantity += change;
-    if (quantity < 1) quantity = 1;
-    if (quantity > 10) quantity = 10;
-    quantityValue.textContent = quantity;
-}
-
-function addToCartFromModal() {
-    const product = productsData[currentProductIndex];
-    
-    // Validate selection
-    if (!selectedColor || !selectedSize) {
-        showCartMessage('Please select both color and size before adding to cart!', 'error');
-        return;
-    }
-    
-    addToCart(product.name, product.price, product.image, selectedColor, selectedSize);
-    closeQuickView();
-}
-
-function getColorCode(colorName) {
-    const colors = {
-        'black': '#000000',
-        'emerald': '#50C878',
-        'grey': '#808080',
-        'maroon': '#800000',
-        'navy': '#000080',
-        'red': '#FF0000',
-        'royal': '#4169E1',
-        'sky': '#87CEEB',
-        'white': '#FFFFFF',
-        'yellow': '#FFFF00',
-        'charcoal': '#36454F'
-    };
-    
-    return colors[colorName] || '#CCCCCC';
-}
-
-// Cart Functions
+// Load cart from localStorage if available
 function loadCart() {
     if (localStorage.getItem('cart')) {
         try {
@@ -2441,11 +2251,13 @@ function loadCart() {
     }
 }
 
+// Save cart to localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function addToCart(name, price, image, color, size) {
+// Add to cart function - now requires explicit color and size selection
+function addToCart(name, price, image, color, size, quantity = 1) {
     // Prevent multiple simultaneous additions
     if (isAddingToCart) {
         console.log('Add to cart in progress, please wait...');
@@ -2466,14 +2278,14 @@ function addToCart(name, price, image, color, size) {
     );
     
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
             id: Date.now(),
             name: name,
             price: price,
             image: image,
-            quantity: 1,
+            quantity: quantity,
             color: color,
             size: size
         });
@@ -2497,6 +2309,7 @@ function addToCart(name, price, image, color, size) {
     }, 500);
 }
 
+// Show cart message with error support
 function showCartMessage(message, type = 'success') {
     const existingMessage = document.querySelector('.cart-message');
     if (existingMessage) {
@@ -2528,6 +2341,7 @@ function showCartMessage(message, type = 'success') {
     }, 3000);
 }
 
+// Update cart UI
 function updateCartUI() {
     if (!cartItems || !cartTotal || !cartCount) return;
     
@@ -2583,6 +2397,7 @@ function updateCartUI() {
     cartCount.textContent = itemCount;
 }
 
+// Update item quantity in cart
 function updateCartQuantity(id, change) {
     const item = cart.find(item => item.id === id);
     
@@ -2599,15 +2414,426 @@ function updateCartQuantity(id, change) {
     }
 }
 
+// Remove item from cart
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     saveCart();
     updateCartUI();
 }
 
+// Toggle cart visibility
+if (cartIcon) {
+    cartIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (cartPopup) cartPopup.classList.toggle('active');
+    });
+}
+
+// Close cart
+if (closeCart) {
+    closeCart.addEventListener('click', () => {
+        if (cartPopup) cartPopup.classList.remove('active');
+    });
+}
+
+// Close cart when clicking outside
+document.addEventListener('click', (e) => {
+    if (cartPopup && cartIcon && 
+        !cartPopup.contains(e.target) && 
+        !cartIcon.contains(e.target) && 
+        !e.target.closest('.cart-popup')) {
+        cartPopup.classList.remove('active');
+    }
+});
+
+// Product data for quick view
+const productsData = [
+    {
+        id: 336,
+        name: "The 336 Pants",
+        description: "Introducing the 336 Pants, a practical and versatile addition to any professional wardrobe. These pants are designed for both comfort and a polished appearance, featuring a clean silhouette that moves with you throughout your day. With their thoughtful construction, the 336 Pants offer a seamless blend of everyday functionality and understated elegance, making them an ideal choice for the discerning professional.",
+        price: 150,
+        priceXL: 170,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/336-pants.png"
+    },
+    {
+        id: 320,
+        name: "The 320 Pants",
+        description: "Introducing the 320 Pants, engineered for ultimate comfort and flexibility in a professional setting. These pants are crafted from an advanced 4-Way stretch fabric, composed of 95% Polyester and 5% Spandex, ensuring maximum mobility and a flattering fit that retains its shape. The 320 Pants offer a perfect blend of sophisticated style and practical wearability, making them an indispensable choice for those who demand both comfort and a polished appearance throughout their day.",
+        price: 260,
+        priceXL: 290,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/320-pants.png"
+    },
+    {
+        id: 344,
+        name: "The 344 Pants",
+        description: "Introducing the 344 Pants, a foundational piece designed for both impeccable presentation and everyday wearability. These pants offer a clean, tailored silhouette that provides a polished professional look. With their comfortable fit and versatile design, the 344 Pants are an indispensable addition to any professional wardrobe, ensuring both sophistication and ease throughout your day.",
+        price: 150,
+        priceXL: 170,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/344-pants.png"
+    },
+    {
+        id: 345,
+        name: "The 345 Pants",
+        description: "Introducing the 345 Pants, a versatile and comfortable addition to your professional wardrobe. These pants feature a practical half elasticated waist, ensuring an adaptive and comfortable fit throughout your day. The thoughtful slide-in pocket detail combines functionality with a sleek aesthetic, making the 345 an ideal choice for those who value both everyday ease and polished professionalism.",
+        price: 150,
+        priceXL: 170,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/345-pants.png"
+    },
+    {
+        id: 368,
+        name: "The 368 Pants",
+        description: "Introducing the 368 Pants, designed for dynamic professionals who prioritize both flexibility and polished style. Crafted from innovative 4-Way Stretch Fabric, these pants offer exceptional freedom of movement while maintaining a sleek and flattering silhouette. The 368 provides a perfect blend of adaptive comfort and professional elegance, making them an ideal choice for your demanding daily routine.",
+        price: 200,
+        priceXL: 220,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/368-pants.png"
+    },
+    {
+        id: 383,
+        name: "The 383 Pants",
+        description: "Presenting the 383 Pants, a meticulously designed piece that combines sleek professionalism with ultimate wearability. Crafted from high-quality T.R Stretch Fabric, these pants offer exceptional comfort and flexibility, allowing for unrestricted movement throughout your day. With their refined tailoring and practical design, the 383 Pants are an indispensable addition to any professional wardrobe, providing a perfect blend of sophistication and effortless comfort.",
+        price: 300,
+        priceXL: 330,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/383-pants.png"
+    },
+    {
+        id: 169,
+        name: "The 169 Pants",
+        description: "Introducing the 169 Pants, an essential piece designed for the demands of a dynamic professional environment. Crafted from innovative 4-Way Stretch fabric, these pants offer unparalleled flexibility and a comfortable fit that moves with you. The 169 provides a perfect blend of adaptive comfort and professional elegance, making them an ideal choice for a sophisticated and confident presence throughout your day.",
+        price: 245,
+        priceXL: 265,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/169-pants.png"
+    },
+    {
+        id: 151,
+        name: "The 151 Pants",
+        description: "Introducing the 151 Pants, a timeless and essential piece designed for ultimate professional comfort and enduring style. These classic-cut pants offer a relaxed yet refined fit, ensuring ease of movement throughout your demanding workday. The 151 provides a perfect blend of traditional elegance and everyday functionality, making them an indispensable choice for the discerning professional seeking both comfort and a consistently polished appearance.",
+        price: 230,
+        priceXL: 255,
+        sizes: ["28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54"],
+        colors: ["White", "Navy"],
+        category: "PANTS",
+        image: "category-pictures/Pants pictures/151-pants.png"
+    }
+];
+
+// Quick View Modal Functions
+let currentProductIndex = 0;
+let quantity = 1;
+let selectedColor = '';
+let selectedSize = '';
+
+function openQuickView(index) {
+    currentProductIndex = index;
+    const product = productsData[index];
+    
+    document.getElementById('modalImg').src = product.image;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalPrice').textContent = `R${product.price.toFixed(2)} (R${product.priceXL.toFixed(2)} for 46-54)`;
+    document.getElementById('modalDesc').textContent = product.description;
+    document.getElementById('modalCode').textContent = product.id;
+    document.getElementById('modalCategory').textContent = product.category;
+    
+    // Reset quantity and selections
+    quantity = 1;
+    selectedColor = '';
+    selectedSize = '';
+    document.getElementById('quantityValue').textContent = quantity;
+    
+    // Generate color swatches
+    const colorSwatches = document.getElementById('modalColorSwatches');
+    colorSwatches.innerHTML = '';
+    
+    product.colors.forEach(color => {
+        const colorName = color.toLowerCase();
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = getColorCode(colorName);
+        if (colorName === 'white') {
+            swatch.style.border = '1px solid #ddd';
+        }
+        swatch.title = color;
+        swatch.setAttribute('data-color', color);
+        swatch.onclick = () => selectColor(color, swatch);
+        colorSwatches.appendChild(swatch);
+    });
+    
+    // Generate size options
+    const sizeOptions = document.getElementById('modalSizeOptions');
+    sizeOptions.innerHTML = '';
+    
+    product.sizes.forEach(size => {
+        const sizeBtn = document.createElement('button');
+        sizeBtn.className = 'size-btn';
+        sizeBtn.textContent = size;
+        sizeBtn.setAttribute('data-size', size);
+        sizeBtn.onclick = () => selectSize(size, sizeBtn);
+        sizeOptions.appendChild(sizeBtn);
+    });
+    
+    // Update modal info
+    document.getElementById('modalColors').textContent = product.colors.join(', ');
+    document.getElementById('modalSizes').textContent = product.sizes.join(', ');
+    
+    // Show modal
+    document.getElementById('quickViewModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    document.getElementById('quickViewModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectColor(color, element) {
+    selectedColor = color;
+    
+    // Remove selected class from all swatches
+    const swatches = document.querySelectorAll('#modalColorSwatches .color-swatch');
+    swatches.forEach(swatch => swatch.classList.remove('selected'));
+    
+    // Add selected class to clicked swatch
+    element.classList.add('selected');
+}
+
+function selectSize(size, element) {
+    selectedSize = size;
+    
+    // Remove selected class from all size buttons
+    const sizeBtns = document.querySelectorAll('#modalSizeOptions .size-btn');
+    sizeBtns.forEach(btn => btn.classList.remove('selected'));
+    
+    // Add selected class to clicked button
+    element.classList.add('selected');
+}
+
+function updateQuantity(change) {
+    quantity += change;
+    if (quantity < 1) quantity = 1;
+    if (quantity > 10) quantity = 10;
+    document.getElementById('quantityValue').textContent = quantity;
+}
+
+function addToCartFromModal() {
+    const product = productsData[currentProductIndex];
+    
+    // Validate selection
+    if (!selectedColor || !selectedSize) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    const price = ['46', '48', '50', '52', '54'].includes(selectedSize) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, selectedColor, selectedSize, quantity);
+    closeQuickView();
+}
+
+function getColorCode(colorName) {
+    const colors = {
+        'white': '#ffffff',
+        'navy': '#000080'
+    };
+    
+    return colors[colorName] || '#CCCCCC';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('quickViewModal');
+    if (event.target === modal) {
+        closeQuickView();
+    }
+};
+
+// Search Functionality
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const searchResults = document.getElementById('searchResults');
+
+// Search functionality
+function performSearch() {
+    if (!searchInput || !searchResults) return;
+    
+    const query = searchInput.value.toLowerCase().trim();
+    
+    if (query === '') {
+        searchResults.classList.remove('active');
+        return;
+    }
+    
+    const results = productsData.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.category.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query)
+    );
+    
+    displaySearchResults(results);
+}
+
+// Display search results
+function displaySearchResults(results) {
+    if (!searchResults) return;
+    
+    searchResults.innerHTML = '';
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No products found</div>';
+        searchResults.classList.add('active');
+        return;
+    }
+    
+    results.forEach(product => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.innerHTML = `
+            <div class="search-result-img">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="search-result-details">
+                <div class="search-result-title">${product.name}</div>
+                <div class="search-result-category">${product.category}</div>
+            </div>
+            <div class="search-result-price">R${product.price.toFixed(2)}</div>
+        `;
+        
+        resultItem.addEventListener('click', () => {
+            // Find the product index and open quick view
+            const index = productsData.findIndex(p => p.id === product.id);
+            if (index !== -1) {
+                openQuickView(index);
+            }
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+        });
+        
+        searchResults.appendChild(resultItem);
+    });
+    
+    searchResults.classList.add('active');
+}
+
+// Event listeners for search
+if (searchInput) {
+    searchInput.addEventListener('input', performSearch);
+}
+
+if (searchButton) {
+    searchButton.addEventListener('click', performSearch);
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+    if (searchResults && searchInput && searchButton &&
+        !searchResults.contains(e.target) && 
+        e.target !== searchInput && 
+        e.target !== searchButton) {
+        searchResults.classList.remove('active');
+    }
+});
+
+// WhatsApp button functionality
+const whatsappButton = document.getElementById('whatsappButton');
+if (whatsappButton) {
+    whatsappButton.addEventListener('click', function() {
+        // Add animation effect on click
+        this.style.transform = 'scale(0.9)';
+        this.style.boxShadow = '0 0 0 15px rgba(37, 211, 102, 0.3)';
+        
+        setTimeout(() => {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        }, 300);
+    });
+}
+
+// Initialize color swatches and size selectors on product cards
+function initializeProductCards() {
+    // Add event listeners to color swatches on product cards
+    document.querySelectorAll('.color-swatches').forEach((swatchesContainer, index) => {
+        const swatches = swatchesContainer.querySelectorAll('.color-swatch');
+        swatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Remove selected class from all swatches in this container
+                swatches.forEach(s => s.classList.remove('selected'));
+                // Add selected class to clicked swatch
+                this.classList.add('selected');
+            });
+        });
+    });
+    
+    // Add event listeners to size selectors on product cards
+    document.querySelectorAll('.size-selector').forEach((selectorContainer, index) => {
+        const sizeBtns = selectorContainer.querySelectorAll('.size-btn');
+        sizeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove selected class from all buttons in this container
+                sizeBtns.forEach(b => b.classList.remove('selected'));
+                // Add selected class to clicked button
+                this.classList.add('selected');
+            });
+        });
+    });
+}
+
+// Add to cart from product card
+function addToCartFromCard(productIndex) {
+    const product = productsData[productIndex];
+    
+    // Get selected color from product card
+    const colorSwatches = document.getElementById(`colorSwatches-${productIndex}`);
+    const selectedColorSwatch = colorSwatches.querySelector('.color-swatch.selected');
+    const color = selectedColorSwatch ? selectedColorSwatch.getAttribute('data-color') : '';
+    
+    // Get selected size from product card
+    const sizeSelector = document.getElementById(`sizeSelector-${productIndex}`);
+    const selectedSizeBtn = sizeSelector.querySelector('.size-btn.selected');
+    const size = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : '';
+    
+    // Validate selection
+    if (!color || !size) {
+        showCartMessage('Please select both color and size before adding to cart!', 'error');
+        return;
+    }
+    
+    const price = ['46', '48', '50', '52', '54'].includes(size) ? product.priceXL : product.price;
+    addToCart(product.name, price, product.image, color, size);
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    initializeProductCards();
+});
+
 // Make functions available globally for onclick attributes
 window.updateCartQuantity = updateCartQuantity;
 window.removeFromCart = removeFromCart;
+window.openQuickView = openQuickView;
+window.closeQuickView = closeQuickView;
+window.updateQuantity = updateQuantity;
+window.addToCartFromModal = addToCartFromModal;
+window.addToCartFromCard = addToCartFromCard;
 </script>
 </body>
 </html>
